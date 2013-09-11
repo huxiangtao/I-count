@@ -172,13 +172,26 @@ function unique1(n) {
     return n;
 }
 
+//去除答案
+function deAnswer(n) {
+
+    var result = n.map(function(x) {
+        var h = x.split("=");
+        return x = h[0]+"=";
+    });
+
+    return result;
+
+}
+
 /*Multiplication(1,5);*/
 /*Division(1,88);*/
 /*Subtraction(20,88);*/
 var $ksContent = $(".ks-content");
 var haha = Addition(1,20);
 var zuihou = shuffle(haha);
-var zuihouh = zuihou.join(" ")
+var realFinall = deAnswer(zuihou);
+var zuihouh = realFinall.join(" ")
 $ksContent.html(zuihouh);
 </script>
 </body>
