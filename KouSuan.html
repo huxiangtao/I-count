@@ -1,0 +1,186 @@
+<html>
+<head>
+	<meta charset="utf-8"></meta>
+	<title>口算题</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="./index.html"><strong>口算题</strong></a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class="">
+                        <a href="./index.html">首页</a>
+                        </li>
+                        <li class="">
+                        <a href="./getting-started.html">入门</a>
+                        </li>
+                        <li class="">
+                        <a href="./scaffolding.html">框架</a>
+                        </li>
+                        <li class="">
+                        <a href="./base-css.html">基础CSS</a>
+                        </li>
+                        <li class="active">
+                        <a href="./components.html">组件</a>
+                        </li>
+                        <li class="">
+                        <a href="./javascript.html">JavaScript</a>
+                        </li>
+                        <li class="">
+                        <a href="./customize.html">自定义</a>
+                        </li>
+                        <li class="">
+                        <a href="https://github.com/ixiemin/bootstrap-translation" target="_blank">到GitHub下载2.3.1版本</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="span3 bs-docs-sidebar" style="background-color: red;">
+                <ul class="affix unstyled" style="top:80px;">
+                    <li></li>
+                    <li></li>
+                    <li>
+                        <p>
+                            <button class="btn btn-primary" type="button">确定</button>
+                            <button class="btn" type="button">取消</button>
+                        </p>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="span9 ks-content"></div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+//乘法		
+function Multiplication(start,end) {
+	for(var i = start ;i <= end; i++) {
+		for(var j= start ;j <= end; j++) {
+			document.write(i+"×"+j+"="+(i*j)+"   ");
+		}
+    }
+}
+
+//表内除法
+function Division(start,end) {
+	for(var i = start ;i <= end; i++) {
+		for(var j= start ;j < 10; j++) {
+			var result = i%j,
+				resultt = i/j;
+			if(result == 0 && resultt < 10) {
+				document.write(i+"÷"+j+"="+(i/j)+"   ");
+			}
+		}
+	}
+}
+
+//减法
+function Subtraction(start,end) {
+	for(var i = start;i <= end; i++) {
+		for(var j= start;j <= end; j++) {
+			var result = i-j;
+			if(result >= 0) {
+				document.write(i+"-"+j+"="+(i-j)+"   ");
+			}
+		}
+	}
+}
+
+//加法
+function Addition(start,end,range) {
+	var n = [];
+	for(var i = start; i <= end; i++) {
+		for(var j= start; j <= end; j++) {
+			var result = i+j;
+			var s = i.toString(),o = j.toString();
+			var nextResult = parseInt(s[1]) + parseInt(o[1]);
+			if(range) {
+				if(result < range && (s[2] == 0 && o[2] == 0)) {
+					if(nextResult < 10) {
+						var heh = i+"+"+j+"="+(i+j)+"";
+						n.push(heh);
+ 					}
+				}
+			} else {
+                var hehe = i+"+"+j+"="+(i+j);
+                n.push(hehe);
+			}
+		}
+
+	}
+    return n;
+}
+
+
+//混合运算
+function Mixcount(start,end,range) {
+	var n = [];
+	for(var i = start; i <= end; i++) {
+		for(var j = start; j <= end; j++) {
+			for(var x = start; x <= end; x++) {
+				var result = i+(j-x);
+				if(range) {
+					if(result < range) {
+						document.write(i+"+"+j+"="+(i+j)+"   ");
+					}
+				} else {
+					document.write(i+"+"+j+"="+(i+j)+"   ");
+				}
+			}
+		}
+	}
+}
+
+//shuffle 乱序
+function shuffle(inputArr) {
+    var valArr = [],k = '';
+
+    for (k in inputArr) { // Get key and value arrays
+      if (inputArr.hasOwnProperty(k)) {
+        valArr.push(inputArr[k]);
+      }
+    }
+    valArr.sort(function () {
+      return 0.5 - Math.random();
+    });
+
+    return valArr;
+}
+
+//去重函数
+function unique1(n) {
+    for (var i = 0; i < this.length; i++) //遍历当前数组
+    {
+    //如果当前数组的第i已经保存进了临时数组，那么跳过，
+    //否则把当前项push到临时数组里面
+    if (n.indexOf(this[i]) == -1) n.push(this[i]);
+    }
+    return n;
+}
+
+/*Multiplication(1,5);*/
+/*Division(1,88);*/
+/*Subtraction(20,88);*/
+var $ksContent = $(".ks-content");
+var haha = Addition(1,20);
+var zuihou = shuffle(haha);
+var zuihouh = zuihou.join(" ")
+$ksContent.html(zuihouh);
+</script>
+</body>
+</html>
+
