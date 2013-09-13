@@ -36,25 +36,56 @@
         <div class="row">
             <div class="span3">
                 <div class="affix" style="top:110px;">
-                    <div>
-                        <span>算式类别：</span>
-                        <select class="selectpicker" style="display: none;">
-                            <option>加</option>
-                            <option>减</option>
-                            <option>乘</option>
-                            <option>除</option>
-                        </select>
-                        <select class="selectpicker" style="display: none;">
-                            <option>加</option>
-                            <option>减</option>
-                            <option>乘</option>
-                            <option>除</option>
-                        </select>
-                    </div>
-                        <p>
-                            <button class="btn btn-primary" type="button">确定</button>
-                            <button class="btn" type="button">取消</button>
-                        </p>
+                    <ul class="unit unstyled">
+                        <li>
+                            <h5 class="unit-name">算式类别：</h5>
+                            <select class="selectpicker" style="display: none;">
+                                <option>加</option>
+                                <option>减</option>
+                                <option>乘</option>
+                                <option>除</option>
+                            </select>
+                            <select class="selectpicker" style="display: none;">
+                                <option>加</option>
+                                <option>减</option>
+                                <option>乘</option>
+                                <option>除</option>
+                            </select>
+                        </li>
+                        <li>
+                            <h5 class="unit-name" style="margin-left: -32px;">一页显示个数：</h5>
+                            <form class="form-inline pull-left">
+                                <input style="width: 136px;" type="text">
+                            </form>
+                        </li>
+                        <li>
+                            <h5 class="unit-name" style="margin-left: 22px;">因数1：</h5>
+                            <form class="form-inline pull-left">
+                                <input type="text" class="input-small" placeholder="最小值">
+                                <input type="text" class="input-small" placeholder="最大值">
+                            </form>
+                        </li>
+                        <li>
+                            <h5 class="unit-name" style="margin-left: 22px;">因数2：</h5>
+                            <form class="form-inline pull-left">
+                                <input type="text" class="input-small" placeholder="最小值">
+                                <input type="text" class="input-small" placeholder="最大值">
+                            </form>
+                        </li>
+                        <li style="display: none;">
+                            <h5 class="unit-name" style="margin-left: 22px;">因数3：</h5>
+                            <form class="form-inline pull-left">
+                                <input type="text" class="input-small" placeholder="最小值">
+                                <input type="text" class="input-small" placeholder="最大值">
+                            </form>
+                        </li>
+                        <li>
+                            <button style="width: 65%;margin-right: 10px;" class="btn btn-primary pull-left" type="button">确定</button>
+                            <button class="btn pull-left" type="button">取消</button>
+                        </li>
+                    </ul>
+                    <p>
+                    </p>
                 </div>
             </div>
             <div class="span9">
@@ -62,10 +93,9 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        $('.selectpicker').selectpicker();
-    </script>
 <script type="text/javascript">
+    $('.selectpicker').selectpicker();
+
 //乘法		
 function Multiplication(start,end) {
 	for(var i = start ;i <= end; i++) {
