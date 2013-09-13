@@ -1,11 +1,13 @@
 <html>
 <head>
-	<meta charset="utf-8"></meta>
+	<meta charset="utf-8">
 	<title>口算题</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-select.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -51,15 +53,12 @@
                 <div class="affix unstyled" style="top:80px;">
                     <div>
                         <span>算式类别：</span>
-                        <div class="btn-group">
-                            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Action<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="">加</a></li>
-                            <li><a href="">减</a></li>
-                            <li><a href="">乘</a></li>
-                            <li><a href="">除</a></li>
-                        </ul>
-                        </div>
+                        <select multiple="" class="selectpicker" style="display: none;">
+                            <option><strong>+</strong></option>
+                            <option><strong>-</strong></option>
+                            <option><strong>×</strong></option>
+                            <option><strong>÷</strong></option>
+                        </select>
                     </div>
                         <p>
                             <button class="btn btn-primary" type="button">确定</button>
@@ -72,7 +71,9 @@
             </div>
         </div>
     </div>
-
+    <script type="text/javascript">
+        $('.selectpicker').selectpicker({noneSelectedText:'请选择算式类别'});
+    </script>
 <script type="text/javascript">
 //乘法		
 function Multiplication(start,end) {
