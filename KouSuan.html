@@ -21,26 +21,11 @@
                 <a class="brand" href="./index.html"><strong>I-count</strong></a>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
-                        <li class="">
-                        <a href="./index.html">首页</a>
-                        </li>
-                        <li class="">
-                        <a href="./getting-started.html">入门</a>
-                        </li>
-                        <li class="">
-                        <a href="./scaffolding.html">框架</a>
-                        </li>
-                        <li class="">
-                        <a href="./base-css.html">基础CSS</a>
-                        </li>
                         <li class="active">
                         <a href="./components.html">组件</a>
                         </li>
                         <li class="">
                         <a href="./javascript.html">JavaScript</a>
-                        </li>
-                        <li class="">
-                        <a href="./customize.html">自定义</a>
                         </li>
                     </ul>
                 </div>
@@ -49,15 +34,21 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="span3 bs-docs-sidebar" style="background-color: red;">
-                <div class="affix unstyled" style="top:80px;">
+            <div class="span3">
+                <div class="affix" style="top:110px;">
                     <div>
                         <span>算式类别：</span>
-                        <select multiple="" class="selectpicker" style="display: none;">
-                            <option>+</option>
-                            <option>-</option>
-                            <option>×</option>
-                            <option>÷</option>
+                        <select class="selectpicker" style="display: none;">
+                            <option>加</option>
+                            <option>减</option>
+                            <option>乘</option>
+                            <option>除</option>
+                        </select>
+                        <select class="selectpicker" style="display: none;">
+                            <option>加</option>
+                            <option>减</option>
+                            <option>乘</option>
+                            <option>除</option>
                         </select>
                     </div>
                         <p>
@@ -72,7 +63,7 @@
         </div>
     </div>
     <script type="text/javascript">
-        $('.selectpicker').selectpicker({noneSelectedText:'请选择算式类别'});
+        $('.selectpicker').selectpicker();
     </script>
 <script type="text/javascript">
 //乘法		
@@ -197,7 +188,7 @@ function deAnswer(n) {
 /*Division(1,88);*/
 /*Subtraction(20,88);*/
 var $ksContent = $(".ks-content");
-var haha = Addition(1,99);
+var haha = Addition(1,9);
 var zuihou = shuffle(haha);
 var realFinall = deAnswer(zuihou);
 var zuihouh = realFinall.join(" ")
