@@ -2,7 +2,7 @@
  * Created with IntelliJ IDEA.
  * User: Administrator
  * Date: 13-9-14
- * Time: ����7:48
+ * Time: 下午7:48
  * To change this template use File | Settings | File Templates.
  */
 

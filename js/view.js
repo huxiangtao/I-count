@@ -58,48 +58,7 @@
             $ksContent.html(shuffle(model.Division($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)).join(" "));
         }
 
-
-        /*alert($oneInput);
-        alert($twoInput);
-        alert($showLimit);
-        alert($oneMin);
-        alert($oneMax);
-        alert($twoMin);
-        alert($twoMax);
-        alert($thirdMin);
-        alert($thirdMax);
-        alert($checkjinwei);
-        alert($checktuiwei);*/
-
-
-
-
     });
-
-    //加法
-    function Addition(startOne,endOne,startTwo,endTwo,range) {
-        var n = [];
-        for(var i = startOne; i <= endOne; i++) {
-            for(var j= startTwo; j <= endTwo; j++) {
-                var result = i+j;
-                var s = i.toString(),o = j.toString();
-                var nextResult = parseInt(s[1]) + parseInt(o[1]);
-                if(range) {
-                    if(result < range && (s[2] == 0 && o[2] == 0)) {
-                        if(nextResult < 10) {
-                            var heh = "<li>"+ i + "+" + j + "=" + (i+j) + "</li>";
-                            n.push(heh);
-                        }
-                    }
-                } else {
-                    var hehe = "<li>"+ i + "+" + j + "=" + (i+j) + "</li>";
-                    n.push(hehe);
-                }
-            }
-
-        }
-        return n;
-    }
 
     //shuffle 乱序
     function shuffle(inputArr) {
