@@ -111,64 +111,7 @@
 <script type="text/javascript">
 
 
-//乘法		
-function Multiplication(start,end) {
-	for(var i = start ;i <= end; i++) {
-		for(var j= start ;j <= end; j++) {
-			document.write(i+"×"+j+"="+(i*j)+"   ");
-		}
-    }
-}
 
-//表内除法
-function Division(start,end) {
-	for(var i = start ;i <= end; i++) {
-		for(var j= start ;j < 10; j++) {
-			var result = i%j,
-				resultt = i/j;
-			if(result == 0 && resultt < 10) {
-				document.write(i+"÷"+j+"="+(i/j)+"   ");
-			}
-		}
-	}
-}
-
-//减法
-function Subtraction(start,end) {
-	for(var i = start;i <= end; i++) {
-		for(var j= start;j <= end; j++) {
-			var result = i-j;
-			if(result >= 0) {
-				document.write(i+"-"+j+"="+(i-j)+"   ");
-			}
-		}
-	}
-}
-
-//加法
-function Addition(start,end,range) {
-	var n = [];
-	for(var i = start; i <= end; i++) {
-		for(var j= start; j <= end; j++) {
-			var result = i+j;
-			var s = i.toString(),o = j.toString();
-			var nextResult = parseInt(s[1]) + parseInt(o[1]);
-			if(range) {
-				if(result < range && (s[2] == 0 && o[2] == 0)) {
-					if(nextResult < 10) {
-						var heh = "<li>"+ i + "+" + j + "=" + (i+j) + "</li>";
-						n.push(heh);
- 					}
-				}
-			} else {
-                var hehe = "<li>"+ i + "+" + j + "=" + (i+j) + "</li>";
-                n.push(hehe);
-			}
-		}
-
-	}
-    return n;
-}
 
 
 //混合运算
@@ -190,21 +133,7 @@ function Mixcount(start,end,range) {
 	}
 }
 
-//shuffle 乱序
-function shuffle(inputArr) {
-    var valArr = [],k = '';
 
-    for (k in inputArr) { // Get key and value arrays
-      if (inputArr.hasOwnProperty(k)) {
-        valArr.push(inputArr[k]);
-      }
-    }
-    valArr.sort(function () {
-      return 0.5 - Math.random();
-    });
-
-    return valArr;
-}
 
 //去重函数
 function unique1(n) {
@@ -232,15 +161,15 @@ function deAnswer(n) {
 /*Multiplication(1,5);*/
 /*Division(1,88);*/
 /*Subtraction(20,88);*/
-var $ksContent = $(".ks-content");
-var haha = Addition(1,9);
+
+/*var haha = Addition(1,9);
 var zuihou = shuffle(haha);
 var realFinall = deAnswer(zuihou);
 var zuihouh = realFinall.join(" ")
-$ksContent.html(zuihouh);
+$ksContent.html(zuihouh);*/
 </script>
-    <script type="text/javascript" src="js/view.js"></script>
-
+<script type="text/javascript" src="js/model.js"></script>
+<script type="text/javascript" src="js/view.js"></script>
 </body>
 </html>
 

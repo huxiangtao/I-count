@@ -6,12 +6,13 @@
  * To change this template use File | Settings | File Templates.
  */
 
-(function() {
+(function(model) {
 
     var $runButton = $('#run'),
         $cancelButton = $('#cancel'),
         $formOne = $('#form-one'),
-        $Operation =$('#operation');
+        $Operation =$('#operation'),
+        $ksContent = $(".ks-content");
 
     $Operation.delegate($formOne,'click',function() {
         var $beforButtonSelsct = $('#form-one').find("option:selected").text(),
@@ -37,16 +38,28 @@
         var $oneInput = $formOne = $('#form-one').find("option:selected").text(),
             $twoInput = $('#form-two').find("option:selected").text(),
             $showLimit = $('#show-limit').val(),
-            $oneMin = $('#one-min').val(),
-            $oneMax = $('#one-max').val(),
-            $twoMin = $('#two-min').val(),
-            $twoMax = $('#two-max').val(),
-            $thirdMin = $('#third-min').val(),
-            $thirdMax = $('#third-max').val(),
+            $oneMinNum = parseInt($('#one-min').val()),
+            $oneMaxNum = parseInt($('#one-max').val()),
+            $twoMinNum = parseInt($('#two-min').val()),
+            $twoMaxNum = parseInt($('#two-max').val()),
+            $thirdMinNum = parseInt($('#third-min').val()),
+            $thirdMaxNum = parseInt($('#third-max').val()),
             $checkjinwei = $("input[name='jinwei']:radio:checked").val(),
             $checktuiwei = $("input[name='tuiwei']:radio:checked").val();
 
-        alert($oneInput);
+
+        if($oneInput === '加' && $twoInput === '默认') {
+            $ksContent.html(shuffle(model.Addition($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)).join(" "));
+        } else if($oneInput === '减' && $twoInput === '默认') {
+            $ksContent.html(shuffle(model.Subtraction($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)).join(" "));
+        } else if($oneInput === '乘' && $twoInput === '默认') {
+            $ksContent.html(shuffle(model.Multiplication($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)).join(" "));
+        } else if($oneInput === '除' && $twoInput === '默认') {
+            $ksContent.html(shuffle(model.Division($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)).join(" "));
+        }
+
+
+        /*alert($oneInput);
         alert($twoInput);
         alert($showLimit);
         alert($oneMin);
@@ -56,14 +69,54 @@
         alert($thirdMin);
         alert($thirdMax);
         alert($checkjinwei);
-        alert($checktuiwei);
+        alert($checktuiwei);*/
 
 
 
 
     });
 
+    //加法
+    function Addition(startOne,endOne,startTwo,endTwo,range) {
+        var n = [];
+        for(var i = startOne; i <= endOne; i++) {
+            for(var j= startTwo; j <= endTwo; j++) {
+                var result = i+j;
+                var s = i.toString(),o = j.toString();
+                var nextResult = parseInt(s[1]) + parseInt(o[1]);
+                if(range) {
+                    if(result < range && (s[2] == 0 && o[2] == 0)) {
+                        if(nextResult < 10) {
+                            var heh = "<li>"+ i + "+" + j + "=" + (i+j) + "</li>";
+                            n.push(heh);
+                        }
+                    }
+                } else {
+                    var hehe = "<li>"+ i + "+" + j + "=" + (i+j) + "</li>";
+                    n.push(hehe);
+                }
+            }
+
+        }
+        return n;
+    }
+
+    //shuffle 乱序
+    function shuffle(inputArr) {
+        var valArr = [],k = '';
+
+        for (k in inputArr) { // Get key and value arrays
+          if (inputArr.hasOwnProperty(k)) {
+            valArr.push(inputArr[k]);
+          }
+        }
+        valArr.sort(function () {
+          return 0.5 - Math.random();
+        });
+
+        return valArr;
+    }
 
     //parseInt()转换成数字的方法
 
-})();
+})(window.model);
