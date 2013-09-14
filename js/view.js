@@ -9,6 +9,7 @@
 (function() {
 
     var $runButton = $('#run'),
+        $cancelButton = $('#cancel'),
         $formOne = $('#form-one'),
         $Operation =$('#operation');
 
@@ -27,6 +28,10 @@
     function testStatus() {
 
     }
+
+    $cancelButton.click(function() {
+        window.location.reload();
+    });
 
     $runButton.click(function() {
         var $oneInput = $formOne = $('#form-one').find("option:selected").text(),
