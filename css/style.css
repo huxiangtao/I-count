@@ -1,4 +1,5 @@
 /*style*/
+select {width:78px;}
 .ks-content {display:block;margin-top:100px;}
 .ks-content li {display:block;float:left;width:85px;padding:5px;margin:8px 20px;font-size:20px;}
 .dropdown-menu li a {font-size:20px;}

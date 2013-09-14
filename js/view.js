@@ -8,22 +8,32 @@
 
 (function() {
 
-    var runButton = $('#run'),
-        $formOne = $('#form-one').find("option:selected").text(),
-        $formTwo = $('#form-two').val()
+    var runButton = $('#run');
 
     function testStatus() {
 
     }
 
-    /*$('body').delegate(runButton,'click',function() {
-        alert(1);
-        alert($formOne);
-        alert($formTwo);
-    })*/
     runButton.click(function() {
-        alert(2);
-    })
+        var $oneInput = $formOne = $('#form-one').find("option:selected").text(),
+            $twoInput = $('#form-two').find("option:selected").text(),
+            $showLimit = $('#show-limit').val(),
+            $oneMin = $('#one-min').val(),
+            $oneMax = $('#one-max').val(),
+            $twoMin = $('#two-min').val(),
+            $twoMax = $('#two-max').val(),
+            $thirdMin = $('#third-min').val(),
+            $thirdMax = $('#third-max').val(),
+            $checkjinwei = $("input[name='jinwei']:radio:checked").val(),
+            $checktuiwei = $("input[name='tuiwei']:radio:checked").val();
+
+
+        alert($checkjinwei);
+        alert($checktuiwei);
+        alert($twoInput);
+        alert($showLimit);
+
+    });
 
 
 })();

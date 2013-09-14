@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -39,61 +38,65 @@
                     <ul class="unit unstyled">
                         <li>
                             <h5 class="unit-name">算式类别：</h5>
-                            <select class="selectpicker" style="display: none;">
-                                <option>默认</option>
-                                <option>加</option>
-                                <option>减</option>
-                                <option>乘</option>
-                                <option>除</option>
-                            </select>
-                            <select class="selectpicker" style="display: none;">
-                                <option>默认</option>
-                                <option>加</option>
-                                <option>减</option>
-                                <option>乘</option>
-                                <option>除</option>
-                            </select>
+
+                            <form action="">
+                                <select id="form-one">
+                                    <option value="default">默认</option>
+                                    <option value="add">加</option>
+                                    <option value="subtract">减</option>
+                                    <option value="multipl">乘</option>
+                                    <option value="divisio">除</option>
+                                </select>
+                                <select id="form-two">
+                                    <option value="default">默认</option>
+                                    <option value="add">加</option>
+                                    <option value="subtract">减</option>
+                                    <option value="multipl">乘</option>
+                                    <option value="divisio">除</option>
+                                </select>
+                            </form>
+
                         </li>
                         <li>
                             <h5 class="unit-name" style="margin-left: -32px;">一页显示个数：</h5>
                             <form class="form-inline pull-left">
-                                <input style="width: 161px;" type="text">
+                                <input id="show-limit" style="width: 161px;" type="text">
                             </form>
                         </li>
                         <li>
                             <h5 class="unit-name" style="margin-left: 5px;">第1个数：</h5>
                             <form class="form-inline pull-left">
-                                <input type="text" class="input-small" placeholder="最小值">
-                                <input type="text" class="input-small" placeholder="最大值">
+                                <input id="one-min" type="text" class="input-small" placeholder="最小值">
+                                <input id="one-max" type="text" class="input-small" placeholder="最大值">
                             </form>
                         </li>
                         <li>
                             <h5 class="unit-name" style="margin-left: 5px;">第2个数：</h5>
                             <form class="form-inline pull-left">
-                                <input type="text" class="input-small" placeholder="最小值">
-                                <input type="text" class="input-small" placeholder="最大值">
+                                <input id="two-min" type="text" class="input-small" placeholder="最小值">
+                                <input id="two-max" type="text" class="input-small" placeholder="最大值">
                             </form>
                         </li>
                         <li style="display: none;">
                             <h5 class="unit-name" style="margin-left: 5px;">第3个数：</h5>
                             <form class="form-inline pull-left">
-                                <input type="text" class="input-small" placeholder="最小值">
-                                <input type="text" class="input-small" placeholder="最大值">
+                                <input id="third-min" type="text" class="input-small" placeholder="最小值">
+                                <input id="third-max" type="text" class="input-small" placeholder="最大值">
                             </form>
                         </li>
                         <li>
                             <h5 class="unit-name">是否进位：</h5>
-                            <label class="radio"><input type="radio" name="jinwei" id="optionsRadios1" value="option1" checked>是</label>
-                            <label class="radio"><input type="radio" name="jinwei" id="optionsRadios2" value="option2">否</label>
+                            <label class="radio"><input type="radio" name="jinwei" id="optionsRadios1" value="true" checked>是</label>
+                            <label class="radio"><input type="radio" name="jinwei" id="optionsRadios2" value="false">否</label>
                         </li>
                         <li>
                             <h5 class="unit-name">是否退位：</h5>
-                            <label class="radio"><input type="radio" name="tuiwei" id="optionsRadios3" value="option3" checked>是</label>
-                            <label class="radio"><input type="radio" name="tuiwei" id="optionsRadios4" value="option4">否</label>
+                            <label class="radio"><input type="radio" name="tuiwei" id="optionsRadios3" value="true" checked>是</label>
+                            <label class="radio"><input type="radio" name="tuiwei" id="optionsRadios4" value="false">否</label>
                         </li>
                         <li>
-                            <button style="width:69%;margin-right:10px;" class="btn btn-primary pull-left" type="button">确定</button>
-                            <button class="btn pull-left" type="button">取消</button>
+                            <button id="run" style="width:69%;margin-right:10px;" class="btn btn-primary pull-left" type="button">确定</button>
+                            <button id="cancel" class="btn pull-left" type="button">取消</button>
                         </li>
                     </ul>
                     <p>
@@ -106,7 +109,7 @@
         </div>
     </div>
 <script type="text/javascript">
-    $('.selectpicker').selectpicker();
+
 
 //乘法		
 function Multiplication(start,end) {
@@ -236,6 +239,8 @@ var realFinall = deAnswer(zuihou);
 var zuihouh = realFinall.join(" ")
 $ksContent.html(zuihouh);
 </script>
+    <script type="text/javascript" src="js/view.js"></script>
+
 </body>
 </html>
 
