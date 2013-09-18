@@ -54,9 +54,9 @@
 
 
         if($oneInput === '加' && $twoInput === '默认') {
-            var result = model.RandomNums($oneMinNum,$oneMaxNum,$showLimit);
-            document.write(result);
-            /*$ksContent.html(shuffle(model.Addition($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)).join(" "));*/
+            var arrOne = model.RandomNums($oneMinNum,$oneMaxNum,$showLimit),
+                arrTwo = model.RandomNums($twoMinNum,$twoMaxNum,$showLimit);
+            $ksContent.html(shuffle(model.Addition(arrOne,arrTwo,$showLimit)).join(" "));
         } else if($oneInput === '减' && $twoInput === '默认') {
             $ksContent.html(shuffle(model.Subtraction($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)).join(" "));
         } else if($oneInput === '乘' && $twoInput === '默认') {

@@ -11,26 +11,14 @@
 
     var model = {
         //加法
-        Addition: function(startOne,endOne,startTwo,endTwo,range) {
+        Addition: function(arrOne,arrTwo,limit) {
             var n = [];
-            for(var i = startOne; i <= endOne; i++) {
-                for(var j= startTwo; j <= endTwo; j++) {
-                    var result = i+j;
-                    var s = i.toString(),o = j.toString();
-                    var nextResult = parseInt(s[1]) + parseInt(o[1]);
-                    if(range) {
-                        if(result < range && (s[2] == 0 && o[2] == 0)) {
-                            if(nextResult < 10) {
-                                var heh = "<li>"+ i + "+" + j + "=" + (i+j) + "</li>";
-                                n.push(heh);
-                            }
-                        }
-                    } else {
-                        var hehe = "<li>"+ i + "+" + j + "=" + (i+j) + "</li>";
-                        n.push(hehe);
-                    }
+            for(var i = 0; i <= limit/2; i++) {
+                for(var j= 0; j <= limit/2; j++) {
+                    var result = arrOne[i] + arrTwo[j];
+                    var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "=" + (arrOne[i] + arrTwo[j]) + "</li>";
+                    n.push(hehe);
                 }
-
             }
             return n;
         },
@@ -82,7 +70,6 @@
                 ret.push(getRandom(min,max));
                 i++;
             }
-            unique(ret);
             //获取单个随机数
             function getRandom(min,max){
                 //x上限，y下限
