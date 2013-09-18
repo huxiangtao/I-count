@@ -11,13 +11,15 @@
 
     var model = {
         //加法
-        Addition: function(arrOne,arrTwo,limit) {
+        Addition: function(arrOne,arrTwo) {
             var n = [];
-            for(var i = 0; i <= limit/2; i++) {
-                for(var j= 0; j <= limit/2; j++) {
-                    var result = arrOne[i] + arrTwo[j];
-                    var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "=" + (arrOne[i] + arrTwo[j]) + "</li>";
-                    n.push(hehe);
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    if(arrOne[i] != undefined && arrTwo[j] != undefined) {
+                        var result = arrOne[i] + arrTwo[j];
+                        var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "=" + (arrOne[i] + arrTwo[j]) + "</li>";
+                        n.push(hehe);
+                    }
                 }
             }
             return n;

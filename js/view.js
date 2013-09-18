@@ -51,21 +51,23 @@
             $thirdMaxNum = parseInt($('#third-max').val()),
             $checkjinwei = $("input[name='jinwei']:radio:checked").val(),
             $checktuiwei = $("input[name='tuiwei']:radio:checked").val(),
-            arrOne = model.RandomNums($oneMinNum,$oneMaxNum,$showLimit),
-            arrTwo = model.RandomNums($twoMinNum,$twoMaxNum,$showLimit);
+            arrOne = model.unIque(model.RandomNums($oneMinNum,$oneMaxNum,$showLimit)),
+            arrTwo = model.unIque(model.RandomNums($twoMinNum,$twoMaxNum,$showLimit));
 
 
         if($oneInput === '加' && $twoInput === '默认') {
-            var resullt =  model.unIque(shuffle(model.Addition(arrOne,arrTwo,$showLimit))).join(" ");//去重并且生成字符串
+
+            var resullt = model.unIque(shuffle(model.Addition(arrOne,arrTwo)));//去重并且生成字符串
 
             $ksContent.html(resullt);
 
+
         } else if($oneInput === '减' && $twoInput === '默认') {
-            $ksContent.html(shuffle(model.Subtraction($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)).join(" "));
+            $ksContent.html(shuffle(model.Subtraction($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)));
         } else if($oneInput === '乘' && $twoInput === '默认') {
-            $ksContent.html(shuffle(model.Multiplication($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)).join(" "));
+            $ksContent.html(shuffle(model.Multiplication($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)));
         } else if($oneInput === '除' && $twoInput === '默认') {
-            $ksContent.html(shuffle(model.Division($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)).join(" "));
+            $ksContent.html(shuffle(model.Division($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)));
         }
 
     });
