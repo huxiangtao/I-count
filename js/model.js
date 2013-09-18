@@ -65,9 +65,10 @@
             return n;
         },
         //获取随机数们
-        RandomNums: function(min,max,len) {
+        RandomNums: function(min,max,limit) {
             var ret = [],
-                i = 0;
+                i = 0,
+                len = parseInt(Math.sqrt(limit));
             while(i < len) {
                 ret.push(getRandom(min,max));
                 i++;
@@ -111,3 +112,4 @@
 
     window.model = model;
 })();
+
