@@ -86,7 +86,7 @@
             return ret;
         },
         //去重函数
-        unique: function(arr) {
+        unIque: function(arr) {
             var n = [];
             var hash = {};
 
