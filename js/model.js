@@ -73,6 +73,45 @@
                 }
             }
             return n;
+        },
+        //获取随机数们
+        RandomNums: function(min,max,len) {
+            var ret = [],
+                i = 0;
+            while(i < len) {
+                ret.push(getRandom(min,max));
+                i++;
+            }
+            unique(ret);
+            //获取单个随机数
+            function getRandom(min,max){
+                //x上限，y下限
+                var x = max;
+                var y = min;
+                if(x<y){
+                    x=min;
+                    y=max;
+                }
+                var rand = parseInt(Math.random() * (x - y + 1) + y);
+                return rand;
+            }
+
+            return ret;
+        },
+        //去重函数
+        unique: function(arr) {
+            var n = [];
+            var hash = {};
+
+            for (var i = 0; i < arr.length; i++) {
+                var item = arr[i];
+                var key = typeof(item) + item;
+                if (hash[key] !== 1) {
+                    n.push(item)
+                    hash[key] = 1
+                }
+            }
+            return n
         }
 
     };

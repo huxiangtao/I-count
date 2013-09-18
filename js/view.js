@@ -20,10 +20,15 @@
         if(!($beforButtonSelsct === '默认')) {
             $('#one-num').fadeIn();
             $('#two-num').fadeIn();
+        } else {
+            $('#one-num').fadeOut();
+            $('#two-num').fadeOut();
         }
         if(!($beforButtonSelsctTwo === '默认')) {
            $('#third-num').fadeIn();
-       }
+       } else {
+           $('#third-num').fadeOut();
+        }
     });
 
     function testStatus() {
@@ -37,7 +42,7 @@
     $runButton.click(function() {
         var $oneInput = $formOne = $('#form-one').find("option:selected").text(),
             $twoInput = $('#form-two').find("option:selected").text(),
-            $showLimit = $('#show-limit').val(),
+            $showLimit = parseInt($('#show-limit').val()),
             $oneMinNum = parseInt($('#one-min').val()),
             $oneMaxNum = parseInt($('#one-max').val()),
             $twoMinNum = parseInt($('#two-min').val()),
@@ -49,7 +54,9 @@
 
 
         if($oneInput === '加' && $twoInput === '默认') {
-            $ksContent.html(shuffle(model.Addition($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)).join(" "));
+            var result = model.RandomNums($oneMinNum,$oneMaxNum,$showLimit);
+            document.write(result);
+            /*$ksContent.html(shuffle(model.Addition($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)).join(" "));*/
         } else if($oneInput === '减' && $twoInput === '默认') {
             $ksContent.html(shuffle(model.Subtraction($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)).join(" "));
         } else if($oneInput === '乘' && $twoInput === '默认') {
