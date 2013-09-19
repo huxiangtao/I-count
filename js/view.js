@@ -52,16 +52,18 @@
             $checkjinwei = $("input[name='jinwei']:radio:checked").val(),
             $checktuiwei = $("input[name='tuiwei']:radio:checked").val(),
             arrOne = model.unIque(model.RandomNums($oneMinNum,$oneMaxNum,$showLimit)),
-            arrTwo = model.unIque(model.RandomNums($twoMinNum,$twoMaxNum,$showLimit));
+            arrTwo = model.unIque(model.RandomNums($twoMinNum,$twoMaxNum,$showLimit)),
+            $jibaijishi = $('input:radio[name="jibaijishi"]:checked').val();
+
 
 
         if($oneInput === '加' && $twoInput === '默认') {
-
-            var resullt = model.unIque(shuffle(model.Addition(arrOne,arrTwo)));//去重并且生成字符串
-
-            $ksContent.html(resullt);
-
-
+            if($jibaijishi == 'true') {
+                model.AdditionDiZero();
+            } else {
+                var resullt = model.unIque(shuffle(model.Addition(arrOne,arrTwo)));//去重并且生成字符串
+                $ksContent.html(resullt);
+            }
         } else if($oneInput === '减' && $twoInput === '默认') {
             $ksContent.html(shuffle(model.Subtraction($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)));
         } else if($oneInput === '乘' && $twoInput === '默认') {

@@ -64,6 +64,10 @@
             }
             return n;
         },
+        //几百几十加法
+        AdditionDiZero: function() {
+            alert('几百几十')
+        },
         //获取随机数们
         RandomNums: function(min,max,limit) {
             var ret = [],
