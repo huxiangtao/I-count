@@ -59,10 +59,15 @@
 
         if($oneInput === '加' && $twoInput === '默认') {
             if($jibaijishi == 'true') {
-                model.AdditionDiZero(arrOne,arrTwo);
+                var allArrOne = model.traversal($oneMinNum,$oneMaxNum),
+                    allArrTwo = model.traversal($twoMinNum,$twoMaxNum);
+                var finArrOne = model.filterNum(allArrOne),
+                    finArrTwo = model.filterNum(allArrTwo);
+                var result = model.unIque(shuffle(model.Addition(finArrOne,finArrTwo)));//去重并且生成字符串
+                $ksContent.html(result);
             } else {
-                var resullt = model.unIque(shuffle(model.Addition(arrOne,arrTwo)));//去重并且生成字符串
-                $ksContent.html(resullt);
+                var result = model.unIque(shuffle(model.Addition(arrOne,arrTwo)));//去重并且生成字符串
+                $ksContent.html(result);
             }
         } else if($oneInput === '减' && $twoInput === '默认') {
             $ksContent.html(shuffle(model.Subtraction($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)));

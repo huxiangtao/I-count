@@ -60,17 +60,12 @@
                     var modulo = i%j,
                         result = i/j;
                     if(modulo == 0) {
-                        var hehe = "<li>"+ i + "÷" + j + "=" + (i/j) + "</li>";
+                        var hehe = "<li>"+ i + "÷" + j + "=" + result + "</li>";
                         n.push(hehe);
                     }
                 }
             }
             return n;
-        },
-
-        //几百几十加法
-        AdditionDiZero: function() {
-            alert('几百几十')
         },
 
         //获取随机数们
@@ -112,6 +107,29 @@
                 }
             }
             return n
+        },
+
+        //筛选出几百几十的数字
+        filterNum: function(arr) {
+            var n = [];
+            for (var i = 0; i < arr.length; i++) {
+                var item = arr[i];
+                var shiNum = item % 10;
+                if(shiNum == 0) {
+                    n.push(item);
+                }
+            }
+            return n;
+        },
+
+        //遍历出所有的数字
+        traversal: function(start,end) {
+            var n = [];
+                for(var j= start ;j <= end; j++) {
+                    var hehe = j;
+                    n.push(hehe);
+                }
+            return n;
         }
 
     };
