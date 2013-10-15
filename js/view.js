@@ -59,7 +59,7 @@
 
         if($oneInput === '加' && $twoInput === '默认') {
             if($jibaijishi == 'true') {
-                model.AdditionDiZero();
+                model.AdditionDiZero(arrOne,arrTwo);
             } else {
                 var resullt = model.unIque(shuffle(model.Addition(arrOne,arrTwo)));//去重并且生成字符串
                 $ksContent.html(resullt);

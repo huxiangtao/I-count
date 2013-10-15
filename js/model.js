@@ -17,13 +17,14 @@
                 for(var j= 0; j <= arrTwo.length; j++) {
                     if(arrOne[i] != undefined && arrTwo[j] != undefined) {
                         var result = arrOne[i] + arrTwo[j];
-                        var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "=" + (arrOne[i] + arrTwo[j]) + "</li>";
+                        var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "=" + result + "</li>";
                         n.push(hehe);
                     }
                 }
             }
             return n;
         },
+
         //减法
         Subtraction: function(startOne,endOne,startTwo,endTwo) {
             var n = [];
@@ -38,6 +39,7 @@
             }
             return n;
         },
+
         //乘法
         Multiplication: function(startOne,endOne,startTwo,endTwo) {
             var n = [];
@@ -49,6 +51,7 @@
             }
             return n;
         },
+
         //除法
         Division: function(startOne,endOne,startTwo,endTwo) {
             var n = [];
@@ -64,10 +67,12 @@
             }
             return n;
         },
+
         //几百几十加法
         AdditionDiZero: function() {
             alert('几百几十')
         },
+
         //获取随机数们
         RandomNums: function(min,max,limit) {
             var ret = [],
@@ -92,6 +97,7 @@
 
             return ret;
         },
+
         //去重函数
         unIque: function(arr) {
             var n = [];
