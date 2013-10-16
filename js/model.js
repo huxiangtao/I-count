@@ -113,10 +113,12 @@
         filterNum: function(arr) {
             var n = [];
             for (var i = 0; i < arr.length; i++) {
-                var item = arr[i];
-                var sItem = item.toString();
-                var shiNum = item % 10;
-                var baiNum = item % 100;
+
+                var item = arr[i],
+                    sItem = item.toString(),
+                    shiNum = item % 10,
+                    baiNum = item % 100;
+
                 if(shiNum == 0) {
                     if(sItem.length >= 3 && baiNum == 0) {
                         n.push(item);
