@@ -114,9 +114,15 @@
             var n = [];
             for (var i = 0; i < arr.length; i++) {
                 var item = arr[i];
+                var sItem = item.toString();
                 var shiNum = item % 10;
+                var baiNum = item % 100;
                 if(shiNum == 0) {
-                    n.push(item);
+                    if(sItem.length >= 3 && baiNum == 0) {
+                        n.push(item);
+                    } else if(sItem.length < 3) {
+                        n.push(item);
+                    }
                 }
             }
             return n;
@@ -131,6 +137,26 @@
                 }
             return n;
         }
+
+        /*//获取随机的几百几十数字
+        filterNums: function(arr,limit) {
+            var ret = [],
+                i = 0,
+                len = parseInt(Math.sqrt(limit));
+            while(i < len) {
+                ret.push(getRandom(arr));
+                i++;
+            }
+            //获取单个随机数
+            function getRandom(arr){
+                //x上限，y下限
+
+                var rand = parseInt(Math.random() * (x - y + 1) + y);
+                return arr[rand];
+            }
+
+            return ret;
+        }*/
 
     };
 

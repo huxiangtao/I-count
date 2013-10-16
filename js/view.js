@@ -59,13 +59,16 @@
 
         if($oneInput === '加' && $twoInput === '默认') {
             if($jibaijishi == 'true') {
+
                 var allArrOne = model.traversal($oneMinNum,$oneMaxNum),
-                    allArrTwo = model.traversal($twoMinNum,$twoMaxNum);
-                var finArrOne = model.filterNum(allArrOne),
+                    allArrTwo = model.traversal($twoMinNum,$twoMaxNum),
+                    finArrOne = model.filterNum(allArrOne),
                     finArrTwo = model.filterNum(allArrTwo);
+
                 var result = model.unIque(shuffle(model.Addition(finArrOne,finArrTwo)));//去重并且生成字符串
                 $ksContent.html(result);
             } else {
+
                 var result = model.unIque(shuffle(model.Addition(arrOne,arrTwo)));//去重并且生成字符串
                 $ksContent.html(result);
             }
