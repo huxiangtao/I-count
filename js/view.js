@@ -42,7 +42,7 @@
     $runButton.click(function() {
         var $oneInput = $formOne = $('#form-one').find("option:selected").text(),
             $twoInput = $('#form-two').find("option:selected").text(),
-            $showLimit = parseInt($('#show-limit').val()),
+            $showLimit = 20,/*parseInt($('#show-limit').val()),*/
             $oneMinNum = parseInt($('#one-min').val()),
             $oneMaxNum = parseInt($('#one-max').val()),
             $twoMinNum = parseInt($('#two-min').val()),
@@ -67,10 +67,12 @@
 
                 var result = model.unIque(shuffle(model.Addition(finArrOne,finArrTwo)));//去重并且生成字符串
                 $ksContent.html(result);
+
             } else {
 
                 var result = model.unIque(shuffle(model.Addition(arrOne,arrTwo)));//去重并且生成字符串
                 $ksContent.html(result);
+
             }
         } else if($oneInput === '减' && $twoInput === '默认') {
             $ksContent.html(shuffle(model.Subtraction($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)));
