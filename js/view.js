@@ -11,6 +11,7 @@
     var $runButton = $('#run'),
         $cancelButton = $('#cancel'),
         $formOne = $('#form-one'),
+        $formTwo = $('#form-two'),
         $Operation =$('#operation'),
         $ksContent = $(".ks-content");
 
@@ -40,8 +41,8 @@
     });
 
     $runButton.click(function() {
-        var $oneInput = $formOne = $('#form-one').find("option:selected").text(),
-            $twoInput = $('#form-two').find("option:selected").text(),
+        var $oneInput = $formOne.find("option:selected").text(),
+            $twoInput = $formTwo.find("option:selected").text(),
             $showLimit = 100,/*parseInt($('#show-limit').val()),*/
             $oneMinNum = parseInt($('#one-min').val()),
             $oneMaxNum = parseInt($('#one-max').val()),

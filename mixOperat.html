@@ -38,7 +38,6 @@
                     <ul id="operation" class="unit unstyled">
                         <li>
                             <h5 class="unit-name">算式类别：</h5>
-
                             <form action="">
                                 <select id="form-one">
                                     <option value="default">默认</option>
@@ -79,24 +78,27 @@
                             </form>
                         </li>
                         <li>
-                            <h5 class="unit-name">是否进位：</h5>
-                            <label class="radio"><input type="radio" name="jinwei" id="optionsRadios1" value="true" checked>是</label>
-                            <label class="radio"><input type="radio" name="jinwei" id="optionsRadios2" value="false">否</label>
-                        </li>
-                        <li>
-                            <h5 class="unit-name">是否退位：</h5>
-                            <label class="radio"><input type="radio" name="tuiwei" id="optionsRadios3" value="true" checked>是</label>
-                            <label class="radio"><input type="radio" name="tuiwei" id="optionsRadios4" value="false">否</label>
-                        </li>
-                        <li>
-                            <h5 class="unit-name">是否几百几十：</h5>
-                            <label class="radio"><input type="radio" name="jibaijishi" id="optionsRadios5" value="true" checked>是</label>
-                            <label class="radio"><input type="radio" name="jibaijishi" id="optionsRadios6" value="false">否</label>
+                            <h5 class="unit-name">括号位置：</h5>
+                            <form action="">
+                                <select id="form-three">
+                                    <option value="default">默认无括号</option>
+                                    <option value="add">前</option>
+                                    <option value="subtract">后</option>
+                                </select>
+                            </form>
+
                         </li>
                         <li>
                             <button id="run" style="width:69%;margin-right:10px;" class="btn btn-primary pull-left" type="button">确定</button>
                             <button id="cancel" class="btn pull-left" type="button">取消</button>
                         </li>
+
+
+                        <!--<li>
+                            <h5 class="unit-name">括号位置：</h5>
+                            <label class="radio"><input type="radio" name="jinwei" id="optionsRadios1" value="true" checked>前</label>
+                            <label class="radio"><input type="radio" name="jinwei" id="optionsRadios2" value="false">后</label>
+                        </li>-->
                     </ul>
                     <p>
                     </p>
@@ -157,18 +159,9 @@ function deAnswer(n) {
 
 }
 
-/*Multiplication(1,5);*/
-/*Division(1,88);*/
-/*Subtraction(20,88);*/
-
-/*var haha = Addition(1,9);
-var zuihou = shuffle(haha);
-var realFinall = deAnswer(zuihou);
-var zuihouh = realFinall.join(" ")
-$ksContent.html(zuihouh);*/
 </script>
 <script type="text/javascript" src="js/model.js"></script>
-<script type="text/javascript" src="js/view.js"></script>
+<script type="text/javascript" src="js/mixView.js"></script>
 </body>
 </html>
 
