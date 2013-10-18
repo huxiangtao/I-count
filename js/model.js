@@ -126,6 +126,67 @@
             return n;
         },
 
+        //混合运算——减加
+        mixSubAdd: function(arrOne,arrTwo,arrThree) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    for(var h = 0; h<= arrThree.length; h++) {
+                        if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
+                            var result = arrOne[i] - arrTwo[j] + arrThree[h];
+                            if(result > 0 && result < 100) {
+                                var hehe = "<li>"+ arrOne[i] + "-" + arrTwo[j] + "+" + arrThree[h] + "=" + result + "</li>";
+                                n.push(hehe);
+                            }
+                        }
+                    }
+
+                }
+            }
+            return n;
+        },
+
+        //混合运算——减加
+        mixSubAdd: function(arrOne,arrTwo,arrThree) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    for(var h = 0; h<= arrThree.length; h++) {
+                        if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
+                            var result = arrOne[i] - arrTwo[j] + arrThree[h];
+                            if(result > 0 && result < 100) {
+                                var hehe = "<li>"+ arrOne[i] + "-" + arrTwo[j] + "+" + arrThree[h] + "=" + result + "</li>";
+                                n.push(hehe);
+                            }
+                        }
+                    }
+
+                }
+            }
+            return n;
+        },
+
+        //混合运算——减加
+        mixAddDiv: function(arrOne,arrTwo,arrThree) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    for(var h = 0; h<= arrThree.length; h++) {
+                        if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
+                            var result = arrOne[i] + arrTwo[j] / arrThree[h];
+                            var r =/^[0-9]*[1-9][0-9]*$/;
+                            if(result > 0 && result < 100 && r.test(result)) {
+                                var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "÷" + arrThree[h] + "=" + result + "</li>";
+                                n.push(hehe);
+                            }
+                        }
+                    }
+
+                }
+            }
+            return n;
+        },
+
         //获取随机数们
         RandomNums: function(min,max,limit) {
             var ret = [],

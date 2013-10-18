@@ -90,6 +90,12 @@
         } else if($oneInput === '加' && $twoInput === '乘') {
             var jiacheng = model.unIque(shuffle(model.mixAddMul(arrOne,arrTwo,arrThree)));//去重并且生成字符串——连加
             $ksContent.html(jiacheng);
+        } else if($oneInput === '加' && $twoInput === '除') {
+            var jiachu = model.unIque(shuffle(model.mixAddDiv(arrOne,arrTwo,arrThree)));//去重并且生成字符串——连加
+            $ksContent.html(jiachu);
+        } else if($oneInput === '减' && $twoInput === '加') {
+            var jianjia = model.unIque(shuffle(model.mixSubAdd(arrOne,arrTwo,arrThree)));//去重并且生成字符串——连加
+            $ksContent.html(jianjia);
         }
 
     });
