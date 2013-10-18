@@ -42,18 +42,19 @@
     $runButton.click(function() {
         var $oneInput = $formOne = $('#form-one').find("option:selected").text(),
             $twoInput = $('#form-two').find("option:selected").text(),
-            $showLimit = 20,/*parseInt($('#show-limit').val()),*/
+            $showLimit = 100,/*parseInt($('#show-limit').val()),*/
             $oneMinNum = parseInt($('#one-min').val()),
             $oneMaxNum = parseInt($('#one-max').val()),
             $twoMinNum = parseInt($('#two-min').val()),
             $twoMaxNum = parseInt($('#two-max').val()),
             $thirdMinNum = parseInt($('#third-min').val()),
             $thirdMaxNum = parseInt($('#third-max').val()),
-            $checkjinwei = $("input[name='jinwei']:radio:checked").val(),
-            $checktuiwei = $("input[name='tuiwei']:radio:checked").val(),
+            $checkjinwei = $('input:radio[name="jinwei"]:checked').val(), //是否进位
+            $checktuiwei = $('input:radio[name="tuiwei"]:checked').val(), //是否退位
             arrOne = model.unIque(model.RandomNums($oneMinNum,$oneMaxNum,$showLimit)),
             arrTwo = model.unIque(model.RandomNums($twoMinNum,$twoMaxNum,$showLimit)),
-            $jibaijishi = $('input:radio[name="jibaijishi"]:checked').val();
+            arrThree = model.unIque(model.RandomNums($thirdMinNum,$thirdMaxNum,$showLimit)),
+            $jibaijishi = $('input:radio[name="jibaijishi"]:checked').val(); //是否几百几十
 
 
 
@@ -80,6 +81,15 @@
             $ksContent.html(shuffle(model.Multiplication($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)));
         } else if($oneInput === '除' && $twoInput === '默认') {
             $ksContent.html(shuffle(model.Division($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)));
+        } else if($oneInput === '加' && $twoInput === '加') {
+            var lianJia = model.unIque(shuffle(model.mixAdd(arrOne,arrTwo,arrThree)));//去重并且生成字符串——连加
+            $ksContent.html(lianJia);
+        } else if($oneInput === '加' && $twoInput === '减') {
+            var jiajian = model.unIque(shuffle(model.mixAddSub(arrOne,arrTwo,arrThree)));//去重并且生成字符串——连加
+            $ksContent.html(jiajian);
+        } else if($oneInput === '加' && $twoInput === '乘') {
+            var jiacheng = model.unIque(shuffle(model.mixAddMul(arrOne,arrTwo,arrThree)));//去重并且生成字符串——连加
+            $ksContent.html(jiacheng);
         }
 
     });

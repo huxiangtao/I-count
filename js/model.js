@@ -68,6 +68,64 @@
             return n;
         },
 
+        //混合运算——加加
+        mixAdd: function(arrOne,arrTwo,arrThree) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    for(var h = 0; h<= arrThree.length; h++) {
+                        if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
+                            var result = arrOne[i] + arrTwo[j] + arrThree[h];
+                            var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "+" + arrThree[h] + "=" + result + "</li>";
+                            n.push(hehe);
+                        }
+                    }
+
+                }
+            }
+            return n;
+        },
+
+        //混合运算——加减
+        mixAddSub: function(arrOne,arrTwo,arrThree) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    for(var h = 0; h<= arrThree.length; h++) {
+                        if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
+                            var result = arrOne[i] + arrTwo[j] - arrThree[h];
+                            if(result > 0) {
+                                var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "-" + arrThree[h] + "=" + result + "</li>";
+                                n.push(hehe);
+                            }
+                        }
+                    }
+
+                }
+            }
+            return n;
+        },
+
+        //混合运算——加乘
+        mixAddMul: function(arrOne,arrTwo,arrThree) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    for(var h = 0; h<= arrThree.length; h++) {
+                        if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
+                            var result = arrOne[i] + arrTwo[j] * arrThree[h];
+                            if(result > 0 && result < 100) {
+                                var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "×" + arrThree[h] + "=" + result + "</li>";
+                                n.push(hehe);
+                            }
+                        }
+                    }
+
+                }
+            }
+            return n;
+        },
+
         //获取随机数们
         RandomNums: function(min,max,limit) {
             var ret = [],
@@ -139,6 +197,59 @@
                 }
             return n;
         }
+
+        /*//进位加法计算
+        carryAddition: function(arrOne,arrTwo) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    if(arrOne[i] != undefined && arrTwo[j] != undefined) {
+                        var sOneItem = arrOne[i].toString();
+                        var sTwoItem = arrTwo[j].toString();
+                        var lenCompare = sOneItem.length - sTwoItem.length;
+
+                        if(lenCompare > 0) {
+                            for(var k = lenCompare; k < sOneItem.length; k++) {
+                                for(var h = 0; h < sTwoItem.length; h++) {
+                                    var r = parseInt(sOneItem[k]) + parseInt(sTwoItem[h]);
+                                    if(r >= 10) {
+                                        var result = arrOne[i] + arrTwo[j];
+                                        var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "=" + result + "</li>";
+                                        n.push(hehe);
+                                    }
+                                }
+
+                            }
+                        } else if(lenCompare = 0) {
+                            for(var o = 0; o < sOneItem.length; o++) {
+                                for(var t = 0; t < sTwoItem.length; t++) {
+                                    var s = parseInt(sOneItem[o]) + parseInt(sTwoItem[t]);
+                                    if(s >= 10) {
+                                        var resullt = arrOne[i] + arrTwo[j];
+                                        var heheh = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "=" + resullt + "</li>";
+                                        n.push(heheh);
+                                    }
+                                }
+
+                            }
+                        } else if(lenCompare < 0) {
+                            for(var p = lenCompare; p < sTwoItem.length; p++) {
+                                for(var x = 0; x < sOneItem.length; x++) {
+                                    var v = parseInt(sTwoItem[p]) + parseInt(sOneItem[x]);
+                                    if(v >= 10) {
+                                        var resulllt = arrOne[i] + arrTwo[j];
+                                        var hehehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "=" + resulllt + "</li>";
+                                        n.push(hehehe);
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+            return n;
+        }*/
 
         /*//获取随机的几百几十数字
         filterNums: function(arr,limit) {
