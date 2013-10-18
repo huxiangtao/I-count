@@ -40,9 +40,9 @@
         if($oneInput === '加' && $twoInput === '加') {
             var arrOne = randomNums(1,100,100),
                 arrTwo = randomNums(1,100,100),
-                arrThree = randomNums(1,100,100),
-                lianJia = unImixStr(arrOne,arrTwo,arrThree);//去重并且生成字符串——连加
-            $ksContent.html(lianJia);
+                arrThree = randomNums(1,100,100);
+                unImixStr(arrOne,arrTwo,arrThree);//去重并且生成字符串——连加
+
         } else if($oneInput === '加' && $twoInput === '减') {
             var jiajian = model.unIque(shuffle(model.mixAddSub(arrOne,arrTwo,arrThree)));//去重并且生成字符串——连加
             $ksContent.html(jiajian);
