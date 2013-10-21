@@ -35,12 +35,14 @@
             $thirdMinNum = parseInt($('#third-min').val()),
             $thirdMaxNum = parseInt($('#third-max').val());
 
+        var arrOne = randomNums(1,100,100),
+            arrTwo = randomNums(1,100,100),
+            arrThree = randomNums(1,100,100);
+
 
 
         if($oneInput === '加' && $twoInput === '加') {
-            var arrOne = randomNums(1,100,100),
-                arrTwo = randomNums(1,100,100),
-                arrThree = randomNums(1,100,100);
+
                 unImixStr(arrOne,arrTwo,arrThree);//去重并且生成字符串——连加
 
         } else if($oneInput === '加' && $twoInput === '减') {
@@ -76,16 +78,22 @@
     }
 
     //去重并且混合返回字符串
-    function unImixStr(arrOne,arrTwo,arrThree) {
-        var result = model.unIque(shuffle(model.mixAdd(arrOne,arrTwo,arrThree)));
-        $ksContent.html(result);
+
+    var fangfa = {
+        unImixStr
+    };
+
+    function unImixStr(arrOne,arrTwo,arrThree,type) {
+        type = [];
+        if(type = mixAdd) {
+            var result = model.unIque(shuffle(model.mixAdd(arrOne,arrTwo,arrThree)));
+            $ksContent.html(result);
+        }
     }
 
     //获得随机数组
     function randomNums(MinNum,MaxNum,Limit) {
         return model.unIque(model.RandomNums(MinNum,MaxNum,Limit));
     }
-
-    //parseInt()转换成数字的方法
 
 })(window.model);
