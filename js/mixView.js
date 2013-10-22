@@ -12,6 +12,7 @@
         $cancelButton = $('#cancel'),
         $formOne = $('#form-one'),
         $formTwo = $('#form-two'),
+        $formKuohao = $('#form-kuohao'),
         $Operation =$('#operation'),
         $ksContent = $(".ks-content");
 
@@ -27,17 +28,14 @@
     $runButton.click(function() {
         var $oneInput = $formOne.find("option:selected").text(),
             $twoInput = $formTwo.find("option:selected").text(),
-            $showLimit = 100,/*parseInt($('#show-limit').val()),*/
-            $oneMinNum = parseInt($('#one-min').val()),
-            $oneMaxNum = parseInt($('#one-max').val()),
-            $twoMinNum = parseInt($('#two-min').val()),
-            $twoMaxNum = parseInt($('#two-max').val()),
-            $thirdMinNum = parseInt($('#third-min').val()),
-            $thirdMaxNum = parseInt($('#third-max').val());
+            $kuohao = $formKuohao.find("option:selected").text(),
+            $showLimit = 100;/*parseInt($('#show-limit').val()),*/
 
         var arrOne = randomNums(1,100,100),
             arrTwo = randomNums(1,100,100),
-            arrThree = randomNums(1,100,100);
+            arrThree = randomNums(1,100,100),
+            kuohao = 0;
+
 
 
 
@@ -47,15 +45,39 @@
 
         } else if($oneInput === '加' && $twoInput === '减') {
 
-            unImixAs(arrOne,arrTwo,arrThree);
+            if($kuohao === '前') {
+                kuohao = 1;
+                unImixAs(arrOne,arrTwo,arrThree,kuohao);
+            } else if($kuohao === '后') {
+                kuohao = 2;
+                unImixAs(arrOne,arrTwo,arrThree,kuohao);
+            } else if($kuohao === '默认') {
+                unImixAs(arrOne,arrTwo,arrThree,kuohao);
+            }
 
         } else if($oneInput === '加' && $twoInput === '乘') {
 
-            unImixAm(arrOne,arrTwo,arrThree);
+            if($kuohao === '前') {
+                kuohao = 1;
+                unImixAm(arrOne,arrTwo,arrThree,kuohao);
+            } else if($kuohao === '后') {
+                kuohao = 2;
+                unImixAm(arrOne,arrTwo,arrThree,kuohao);
+            } else if($kuohao === '默认') {
+                unImixAm(arrOne,arrTwo,arrThree,kuohao);
+            }
 
         } else if($oneInput === '加' && $twoInput === '除') {
 
-            unImixAd(arrOne,arrTwo,arrThree);
+            if($kuohao === '前') {
+                kuohao = 1;
+                unImixAd(arrOne,arrTwo,arrThree,kuohao);
+            } else if($kuohao === '后') {
+                kuohao = 2;
+                unImixAd(arrOne,arrTwo,arrThree,kuohao);
+            } else {
+                unImixAd(arrOne,arrTwo,arrThree,kuohao);
+            }
 
         } else if($oneInput === '减' && $twoInput === '加') {
 
@@ -117,19 +139,43 @@
         $ksContent.html(result);
     }
 
-    function unImixAs(arrOne,arrTwo,arrThree) {
-        var result = model.unIque(shuffle(model.mixAddSub(arrOne,arrTwo,arrThree)));
-        $ksContent.html(result);
+    function unImixAs(arrOne,arrTwo,arrThree,kuohao) {
+        if(kuohao == 1) {
+            var resultq = model.unIque(shuffle(model.mixAddSub(arrOne,arrTwo,arrThree,kuohao)));
+            $ksContent.html(resultq);
+        } else if(kuohao == 2) {
+            var resulth = model.unIque(shuffle(model.mixAddSub(arrOne,arrTwo,arrThree,kuohao)));
+            $ksContent.html(resulth);
+        } else if(kuohao == 0) {
+            var result = model.unIque(shuffle(model.mixAddSub(arrOne,arrTwo,arrThree,kuohao)));
+            $ksContent.html(result);
+        }
     }
 
-    function unImixAm(arrOne,arrTwo,arrThree) {
-        var result = model.unIque(shuffle(model.mixAddMul(arrOne,arrTwo,arrThree)));
-        $ksContent.html(result);
+    function unImixAm(arrOne,arrTwo,arrThree,kuohao) {
+        if(kuohao == 1) {
+            var resultq = model.unIque(shuffle(model.mixAddMul(arrOne,arrTwo,arrThree,kuohao)));
+            $ksContent.html(resultq);
+        } else if(kuohao == 2) {
+            var resulth = model.unIque(shuffle(model.mixAddMul(arrOne,arrTwo,arrThree,kuohao)));
+            $ksContent.html(resulth);
+        } else if(kuohao == 0) {
+            var result = model.unIque(shuffle(model.mixAddMul(arrOne,arrTwo,arrThree,kuohao)));
+            $ksContent.html(result);
+        }
     }
 
-    function unImixAd(arrOne,arrTwo,arrThree) {
-        var result = model.unIque(shuffle(model.mixAddDiv(arrOne,arrTwo,arrThree)));
-        $ksContent.html(result);
+    function unImixAd(arrOne,arrTwo,arrThree,kuohao) {
+        if(kuohao == 1) {
+            var resultq = model.unIque(shuffle(model.mixAddDiv(arrOne,arrTwo,arrThree,kuohao)));
+            $ksContent.html(resultq);
+        } else if(kuohao == 2) {
+            var resulth = model.unIque(shuffle(model.mixAddDiv(arrOne,arrTwo,arrThree,kuohao)));
+            $ksContent.html(resulth);
+        } else if(kuohao == 0) {
+            var result = model.unIque(shuffle(model.mixAddDiv(arrOne,arrTwo,arrThree,kuohao)));
+            $ksContent.html(result);
+        }
     }
 
     function unImixSa(arrOne,arrTwo,arrThree) {

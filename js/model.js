@@ -89,17 +89,33 @@
         },
 
         //混合运算——加减
-        mixAddSub: function(arrOne,arrTwo,arrThree) {
+        mixAddSub: function(arrOne,arrTwo,arrThree,kuohao) {
             var n = [];
             for(var i = 0; i <= arrOne.length; i++) {
                 for(var j= 0; j <= arrTwo.length; j++) {
                     for(var h = 0; h<= arrThree.length; h++) {
                         if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
-                            var result = arrOne[i] + arrTwo[j] - arrThree[h];
-                            if(result > 0 && result < 100) {
-                                var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "-" + arrThree[h] + "=" + result + "</li>";
-                                n.push(hehe);
+                            if(kuohao == 1) {
+                                var resultq = (arrOne[i] + arrTwo[j]) - arrThree[h];
+                                if(resultq > 0 && resultq < 100) {
+                                    var heheq = "<li>" + "(" + arrOne[i] + "+" + arrTwo[j] + ")" + "-" + arrThree[h] + "=" + resultq + "</li>";
+                                    n.push(heheq);
+                                }
+                            } else if(kuohao == 2) {
+                                var resulth = arrOne[i] + (arrTwo[j] - arrThree[h]),
+                                    resultk = arrTwo[j] - arrThree[h];
+                                if(resulth > 0 && resulth < 100 && resultk > 0) {
+                                    var heheh = "<li>" +  arrOne[i] + "+" + "(" + arrTwo[j] + "-" + arrThree[h] + ")" + "=" + resulth + "</li>";
+                                    n.push(heheh);
+                                }
+                            } else if(kuohao == 0) {
+                                var result = arrOne[i] + arrTwo[j] - arrThree[h];
+                                if(result > 0 && result < 100) {
+                                    var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "-" + arrThree[h] + "=" + result + "</li>";
+                                    n.push(hehe);
+                                }
                             }
+
                         }
                     }
 
@@ -109,16 +125,30 @@
         },
 
         //混合运算——加乘
-        mixAddMul: function(arrOne,arrTwo,arrThree) {
+        mixAddMul: function(arrOne,arrTwo,arrThree,kuohao) {
             var n = [];
             for(var i = 0; i <= arrOne.length; i++) {
                 for(var j= 0; j <= arrTwo.length; j++) {
                     for(var h = 0; h<= arrThree.length; h++) {
                         if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
-                            var result = arrOne[i] + arrTwo[j] * arrThree[h];
-                            if(result > 0 && result < 100) {
-                                var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "×" + arrThree[h] + "=" + result + "</li>";
-                                n.push(hehe);
+                            if(kuohao == 1) {
+                                var resultq = (arrOne[i] + arrTwo[j]) * arrThree[h];
+                                if(resultq > 0 && resultq < 100) {
+                                    var heheq = "<li>" + "(" + arrOne[i] + "+" + arrTwo[j] + ")" + "×" + arrThree[h] + "=" + resultq + "</li>";
+                                    n.push(heheq);
+                                }
+                            } else if(kuohao == 2) {
+                                var resulth = arrOne[i] + (arrTwo[j] * arrThree[h]);
+                                if(resulth > 0 && resulth < 100) {
+                                    var heheh = "<li>" +  arrOne[i] + "+" + "(" + arrTwo[j] + "×" + arrThree[h] + ")" + "=" + resulth + "</li>";
+                                    n.push(heheh);
+                                }
+                            } else if(kuohao == 0) {
+                                var result = arrOne[i] + arrTwo[j] * arrThree[h];
+                                if(result > 0 && result < 100) {
+                                    var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "×" + arrThree[h] + "=" + result + "</li>";
+                                    n.push(hehe);
+                                }
                             }
                         }
                     }
@@ -129,21 +159,38 @@
         },
 
         //混合运算——加除
-        mixAddDiv: function(arrOne,arrTwo,arrThree) {
+        mixAddDiv: function(arrOne,arrTwo,arrThree,kuohao) {
             var n = [];
             for(var i = 0; i <= arrOne.length; i++) {
                 for(var j= 0; j <= arrTwo.length; j++) {
                     for(var h = 0; h<= arrThree.length; h++) {
                         if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
-                            var result = arrOne[i] + arrTwo[j] / arrThree[h];
-                            var r =/^[0-9]*[1-9][0-9]*$/;
-                            if(result > 0 && result < 100 && r.test(result)) {
-                                var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "÷" + arrThree[h] + "=" + result + "</li>";
-                                n.push(hehe);
+                            if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
+                                if(kuohao == 1) {
+                                    var resultq = (arrOne[i] + arrTwo[j]) / arrThree[h];
+                                    var rq =/^[0-9]*[1-9][0-9]*$/;
+                                    if(resultq > 0 && resultq < 100 && rq.test(resultq)) {
+                                        var heheq = "<li>" + "(" + arrOne[i] + "+" + arrTwo[j] + ")" + "÷" + arrThree[h] + "=" + resultq + "</li>";
+                                        n.push(heheq);
+                                    }
+                                } else if(kuohao == 2) {
+                                    var resulth = arrOne[i] + (arrTwo[j] / arrThree[h]);
+                                    var rh =/^[0-9]*[1-9][0-9]*$/;
+                                    if(resulth > 0 && resulth < 100 && rh.test(resulth)) {
+                                        var heheh = "<li>" +  arrOne[i] + "+" + "(" + arrTwo[j] + "÷" + arrThree[h] + ")" + "=" + resulth + "</li>";
+                                        n.push(heheh);
+                                    }
+                                } else if(kuohao == 0) {
+                                    var result = arrOne[i] + arrTwo[j] / arrThree[h];
+                                    var r =/^[0-9]*[1-9][0-9]*$/;
+                                    if(result > 0 && result < 100 && r.test(result)) {
+                                        var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "÷" + arrThree[h] + "=" + result + "</li>";
+                                        n.push(hehe);
+                                    }
+                                }
                             }
                         }
                     }
-
                 }
             }
             return n;
