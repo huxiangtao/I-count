@@ -76,8 +76,10 @@
                     for(var h = 0; h<= arrThree.length; h++) {
                         if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
                             var result = arrOne[i] + arrTwo[j] + arrThree[h];
-                            var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "+" + arrThree[h] + "=" + result + "</li>";
-                            n.push(hehe);
+                            if(result > 0 && result < 100) {
+                                var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "+" + arrThree[h] + "=" + result + "</li>";
+                                n.push(hehe);
+                            }
                         }
                     }
 
@@ -94,7 +96,7 @@
                     for(var h = 0; h<= arrThree.length; h++) {
                         if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
                             var result = arrOne[i] + arrTwo[j] - arrThree[h];
-                            if(result > 0) {
+                            if(result > 0 && result < 100) {
                                 var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "-" + arrThree[h] + "=" + result + "</li>";
                                 n.push(hehe);
                             }
@@ -236,8 +238,7 @@
                     for(var h = 0; h<= arrThree.length; h++) {
                         if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
                             var result = arrOne[i] * arrTwo[j] + arrThree[h];
-                            var r =/^[0-9]*[1-9][0-9]*$/;
-                            if(result > 0 && result < 100 && r.test(result)) {
+                            if(result > 0 && result < 100) {
                                 var hehe = "<li>"+ arrOne[i] + "×" + arrTwo[j] + "＋" + arrThree[h] + "=" + result + "</li>";
                                 n.push(hehe);
                             }
@@ -278,8 +279,7 @@
                     for(var h = 0; h<= arrThree.length; h++) {
                         if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
                             var result = arrOne[i] * arrTwo[j] * arrThree[h];
-                            var r =/^[0-9]*[1-9][0-9]*$/;
-                            if(result > 0 && result < 100 && r.test(result)) {
+                            if(result > 0 && result < 100) {
                                 var hehe = "<li>"+ arrOne[i] + "×" + arrTwo[j] + "×" + arrThree[h] + "=" + result + "</li>";
                                 n.push(hehe);
                             }
