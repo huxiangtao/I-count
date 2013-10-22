@@ -79,6 +79,11 @@
                             </form>
                         </li>
                         <li>
+                            <h5 class="unit-name">是否带括号：</h5>
+                            <label class="radio"><input type="radio" name="bracket" id="optionsRadios1" value="true" checked>是</label>
+                            <label class="radio"><input type="radio" name="bracket" id="optionsRadios2" value="false">否</label>
+                        </li>
+                        <!--<li>
                             <h5 class="unit-name">是否进位：</h5>
                             <label class="radio"><input type="radio" name="jinwei" id="optionsRadios1" value="true" checked>是</label>
                             <label class="radio"><input type="radio" name="jinwei" id="optionsRadios2" value="false">否</label>
@@ -92,7 +97,7 @@
                             <h5 class="unit-name">是否几百几十：</h5>
                             <label class="radio"><input type="radio" name="jibaijishi" id="optionsRadios5" value="true" checked>是</label>
                             <label class="radio"><input type="radio" name="jibaijishi" id="optionsRadios6" value="false">否</label>
-                        </li>
+                        </li>-->
                         <li>
                             <button id="run" style="width:69%;margin-right:10px;" class="btn btn-primary pull-left" type="button">确定</button>
                             <button id="cancel" class="btn pull-left" type="button">取消</button>
@@ -148,12 +153,12 @@ function unique1(n) {
 //去除答案
 function deAnswer(n) {
 
-    var result = n.map(function(x) {
+    var resullt = n.map(function(x) {
         var h = x.split("=");
         return x = h[0]+"=";
     });
 
-    return result;
+    return resullt;
 
 }
 

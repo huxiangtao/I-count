@@ -43,18 +43,19 @@
     $runButton.click(function() {
         var $oneInput = $formOne.find("option:selected").text(),
             $twoInput = $formTwo.find("option:selected").text(),
-            $showLimit = 100,/*parseInt($('#show-limit').val()),*/
+            $showLimit = 1000,/*parseInt($('#show-limit').val()),*/
             $oneMinNum = parseInt($('#one-min').val()),
             $oneMaxNum = parseInt($('#one-max').val()),
             $twoMinNum = parseInt($('#two-min').val()),
             $twoMaxNum = parseInt($('#two-max').val()),
             $thirdMinNum = parseInt($('#third-min').val()),
             $thirdMaxNum = parseInt($('#third-max').val()),
+            $checkbrack = $('input:radio[name="bracket"]:checked').val(), //是否括号
             $checkjinwei = $('input:radio[name="jinwei"]:checked').val(), //是否进位
             $checktuiwei = $('input:radio[name="tuiwei"]:checked').val(), //是否退位
-            arrOne = model.unIque(model.RandomNums($oneMinNum,$oneMaxNum,$showLimit)),
-            arrTwo = model.unIque(model.RandomNums($twoMinNum,$twoMaxNum,$showLimit)),
-            arrThree = model.unIque(model.RandomNums($thirdMinNum,$thirdMaxNum,$showLimit)),
+            arrOne = randomNums($oneMinNum,$oneMaxNum,$showLimit),
+            arrTwo = randomNums($twoMinNum,$twoMaxNum,$showLimit),
+            arrThree = randomNums($thirdMinNum,$thirdMaxNum,$showLimit),
             $jibaijishi = $('input:radio[name="jibaijishi"]:checked').val(); //是否几百几十
 
 
@@ -67,8 +68,8 @@
                     finArrOne = model.filterNum(allArrOne),
                     finArrTwo = model.filterNum(allArrTwo);
 
-                var result = model.unIque(shuffle(model.Addition(finArrOne,finArrTwo)));//去重并且生成字符串
-                $ksContent.html(result);
+                var resullt = model.unIque(shuffle(model.Addition(finArrOne,finArrTwo)));//去重并且生成字符串
+                $ksContent.html(resullt);
 
             } else {
 
@@ -81,22 +82,11 @@
         } else if($oneInput === '乘' && $twoInput === '默认') {
             $ksContent.html(shuffle(model.Multiplication($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)));
         } else if($oneInput === '除' && $twoInput === '默认') {
-            $ksContent.html(shuffle(model.Division($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)));
-        } else if($oneInput === '加' && $twoInput === '加') {
-            var lianJia = model.unIque(shuffle(model.mixAdd(arrOne,arrTwo,arrThree)));//去重并且生成字符串——连加
-            $ksContent.html(lianJia);
-        } else if($oneInput === '加' && $twoInput === '减') {
-            var jiajian = model.unIque(shuffle(model.mixAddSub(arrOne,arrTwo,arrThree)));//去重并且生成字符串——连加
-            $ksContent.html(jiajian);
-        } else if($oneInput === '加' && $twoInput === '乘') {
-            var jiacheng = model.unIque(shuffle(model.mixAddMul(arrOne,arrTwo,arrThree)));//去重并且生成字符串——连加
-            $ksContent.html(jiacheng);
-        } else if($oneInput === '加' && $twoInput === '除') {
-            var jiachu = model.unIque(shuffle(model.mixAddDiv(arrOne,arrTwo,arrThree)));//去重并且生成字符串——连加
-            $ksContent.html(jiachu);
-        } else if($oneInput === '减' && $twoInput === '加') {
-            var jianjia = model.unIque(shuffle(model.mixSubAdd(arrOne,arrTwo,arrThree)));//去重并且生成字符串——连加
-            $ksContent.html(jianjia);
+            if($checkbrack == 'true') {
+                Divbracket(arrOne,arrTwo);
+            } else if($checkbrack == 'false'){
+                Div(arrOne,arrTwo);
+            }
         }
 
     });
@@ -117,6 +107,20 @@
         return valArr;
     }
 
-    //parseInt()转换成数字的方法
+    //获得随机数组
+    function randomNums(MinNum,MaxNum,Limit) {
+        return model.unIque(model.RandomNums(MinNum,MaxNum,Limit));
+    }
+
+    function Div(arrOne,arrTwo) {
+        var result = model.unIque(shuffle(model.Division(arrOne,arrTwo)));//去重并且生成字符串
+        $ksContent.html(result);
+    }
+
+
+    function Divbracket(arrOne,arrTwo) {
+        var result = model.unIque(shuffle(model.DivisionBracket(arrOne,arrTwo)));//去重并且生成字符串
+        $ksContent.html(result);
+    }
 
 })(window.model);

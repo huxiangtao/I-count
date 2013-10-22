@@ -31,9 +31,9 @@
             $kuohao = $formKuohao.find("option:selected").text(),
             $showLimit = 100;/*parseInt($('#show-limit').val()),*/
 
-        var arrOne = randomNums(1,100,100),
-            arrTwo = randomNums(1,100,100),
-            arrThree = randomNums(1,100,100),
+        var arrOne = [],
+            arrTwo = [],
+            arrThree = [],
             kuohao = 0;
 
 
@@ -57,6 +57,10 @@
 
         } else if($oneInput === '加' && $twoInput === '乘') {
 
+            arrOne = randomNums(1,100,100);
+            arrTwo = randomNums(1,10,10);
+            arrThree = randomNums(1,9,10);
+
             if($kuohao === '前') {
                 kuohao = 1;
                 unImixAm(arrOne,arrTwo,arrThree,kuohao);
@@ -68,6 +72,10 @@
             }
 
         } else if($oneInput === '加' && $twoInput === '除') {
+
+            arrOne = randomNums(1,100,100);
+            arrTwo = randomNums(1,81,10);
+            arrThree = randomNums(1,9,10);
 
             if($kuohao === '前') {
                 kuohao = 1;
@@ -81,13 +89,30 @@
 
         } else if($oneInput === '减' && $twoInput === '加') {
 
-            unImixSa(arrOne,arrTwo,arrThree);
+            arrOne = randomNums(1,100,100);
+            arrTwo = randomNums(1,100,100);
+            arrThree = randomNums(1,9,10);
+
+            if($kuohao === '前') {
+                kuohao = 1;
+                unImixSa(arrOne,arrTwo,arrThree,kuohao);
+            } else if($kuohao === '后') {
+                kuohao = 2;
+                unImixSa(arrOne,arrTwo,arrThree,kuohao);
+            } else if($kuohao === '默认') {
+                unImixSa(arrOne,arrTwo,arrThree,kuohao);
+            }
 
         } else if($oneInput === '减' && $twoInput === '减') {
 
             unImixSub(arrOne,arrTwo,arrThree);
 
         } else if($oneInput === '减' && $twoInput === '乘') {
+
+            if($kuohao === '前') {
+                kuohao = 1;
+
+            }
 
             unImixSm(arrOne,arrTwo,arrThree);
 
@@ -178,9 +203,18 @@
         }
     }
 
-    function unImixSa(arrOne,arrTwo,arrThree) {
-        var result = model.unIque(shuffle(model.mixSubAdd(arrOne,arrTwo,arrThree)));
-        $ksContent.html(result);
+    function unImixSa(arrOne,arrTwo,arrThree,kuohao) {
+        if(kuohao == 1) {
+            var resultq = model.unIque(shuffle(model.mixSubAdd(arrOne,arrTwo,arrThree,kuohao)));
+            $ksContent.html(resultq);
+        } else if(kuohao == 2) {
+            var resulth = model.unIque(shuffle(model.mixSubAdd(arrOne,arrTwo,arrThree,kuohao)));
+            $ksContent.html(resulth);
+        } else if(kuohao == 0) {
+            var result = model.unIque(shuffle(model.mixSubAdd(arrOne,arrTwo,arrThree,kuohao)));
+            $ksContent.html(result);
+        }
+
     }
 
     function unImixSub(arrOne,arrTwo,arrThree) {
