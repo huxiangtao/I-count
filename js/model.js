@@ -126,47 +126,7 @@
             return n;
         },
 
-        //混合运算——减加
-        mixSubAdd: function(arrOne,arrTwo,arrThree) {
-            var n = [];
-            for(var i = 0; i <= arrOne.length; i++) {
-                for(var j= 0; j <= arrTwo.length; j++) {
-                    for(var h = 0; h<= arrThree.length; h++) {
-                        if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
-                            var result = arrOne[i] - arrTwo[j] + arrThree[h];
-                            if(result > 0 && result < 100) {
-                                var hehe = "<li>"+ arrOne[i] + "-" + arrTwo[j] + "+" + arrThree[h] + "=" + result + "</li>";
-                                n.push(hehe);
-                            }
-                        }
-                    }
-
-                }
-            }
-            return n;
-        },
-
-        //混合运算——减加
-        mixSubAdd: function(arrOne,arrTwo,arrThree) {
-            var n = [];
-            for(var i = 0; i <= arrOne.length; i++) {
-                for(var j= 0; j <= arrTwo.length; j++) {
-                    for(var h = 0; h<= arrThree.length; h++) {
-                        if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
-                            var result = arrOne[i] - arrTwo[j] + arrThree[h];
-                            if(result > 0 && result < 100) {
-                                var hehe = "<li>"+ arrOne[i] + "-" + arrTwo[j] + "+" + arrThree[h] + "=" + result + "</li>";
-                                n.push(hehe);
-                            }
-                        }
-                    }
-
-                }
-            }
-            return n;
-        },
-
-        //混合运算——减加
+        //混合运算——加除
         mixAddDiv: function(arrOne,arrTwo,arrThree) {
             var n = [];
             for(var i = 0; i <= arrOne.length; i++) {
@@ -186,6 +146,261 @@
             }
             return n;
         },
+
+        //混合运算——减加
+        mixSubAdd: function(arrOne,arrTwo,arrThree) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    for(var h = 0; h<= arrThree.length; h++) {
+                        if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
+                            var result = arrOne[i] - arrTwo[j] + arrThree[h];
+                            if(result > 0 && result < 100) {
+                                var hehe = "<li>"+ arrOne[i] + "-" + arrTwo[j] + "+" + arrThree[h] + "=" + result + "</li>";
+                                n.push(hehe);
+                            }
+                        }
+                    }
+
+                }
+            }
+            return n;
+        },
+
+        //混合运算——减减
+        mixSub: function(arrOne,arrTwo,arrThree) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    for(var h = 0; h<= arrThree.length; h++) {
+                        if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
+                            var result = arrOne[i] - arrTwo[j] - arrThree[h];
+                            if(result > 0 && result < 100) {
+                                var hehe = "<li>"+ arrOne[i] + "-" + arrTwo[j] + "-" + arrThree[h] + "=" + result + "</li>";
+                                n.push(hehe);
+                            }
+                        }
+                    }
+
+                }
+            }
+            return n;
+        },
+
+        //混合运算——减乘
+        mixSubMul: function(arrOne,arrTwo,arrThree) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    for(var h = 0; h<= arrThree.length; h++) {
+                        if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
+                            var result = arrOne[i] - arrTwo[j] * arrThree[h];
+                            if(result > 0 && result < 100) {
+                                var hehe = "<li>"+ arrOne[i] + "-" + arrTwo[j] + "×" + arrThree[h] + "=" + result + "</li>";
+                                n.push(hehe);
+                            }
+                        }
+                    }
+
+                }
+            }
+            return n;
+        },
+
+        //混合运算——减除
+        mixSubDiv: function(arrOne,arrTwo,arrThree) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    for(var h = 0; h<= arrThree.length; h++) {
+                        if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
+                            var result = arrOne[i] - arrTwo[j] / arrThree[h];
+                            var r =/^[0-9]*[1-9][0-9]*$/;
+                            if(result > 0 && result < 100 && r.test(result)) {
+                                var hehe = "<li>"+ arrOne[i] + "-" + arrTwo[j] + "÷" + arrThree[h] + "=" + result + "</li>";
+                                n.push(hehe);
+                            }
+                        }
+                    }
+
+                }
+            }
+            return n;
+        },
+
+        //混合运算——乘加
+        mixMulAdd: function(arrOne,arrTwo,arrThree) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    for(var h = 0; h<= arrThree.length; h++) {
+                        if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
+                            var result = arrOne[i] * arrTwo[j] + arrThree[h];
+                            var r =/^[0-9]*[1-9][0-9]*$/;
+                            if(result > 0 && result < 100 && r.test(result)) {
+                                var hehe = "<li>"+ arrOne[i] + "×" + arrTwo[j] + "＋" + arrThree[h] + "=" + result + "</li>";
+                                n.push(hehe);
+                            }
+                        }
+                    }
+
+                }
+            }
+            return n;
+        },
+
+        //混合运算——乘减
+        mixMulSub: function(arrOne,arrTwo,arrThree) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    for(var h = 0; h<= arrThree.length; h++) {
+                        if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
+                            var result = arrOne[i] * arrTwo[j] - arrThree[h];
+                            var r =/^[0-9]*[1-9][0-9]*$/;
+                            if(result > 0 && result < 100 && r.test(result)) {
+                                var hehe = "<li>"+ arrOne[i] + "×" + arrTwo[j] + "-" + arrThree[h] + "=" + result + "</li>";
+                                n.push(hehe);
+                            }
+                        }
+                    }
+
+                }
+            }
+            return n;
+        },
+
+        //混合运算——乘乘
+        mixMul: function(arrOne,arrTwo,arrThree) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    for(var h = 0; h<= arrThree.length; h++) {
+                        if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
+                            var result = arrOne[i] * arrTwo[j] * arrThree[h];
+                            var r =/^[0-9]*[1-9][0-9]*$/;
+                            if(result > 0 && result < 100 && r.test(result)) {
+                                var hehe = "<li>"+ arrOne[i] + "×" + arrTwo[j] + "×" + arrThree[h] + "=" + result + "</li>";
+                                n.push(hehe);
+                            }
+                        }
+                    }
+
+                }
+            }
+            return n;
+        },
+
+        //混合运算——乘除
+        mixMulDiv: function(arrOne,arrTwo,arrThree) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    for(var h = 0; h<= arrThree.length; h++) {
+                        if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
+                            var result = arrOne[i] * arrTwo[j] / arrThree[h];
+                            var r =/^[0-9]*[1-9][0-9]*$/;
+                            if(result > 0 && result < 100 && r.test(result)) {
+                                var hehe = "<li>"+ arrOne[i] + "×" + arrTwo[j] + "÷" + arrThree[h] + "=" + result + "</li>";
+                                n.push(hehe);
+                            }
+                        }
+                    }
+
+                }
+            }
+            return n;
+        },
+
+        //混合运算——除加
+        mixDivAdd: function(arrOne,arrTwo,arrThree) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    for(var h = 0; h<= arrThree.length; h++) {
+                        if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
+                            var result = arrOne[i] / arrTwo[j] + arrThree[h];
+                            var r =/^[0-9]*[1-9][0-9]*$/;
+                            if(result > 0 && result < 100 && r.test(result)) {
+                                var hehe = "<li>"+ arrOne[i] + "÷" + arrTwo[j] + "+" + arrThree[h] + "=" + result + "</li>";
+                                n.push(hehe);
+                            }
+                        }
+                    }
+
+                }
+            }
+            return n;
+        },
+
+        //混合运算——除减
+        mixDivSub: function(arrOne,arrTwo,arrThree) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    for(var h = 0; h<= arrThree.length; h++) {
+                        if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
+                            var result = arrOne[i] / arrTwo[j] - arrThree[h];
+                            var r =/^[0-9]*[1-9][0-9]*$/;
+                            if(result > 0 && result < 100 && r.test(result)) {
+                                var hehe = "<li>"+ arrOne[i] + "÷" + arrTwo[j] + "-" + arrThree[h] + "=" + result + "</li>";
+                                n.push(hehe);
+                            }
+                        }
+                    }
+
+                }
+            }
+            return n;
+        },
+
+        //混合运算——除乘
+        mixDivMul: function(arrOne,arrTwo,arrThree) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    for(var h = 0; h<= arrThree.length; h++) {
+                        if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
+                            var result = arrOne[i] / arrTwo[j] * arrThree[h];
+                            var r =/^[0-9]*[1-9][0-9]*$/;
+                            if(result > 0 && result < 100 && r.test(result)) {
+                                var hehe = "<li>"+ arrOne[i] + "÷" + arrTwo[j] + "×" + arrThree[h] + "=" + result + "</li>";
+                                n.push(hehe);
+                            }
+                        }
+                    }
+
+                }
+            }
+            return n;
+        },
+
+        //混合运算——除除
+        mixDiv: function(arrOne,arrTwo,arrThree) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    for(var h = 0; h<= arrThree.length; h++) {
+                        if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
+                            var result = arrOne[i] / arrTwo[j] / arrThree[h];
+                            var r =/^[0-9]*[1-9][0-9]*$/;
+                            if(result > 0 && result < 100 && r.test(result)) {
+                                var hehe = "<li>"+ arrOne[i] + "÷" + arrTwo[j] + "÷" + arrThree[h] + "=" + result + "</li>";
+                                n.push(hehe);
+                            }
+                        }
+                    }
+
+                }
+            }
+            return n;
+        },
+
+
+
+
+
+
 
         //获取随机数们
         RandomNums: function(min,max,limit) {

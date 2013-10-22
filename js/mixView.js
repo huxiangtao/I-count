@@ -43,25 +43,160 @@
 
         if($oneInput === '加' && $twoInput === '加') {
 
-                unImixStr(arrOne,arrTwo,arrThree);//去重并且生成字符串——连加
+            unImixAdd(arrOne,arrTwo,arrThree);
 
         } else if($oneInput === '加' && $twoInput === '减') {
-            var jiajian = model.unIque(shuffle(model.mixAddSub(arrOne,arrTwo,arrThree)));//去重并且生成字符串——连加
-            $ksContent.html(jiajian);
+
+            unImixAs(arrOne,arrTwo,arrThree);
+
         } else if($oneInput === '加' && $twoInput === '乘') {
-            var jiacheng = model.unIque(shuffle(model.mixAddMul(arrOne,arrTwo,arrThree)));//去重并且生成字符串——连加
-            $ksContent.html(jiacheng);
+
+            unImixAm(arrOne,arrTwo,arrThree);
+
         } else if($oneInput === '加' && $twoInput === '除') {
-            var jiachu = model.unIque(shuffle(model.mixAddDiv(arrOne,arrTwo,arrThree)));//去重并且生成字符串——连加
-            $ksContent.html(jiachu);
+
+            unImixAd(arrOne,arrTwo,arrThree);
+
         } else if($oneInput === '减' && $twoInput === '加') {
-            var jianjia = model.unIque(shuffle(model.mixSubAdd(arrOne,arrTwo,arrThree)));//去重并且生成字符串——连加
-            $ksContent.html(jianjia);
+
+            unImixSa(arrOne,arrTwo,arrThree);
+
+        } else if($oneInput === '减' && $twoInput === '减') {
+
+            unImixSub(arrOne,arrTwo,arrThree);
+
+        } else if($oneInput === '减' && $twoInput === '乘') {
+
+            unImixSm(arrOne,arrTwo,arrThree);
+
+        } else if($oneInput === '减' && $twoInput === '除') {
+
+            unImixSd(arrOne,arrTwo,arrThree);
+
+        } else if($oneInput === '乘' && $twoInput === '加') {
+
+            unImixMa(arrOne,arrTwo,arrThree);
+
+        } else if($oneInput === '乘' && $twoInput === '减') {
+
+            unImixMs(arrOne,arrTwo,arrThree);
+
+        } else if($oneInput === '乘' && $twoInput === '乘') {
+
+            unImixMul(arrOne,arrTwo,arrThree);
+
+        } else if($oneInput === '乘' && $twoInput === '除') {
+
+            unImixMd(arrOne,arrTwo,arrThree);
+
+        } else if($oneInput === '除' && $twoInput === '加') {
+
+            unImixDa(arrOne,arrTwo,arrThree);
+
+        } else if($oneInput === '除' && $twoInput === '减') {
+
+            unImixDs(arrOne,arrTwo,arrThree);
+
+        } else if($oneInput === '除' && $twoInput === '乘') {
+
+            unImixDm(arrOne,arrTwo,arrThree);
+
+        } else if($oneInput === '除' && $twoInput === '除') {
+
+            unImixDiv(arrOne,arrTwo,arrThree);
+
         }
 
     });
 
-    //shuffle 乱序
+
+    //去重并且混合返回字符串
+
+    function unImixAdd(arrOne,arrTwo,arrThree) {
+        var result = model.unIque(shuffle(model.mixAdd(arrOne,arrTwo,arrThree)));
+        $ksContent.html(result);
+    }
+
+    function unImixAs(arrOne,arrTwo,arrThree) {
+        var result = model.unIque(shuffle(model.mixAddSub(arrOne,arrTwo,arrThree)));
+        $ksContent.html(result);
+    }
+
+    function unImixAm(arrOne,arrTwo,arrThree) {
+        var result = model.unIque(shuffle(model.mixAddMul(arrOne,arrTwo,arrThree)));
+        $ksContent.html(result);
+    }
+
+    function unImixAd(arrOne,arrTwo,arrThree) {
+        var result = model.unIque(shuffle(model.mixAddDiv(arrOne,arrTwo,arrThree)));
+        $ksContent.html(result);
+    }
+
+    function unImixSa(arrOne,arrTwo,arrThree) {
+        var result = model.unIque(shuffle(model.mixSubAdd(arrOne,arrTwo,arrThree)));
+        $ksContent.html(result);
+    }
+
+    function unImixSub(arrOne,arrTwo,arrThree) {
+        var result = model.unIque(shuffle(model.mixSub(arrOne,arrTwo,arrThree)));
+        $ksContent.html(result);
+    }
+
+    function unImixSm(arrOne,arrTwo,arrThree) {
+        var result = model.unIque(shuffle(model.mixSubMul(arrOne,arrTwo,arrThree)));
+        $ksContent.html(result);
+    }
+
+    function unImixSd(arrOne,arrTwo,arrThree) {
+        var result = model.unIque(shuffle(model.mixSubDiv(arrOne,arrTwo,arrThree)));
+        $ksContent.html(result);
+    }
+
+    function unImixMa(arrOne,arrTwo,arrThree) {
+        var result = model.unIque(shuffle(model.mixMulAdd(arrOne,arrTwo,arrThree)));
+        $ksContent.html(result);
+    }
+
+    function unImixMs(arrOne,arrTwo,arrThree) {
+        var result = model.unIque(shuffle(model.mixMulSub(arrOne,arrTwo,arrThree)));
+        $ksContent.html(result);
+    }
+
+    function unImixMul(arrOne,arrTwo,arrThree) {
+        var result = model.unIque(shuffle(model.mixMul(arrOne,arrTwo,arrThree)));
+        $ksContent.html(result);
+    }
+
+    function unImixMd(arrOne,arrTwo,arrThree) {
+        var result = model.unIque(shuffle(model.mixMulDiv(arrOne,arrTwo,arrThree)));
+        $ksContent.html(result);
+    }
+
+    function unImixDa(arrOne,arrTwo,arrThree) {
+        var result = model.unIque(shuffle(model.mixDivAdd(arrOne,arrTwo,arrThree)));
+        $ksContent.html(result);
+    }
+
+    function unImixDs(arrOne,arrTwo,arrThree) {
+        var result = model.unIque(shuffle(model.mixDivSub(arrOne,arrTwo,arrThree)));
+        $ksContent.html(result);
+    }
+
+    function unImixDm(arrOne,arrTwo,arrThree) {
+        var result = model.unIque(shuffle(model.mixDivMul(arrOne,arrTwo,arrThree)));
+        $ksContent.html(result);
+    }
+
+    function unImixDiv(arrOne,arrTwo,arrThree) {
+        var result = model.unIque(shuffle(model.mixDiv(arrOne,arrTwo,arrThree)));
+        $ksContent.html(result);
+    }
+
+
+
+
+
+        //shuffle 乱序
     function shuffle(inputArr) {
         var valArr = [],k = '';
 
@@ -75,20 +210,6 @@
         });
 
         return valArr;
-    }
-
-    //去重并且混合返回字符串
-
-    var fangfa = {
-        unImixStr
-    };
-
-    function unImixStr(arrOne,arrTwo,arrThree,type) {
-        type = [];
-        if(type = mixAdd) {
-            var result = model.unIque(shuffle(model.mixAdd(arrOne,arrTwo,arrThree)));
-            $ksContent.html(result);
-        }
     }
 
     //获得随机数组
