@@ -56,36 +56,42 @@
             arrOne = randomNums($oneMinNum,$oneMaxNum,$showLimit),
             arrTwo = randomNums($twoMinNum,$twoMaxNum,$showLimit),
             arrThree = randomNums($thirdMinNum,$thirdMaxNum,$showLimit),
-            $jibaijishi = $('input:radio[name="jibaijishi"]:checked').val(); //是否几百几十
+            $jibaijishi = $('input:radio[name="jibaijishi"]:checked').val(), //是否几百几十
+            brack = 0;
 
 
 
         if($oneInput === '加' && $twoInput === '默认') {
-            if($jibaijishi == 'true') {
-
-                var allArrOne = model.traversal($oneMinNum,$oneMaxNum),
-                    allArrTwo = model.traversal($twoMinNum,$twoMaxNum),
-                    finArrOne = model.filterNum(allArrOne),
-                    finArrTwo = model.filterNum(allArrTwo);
-
-                var resullt = model.unIque(shuffle(model.Addition(finArrOne,finArrTwo)));//去重并且生成字符串
-                $ksContent.html(resullt);
-
-            } else {
-
-                var result = model.unIque(shuffle(model.Addition(arrOne,arrTwo)));//去重并且生成字符串
-                $ksContent.html(result);
-
+            if($checkbrack == 'true') {
+                brack = 1;
+                Add(arrOne,arrTwo,brack);
+            } else if($checkbrack == 'false'){
+                brack = 0;
+                Add(arrOne,arrTwo,brack);
             }
         } else if($oneInput === '减' && $twoInput === '默认') {
-            $ksContent.html(shuffle(model.Subtraction($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)));
+            if($checkbrack == 'true') {
+                brack = 1;
+                Sub(arrOne,arrTwo,brack);
+            } else if($checkbrack == 'false'){
+                brack = 0;
+                Sub(arrOne,arrTwo,brack);
+            }
         } else if($oneInput === '乘' && $twoInput === '默认') {
-            $ksContent.html(shuffle(model.Multiplication($oneMinNum,$oneMaxNum,$twoMinNum,$twoMaxNum)));
+            if($checkbrack == 'true') {
+                brack = 1;
+                Mul(arrOne,arrTwo,brack);
+            } else if($checkbrack == 'false'){
+                brack = 0;
+                Mul(arrOne,arrTwo,brack);
+            }
         } else if($oneInput === '除' && $twoInput === '默认') {
             if($checkbrack == 'true') {
-                Divbracket(arrOne,arrTwo);
+                brack = 1;
+                Div(arrOne,arrTwo,brack);
             } else if($checkbrack == 'false'){
-                Div(arrOne,arrTwo);
+                brack = 0;
+                Div(arrOne,arrTwo,brack);
             }
         }
 
@@ -112,15 +118,67 @@
         return model.unIque(model.RandomNums(MinNum,MaxNum,Limit));
     }
 
-    function Div(arrOne,arrTwo) {
+    function Add(arrOne,arrTwo,brack) {
+        var result = model.unIque(shuffle(model.Addition(arrOne,arrTwo)));//去重并且生成字符串
+        if(brack == 1) {
+            var oper = "+";
+            var bracResu = shuffle(bracket(result,oper));
+            $ksContent.html(bracResu);
+        } else if(brack == 0) {
+            $ksContent.html(result);
+        }
+    }
+
+    function Sub(arrOne,arrTwo,brack) {
+        var result = model.unIque(shuffle(model.Subtraction(arrOne,arrTwo)));//去重并且生成字符串
+        if(brack == 1) {
+            var oper = "-";
+            var bracResu = shuffle(bracket(result,oper));
+            $ksContent.html(bracResu);
+        } else if(brack == 0) {
+            $ksContent.html(result);
+        }
+    }
+
+    function Mul(arrOne,arrTwo,brack) {
+        var result = model.unIque(shuffle(model.Multiplication(arrOne,arrTwo)));//去重并且生成字符串
+        if(brack == 1) {
+            var oper = "×";
+            var bracResu = shuffle(bracket(result,oper));
+            $ksContent.html(bracResu);
+        } else if(brack == 0) {
+            $ksContent.html(result);
+        }
+    }
+
+    function Div(arrOne,arrTwo,brack) {
         var result = model.unIque(shuffle(model.Division(arrOne,arrTwo)));//去重并且生成字符串
-        $ksContent.html(result);
+        if(brack == 1) {
+            var oper = "÷";
+            var bracResu = shuffle(bracket(result,oper));
+            $ksContent.html(bracResu);
+        } else if(brack == 0) {
+            $ksContent.html(result);
+        }
     }
 
 
-    function Divbracket(arrOne,arrTwo) {
-        var result = model.unIque(shuffle(model.DivisionBracket(arrOne,arrTwo)));//去重并且生成字符串
-        $ksContent.html(result);
+
+    function bracket(n,oper) {
+        var resArr = [];
+        var resultq = n.map(function(x) {
+            var h = x.split(oper);
+            return x = "<li>" + "()" + oper + h[1] + "</li>";
+        });
+        var resulth = n.map(function(x) {
+            var h = x.split(oper);
+            var hs = h[1].split("=");
+            return x = h[0] + oper + "()" + "=" + hs[1];
+        });
+        for(var i = 0; i < n.length; i++) {
+            resArr[i] = resultq[i] + resulth[i];
+        }
+        return resArr;
     }
 
 })(window.model);

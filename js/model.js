@@ -26,14 +26,16 @@
         },
 
         //减法
-        Subtraction: function(startOne,endOne,startTwo,endTwo) {
+        Subtraction: function(arrOne,arrTwo) {
             var n = [];
-            for(var i = startOne;i <= endOne; i++) {
-                for(var j= startTwo;j <= endTwo; j++) {
-                    var result = i-j;
-                    if(result >= 0) {
-                        var hehe = "<li>"+ i + "-" + j + "=" + (i-j) + "</li>";
-                        n.push(hehe);
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    if(arrOne[i] != undefined && arrTwo[j] != undefined) {
+                        var result = arrOne[i] - arrTwo[j];
+                        if(result > 0) {
+                            var hehe = "<li>"+ arrOne[i] + "-" + arrTwo[j] + "=" + result + "</li>";
+                            n.push(hehe);
+                        }
                     }
                 }
             }
@@ -41,12 +43,17 @@
         },
 
         //乘法
-        Multiplication: function(startOne,endOne,startTwo,endTwo) {
+        Multiplication: function(arrOne,arrTwo) {
             var n = [];
-            for(var i = startOne ;i <= endOne; i++) {
-                for(var j= startTwo ;j <= endTwo; j++) {
-                    var hehe = "<li>"+ i + "×" + j + "=" + (i*j) + "</li>";
-                    n.push(hehe);
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    if(arrOne[i] != undefined && arrTwo[j] != undefined) {
+                        var result = arrOne[i] * arrTwo[j];
+                        if(result < 81) {
+                            var hehe = "<li>"+ arrOne[i] + "×" + arrTwo[j] + "=" + result + "</li>";
+                            n.push(hehe);
+                        }
+                    }
                 }
             }
             return n;
@@ -68,43 +75,6 @@
                 }
             }
             return n;
-        },
-
-        //带括号运算——除法
-        DivisionBracket: function(arrOne,arrTwo) {
-
-            //括号位置替换
-
-
-            var n = [];
-            for(var i = 0; i <= arrOne.length; i++) {
-                for(var j= 0; j <= arrTwo.length; j++) {
-                    if(arrOne[i] != undefined && arrTwo[j] != undefined) {
-                        var result = arrOne[i] / arrTwo[j];
-                        var modulo = arrOne[i] % arrTwo[j];
-                        if(modulo == 0 && result < 10) {
-                            var hehe = "<li>"+ arrOne[i] + "÷" + arrTwo[j] + "=" + result + "</li>";
-                            n.push(hehe);
-
-                        }
-                    }
-                }
-            }
-            divbracket(n);
-
-            function divbracket(n) {
-
-
-
-                    var result = n.map(function(x) {
-                        var h = x.split("÷");
-                        var hs = h[1].split("=");
-                        return x = "()" + "÷" + "h[1]";
-                    });
-                    return result;
-
-            }
-
         },
 
         //混合运算——加加
