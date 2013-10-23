@@ -13,7 +13,8 @@
         $formOne = $('#form-one'),
         $formTwo = $('#form-two'),
         $Operation =$('#operation'),
-        $ksContent = $(".ks-content");
+        $ksContent = $(".ks-content"),
+        $itemNumber = $(".item-number");
 
     $Operation.delegate($formOne,'click',function() {
         var $beforButtonSelsct = $('#form-one').find("option:selected").text(),
@@ -56,7 +57,7 @@
 
 
 
-        if($oneInput === '加' && $twoInput === '默认') {
+        if($oneInput === '加') {
             if($checkbrack == 'true') {
                 brack = 1;
                 Add(arrOne,arrTwo,brack);
@@ -64,7 +65,7 @@
                 brack = 0;
                 Add(arrOne,arrTwo,brack);
             }
-        } else if($oneInput === '减' && $twoInput === '默认') {
+        } else if($oneInput === '减') {
             if($checkbrack == 'true') {
                 brack = 1;
                 Sub(arrOne,arrTwo,brack);
@@ -72,7 +73,7 @@
                 brack = 0;
                 Sub(arrOne,arrTwo,brack);
             }
-        } else if($oneInput === '乘' && $twoInput === '默认') {
+        } else if($oneInput === '乘') {
             if($checkbrack == 'true') {
                 brack = 1;
                 Mul(arrOne,arrTwo,brack);
@@ -80,7 +81,7 @@
                 brack = 0;
                 Mul(arrOne,arrTwo,brack);
             }
-        } else if($oneInput === '除' && $twoInput === '默认') {
+        } else if($oneInput === '除') {
             if($checkbrack == 'true') {
                 brack = 1;
                 Div(arrOne,arrTwo,brack);
@@ -114,7 +115,8 @@
     }
 
     function Add(arrOne,arrTwo,brack) {
-        var result = model.unIque(shuffle(model.Addition(arrOne,arrTwo)));//去重并且生成字符串
+        var result = model.unIque(shuffle(model.Addition(arrOne,arrTwo))),//去重并且生成字符串
+            itemnumber = result.length;
         if(brack == 1) {
             var oper = "+";
             var bracResu = shuffle(bracket(result,oper));
@@ -122,6 +124,7 @@
         } else if(brack == 0) {
             $ksContent.html(result);
         }
+        $itemNumber.html(itemnumber);
     }
 
     function Sub(arrOne,arrTwo,brack) {
@@ -163,12 +166,12 @@
         var resArr = [];
         var resultq = n.map(function(x) {
             var h = x.split(oper);
-            return x = "<li>" + "()" + oper + h[1] + "</li>";
+            return x = "<li>" + "(  )" + oper + h[1] + "</li>";
         });
         var resulth = n.map(function(x) {
             var h = x.split(oper);
             var hs = h[1].split("=");
-            return x = h[0] + oper + "()" + "=" + hs[1];
+            return x = h[0] + oper + "(  )" + "=" + hs[1];
         });
         for(var i = 0; i < n.length; i++) {
             resArr[i] = resultq[i] + resulth[i];

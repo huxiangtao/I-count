@@ -17,8 +17,10 @@
                 for(var j= 0; j <= arrTwo.length; j++) {
                     if(arrOne[i] != undefined && arrTwo[j] != undefined) {
                         var result = arrOne[i] + arrTwo[j];
-                        var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "=" + result + "</li>";
-                        n.push(hehe);
+                        if(result < 100) {
+                            var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "=" + result + "</li>";
+                            n.push(hehe);
+                        }
                     }
                 }
             }
