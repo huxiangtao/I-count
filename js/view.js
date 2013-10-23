@@ -25,11 +25,6 @@
             $('#one-num').fadeOut();
             $('#two-num').fadeOut();
         }
-        if(!($beforButtonSelsctTwo === '默认')) {
-           $('#third-num').fadeIn();
-       } else {
-           $('#third-num').fadeOut();
-        }
     });
 
     function testStatus() {
