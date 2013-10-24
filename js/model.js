@@ -177,29 +177,36 @@
                     for(var h = 0; h<= arrThree.length; h++) {
                         if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
                             if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
-                                if(kuohao == 1) {
-                                    var resultq = (arrOne[i] + arrTwo[j]) / arrThree[h];
-                                    var rq =/^[0-9]*[1-9][0-9]*$/;
-                                    if(resultq > 0 && resultq < 10 && rq.test(resultq)) {
-                                        var heheq = "<li>" + "(" + arrOne[i] + "+" + arrTwo[j] + ")" + "÷" + arrThree[h] + "=" + resultq + "</li>";
-                                        n.push(heheq);
-                                    }
-                                } else if(kuohao == 2) {
-                                    var resulth = arrOne[i] + (arrTwo[j] / arrThree[h]);
-                                    var reskuohao = arrTwo[j] / arrThree[h];
-                                    var rh =/^[0-9]*[1-9][0-9]*$/;
-                                    if(resulth > 0 && resulth < 100 && rh.test(resulth) && reskuohao < 10) {
-                                        var heheh = "<li>" +  arrOne[i] + "+" + "(" + arrTwo[j] + "÷" + arrThree[h] + ")" + "=" + resulth + "</li>";
-                                        n.push(heheh);
-                                    }
-                                } else if(kuohao == 0) {
-                                    var result = arrOne[i] + arrTwo[j] / arrThree[h];
-                                    var reschu = arrTwo[j] / arrThree[h];
-                                    var r =/^[0-9]*[1-9][0-9]*$/;
-                                    if(result > 0 && result < 100 && r.test(result) && reschu < 10) {
-                                        var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "÷" + arrThree[h] + "=" + result + "</li>";
-                                        n.push(hehe);
-                                    }
+                                switch(kuohao) {
+                                    case 0 :
+                                        var result = arrOne[i] + arrTwo[j] / arrThree[h];
+                                        var reschu = arrTwo[j] / arrThree[h];
+                                        var r =/^[0-9]*[1-9][0-9]*$/;
+                                        if(result > 0 && result < 100 && r.test(result) && reschu < 10) {
+                                            var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "÷" + arrThree[h] + "=" + result + "</li>";
+                                            n.push(hehe);
+                                        }
+                                        break;
+
+                                    case 1 :
+                                        var resultq = (arrOne[i] + arrTwo[j]) / arrThree[h];
+                                        var rq =/^[0-9]*[1-9][0-9]*$/;
+                                        if(resultq > 0 && resultq < 10 && rq.test(resultq)) {
+                                            var heheq = "<li>" + "(" + arrOne[i] + "+" + arrTwo[j] + ")" + "÷" + arrThree[h] + "=" + resultq + "</li>";
+                                            n.push(heheq);
+                                        }
+                                        break;
+
+                                    case 2 :
+                                        var resulth = arrOne[i] + (arrTwo[j] / arrThree[h]);
+                                        var reskuohao = arrTwo[j] / arrThree[h];
+                                        var rh =/^[0-9]*[1-9][0-9]*$/;
+                                        if(resulth > 0 && resulth < 100 && rh.test(resulth) && reskuohao < 10) {
+                                            var heheh = "<li>" +  arrOne[i] + "+" + "(" + arrTwo[j] + "÷" + arrThree[h] + ")" + "=" + resulth + "</li>";
+                                            n.push(heheh);
+                                        }
+                                        break;
+
                                 }
                             }
                         }

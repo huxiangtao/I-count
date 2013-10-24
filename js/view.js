@@ -214,4 +214,16 @@
         return result;
     }
 
+    //去除答案
+    function deAnswer(n) {
+
+        var result = n.map(function(x) {
+            var h = x.split("=");
+            return x = h[0]+"=";
+        });
+
+        return result;
+
+    }
+
 })(window.model);
