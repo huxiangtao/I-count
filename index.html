@@ -71,9 +71,15 @@
                             </form>
                         </li>
                         <li>
-                            <h5 class="unit-name">是否带括号：</h5>
-                            <label class="radio"><input type="radio" name="bracket" id="optionsRadios1" value="true" checked>是</label>
-                            <label class="radio"><input type="radio" name="bracket" id="optionsRadios2" value="false">否</label>
+                            <h5 class="unit-name">附加条件：</h5>
+                            <form action="">
+                                <select id="form-require">
+                                    <option value="default">默认</option>
+                                    <option value="bracket">带括号</option>
+                                    <option value="operator">运算符填空</option>
+                                    <option value="than">比大小</option>
+                                </select>
+                            </form>
                         </li>
                         <li>
                             <h5 class="number-title">题目个数：</h5>
