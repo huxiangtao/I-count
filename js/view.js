@@ -229,8 +229,8 @@
     function MixOperator(arrOne,arrTwo) {
         var arrAddSubOne = randomNums(1,100,100),
             arrAddSubTwo = randomNums(1,100,100),
-            arrMulOne = randomNums(1,6,6),
-            arrMulTwo = randomNums(1,6,6);
+            arrMulOne = randomNums(1,9,9),
+            arrMulTwo = randomNums(1,9,9);
 
         var arrAdd = model.unIque(shuffle(model.Addition(arrAddSubOne,arrAddSubTwo))),
             arrSub = model.unIque(shuffle(model.Subtraction(arrAddSubOne,arrAddSubTwo))),
@@ -313,8 +313,9 @@
 
     //运算符填空
     function operator(n,oper) {
+        var replItem = "(" + oper + ")";
         var result = n.map(function(x) {
-            return x = x.replace(oper,"О");
+            return x = x.replace(oper,replItem);
         });
         return result;
     }
@@ -322,7 +323,7 @@
     //比大小
     function than(n) {
         var result = n.map(function(x) {
-            return x = x.replace("=","О");
+            return x = x.replace("=","（）");
         });
         return result;
     }
