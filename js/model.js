@@ -69,7 +69,7 @@
                     if(arrOne[i] != undefined && arrTwo[j] != undefined) {
                         var result = arrOne[i] / arrTwo[j];
                         var modulo = arrOne[i] % arrTwo[j];
-                        if(modulo == 0 && result < 10) {
+                        if(modulo == 0 && result <= 6) {
                             var hehe = "<li>"+ arrOne[i] + "÷" + arrTwo[j] + "=" + result + "</li>";
                             n.push(hehe);
                         }
@@ -682,7 +682,7 @@
                                     n.push(heheh);
                                 }
                                 break;
-                        }
+                            }
                         }
                     }
 
@@ -723,7 +723,7 @@
                                     n.push(heheh);
                                 }
                                 break;
-                        }
+                            }
                         }
                     }
 

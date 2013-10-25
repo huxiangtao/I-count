@@ -77,8 +77,15 @@
             case '加减乘除混合' :
                 MixAll(arrOne,arrTwo);
                 break;
-        }
 
+            case '带括号加减乘除混合' :
+                MixBracket(arrOne,arrTwo);
+                break;
+
+            case '运算符号加减乘除混合' :
+                MixOperator(arrOne,arrTwo);
+                break;
+        }
     });
 
     //shuffle 乱序
@@ -117,7 +124,7 @@
             itemnumber = result.length,
             oper = "+";
 
-        superSwitch(result,oper,condition);
+        $ksContent.html(superSwitch(result,oper,condition));
         $itemNumber.html(itemnumber);
     }
 
@@ -127,7 +134,7 @@
             itemnumber = result.length,
             oper = "-";
 
-        superSwitch(result,oper,condition);
+        $ksContent.html(superSwitch(result,oper,condition));
         $itemNumber.html(itemnumber);
     }
 
@@ -137,7 +144,7 @@
             itemnumber = result.length,
             oper = "×";
 
-        superSwitch(result,oper,condition);
+        $ksContent.html(superSwitch(result,oper,condition));
         $itemNumber.html(itemnumber);
     }
 
@@ -147,7 +154,7 @@
             itemnumber = result.length,
             oper = "÷";
 
-        superSwitch(result,oper,condition);
+        $ksContent.html(superSwitch(result,oper,condition));
         $itemNumber.html(itemnumber);
     }
 
@@ -157,7 +164,7 @@
             itemnumber = result.length,
             oper = "÷";
 
-        superSwitch(result,oper,condition);
+        $ksContent.html(superSwitch(result,oper,condition));
         $itemNumber.html(itemnumber);
     }
 
@@ -169,19 +176,22 @@
             itemnumber = resArr.length,
             oper = "÷";
 
-        superSwitch(resArr,oper,condition);
+        $ksContent.html(superSwitch(result,oper,condition));
         $itemNumber.html(itemnumber);
     }
 
     //加减乘除混合
     function MixAll(arrOne,arrTwo) {
         var arrAddSubOne = randomNums(1,100,100),
-            arrAddSubTwo = randomNums(1,100,100);
+            arrAddSubTwo = randomNums(1,100,100),
+            arrMulOne = randomNums(1,6,6),
+            arrMulTwo = randomNums(1,6,6);
+
         var arrAdd = model.unIque(shuffle(model.Addition(arrAddSubOne,arrAddSubTwo))),
             arrSub = model.unIque(shuffle(model.Subtraction(arrAddSubOne,arrAddSubTwo))),
-            arrMul = model.unIque(shuffle(model.Multiplication(arrOne,arrTwo))),
+            arrMul = model.unIque(shuffle(model.Multiplication(arrMulOne,arrMulTwo))),
             arrDiv = model.unIque(shuffle(model.Division(arrOne,arrTwo))),
-            mixAs = $.merge(arrAdd,arrSub),
+            mixAs = $.merge(arrAdd.slice(1,6),arrSub.slice(1,8)),
             mixMd = $.merge(arrMul,arrDiv),
             resArr = shuffle($.merge(mixAs,mixMd)),
             itemnumber = resArr.length;
@@ -189,6 +199,54 @@
         $ksContent.html(resArr);
         $itemNumber.html(itemnumber);
 
+    }
+
+    //带括号的加减乘除混合——临时解决办法
+    function MixBracket(arrOne,arrTwo) {
+        var arrAddSubOne = randomNums(1,100,100),
+            arrAddSubTwo = randomNums(1,100,100),
+            arrMulOne = randomNums(1,6,6),
+            arrMulTwo = randomNums(1,6,6);
+
+        var arrAdd = model.unIque(shuffle(model.Addition(arrAddSubOne,arrAddSubTwo))),
+            arrSub = model.unIque(shuffle(model.Subtraction(arrAddSubOne,arrAddSubTwo))),
+            arrMul = model.unIque(shuffle(model.Multiplication(arrMulOne,arrMulTwo))),
+            arrDiv = model.unIque(shuffle(model.Division(arrOne,arrTwo))),
+            arrAddbr = superSwitch(arrAdd,'+',1),
+            arrSubbr = superSwitch(arrSub,'-',1),
+            arrMulbr = superSwitch(arrMul,'×',1),
+            arrDivbr = superSwitch(arrDiv,'÷',1),
+            mixAs = $.merge(arrAddbr.slice(1,6),arrSubbr.slice(1,8)),
+            mixMd = $.merge(arrMulbr,arrDivbr),
+            resArr = shuffle($.merge(mixAs,mixMd)),
+            itemnumber = resArr.length;
+
+        $ksContent.html(resArr);
+        $itemNumber.html(itemnumber);
+    }
+
+    //运算符号填写加减乘除混合——临时解决办法
+    function MixOperator(arrOne,arrTwo) {
+        var arrAddSubOne = randomNums(1,100,100),
+            arrAddSubTwo = randomNums(1,100,100),
+            arrMulOne = randomNums(1,6,6),
+            arrMulTwo = randomNums(1,6,6);
+
+        var arrAdd = model.unIque(shuffle(model.Addition(arrAddSubOne,arrAddSubTwo))),
+            arrSub = model.unIque(shuffle(model.Subtraction(arrAddSubOne,arrAddSubTwo))),
+            arrMul = model.unIque(shuffle(model.Multiplication(arrMulOne,arrMulTwo))),
+            arrDiv = model.unIque(shuffle(model.Division(arrOne,arrTwo))),
+            arrAddbr = superSwitch(arrAdd,'+',2),
+            arrSubbr = superSwitch(arrSub,'-',2),
+            arrMulbr = superSwitch(arrMul,'×',2),
+            arrDivbr = superSwitch(arrDiv,'÷',2),
+            mixAs = $.merge(arrAddbr.slice(1,6),arrSubbr.slice(1,8)),
+            mixMd = $.merge(arrMulbr,arrDivbr),
+            resArr = shuffle($.merge(mixAs,mixMd)),
+            itemnumber = resArr.length;
+
+        $ksContent.html(resArr);
+        $itemNumber.html(itemnumber);
     }
 
 
@@ -221,24 +279,20 @@
     function superSwitch(result,oper,condition) {
         switch(condition) {
             case 0 :
-                $ksContent.html(result);
+                return result;
                 break;
 
             case 1 :
-                var bracResu = shuffle(conditionet(result,oper));
-                $ksContent.html(bracResu);
+                return result = shuffle(conditionet(result,oper));
                 break;
 
             case 2 :
-                var operResu = shuffle(operator(result,oper));
-                $ksContent.html(operResu);
+                return result = shuffle(operator(result,oper));
                 break;
 
             case 3 :
-                var thanResu = shuffle(than(result,oper));
-                $ksContent.html(thanResu);
+                return result = shuffle(than(result,oper));
                 break;
-
         }
     }
 
