@@ -79,6 +79,25 @@
             return n;
         },
 
+        //带余数除法
+        DivRemainder: function(arrOne,arrTwo) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    if(arrOne[i] != undefined && arrTwo[j] != undefined) {
+                        var modulo = arrOne[i] % arrTwo[j];
+                        var result = (arrOne[i] - modulo) / arrTwo[j];
+                        if(modulo !== 0 && result < 10 && arrOne[i] > arrTwo[j]) {
+                            var hehe = "<li>"+ arrOne[i] + "÷" + arrTwo[j] + "=" + result + "......" + modulo + "</li>";
+                            var reverse = "<li>" + arrTwo[j] + "×" + result + "+" + modulo + "=" + arrOne[i] + "</li>";
+                            n.push(hehe + reverse);
+                        }
+                    }
+                }
+            }
+            return n;
+        },
+
         //混合运算——加加
         mixAdd: function(arrOne,arrTwo,arrThree) {
             var n = [];
