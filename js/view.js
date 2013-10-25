@@ -176,23 +176,19 @@
         var condition = 0;
         switch (Input) {
             case 'default' :
-                condition = 0;
-                return condition;
+                return condition = 0;
                 break;
 
             case 'bracket' :
-                condition = 1;
-                return condition;
+                return condition = 1;
                 break;
 
             case 'operator' :
-                condition = 2;
-                return condition;
+                return condition = 2;
                 break;
 
             case 'than' :
-                condition = 3;
-                return condition;
+                return condition = 3;
                 break;
         }
     }
