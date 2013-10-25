@@ -1,5 +1,6 @@
 /*style*/
 select {width:158px;}
+#form-one,#form-two {width:78px;}
 #form-three {width:160px;}
 .ks-content {display:block;margin-top:100px;}
 .ks-content li {display:block;float:left;width:143px;padding:5px;margin:8px 40px;font-size:20px;}
