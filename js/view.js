@@ -73,6 +73,10 @@
             case '整除与非整除混编' :
                 Mixdiv(arrOne,arrTwo,condition);
                 break;
+
+            case '加减乘除混合' :
+                MixAll(arrOne,arrTwo);
+                break;
         }
 
     });
@@ -167,6 +171,24 @@
 
         superSwitch(resArr,oper,condition);
         $itemNumber.html(itemnumber);
+    }
+
+    //加减乘除混合
+    function MixAll(arrOne,arrTwo) {
+        var arrAddSubOne = randomNums(1,100,100),
+            arrAddSubTwo = randomNums(1,100,100);
+        var arrAdd = model.unIque(shuffle(model.Addition(arrAddSubOne,arrAddSubTwo))),
+            arrSub = model.unIque(shuffle(model.Subtraction(arrAddSubOne,arrAddSubTwo))),
+            arrMul = model.unIque(shuffle(model.Multiplication(arrOne,arrTwo))),
+            arrDiv = model.unIque(shuffle(model.Division(arrOne,arrTwo))),
+            mixAs = $.merge(arrAdd,arrSub),
+            mixMd = $.merge(arrMul,arrDiv),
+            resArr = shuffle($.merge(mixAs,mixMd)),
+            itemnumber = resArr.length;
+
+        $ksContent.html(resArr);
+        $itemNumber.html(itemnumber);
+
     }
 
 
