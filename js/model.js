@@ -69,7 +69,7 @@
                     if(arrOne[i] != undefined && arrTwo[j] != undefined) {
                         var result = arrOne[i] / arrTwo[j];
                         var modulo = arrOne[i] % arrTwo[j];
-                        if(modulo == 0 && result <= 6) {
+                        if(modulo == 0 && result <= 9 && result != 1) {
                             var hehe = "<li>"+ arrOne[i] + "÷" + arrTwo[j] + "=" + result + "</li>";
                             n.push(hehe);
                         }
@@ -378,7 +378,7 @@
         },
 
         //混合运算——减乘
-        SubMul: function(arrOne,arrTwo,arrThree) {
+        SubMul: function(arrOne,arrTwo,arrThree,kuohao) {
             var n = [];
             for(var i = 0; i <= arrOne.length; i++) {
                 for(var j= 0; j <= arrTwo.length; j++) {
@@ -419,7 +419,7 @@
         },
 
         //混合运算——减除
-        SubDiv: function(arrOne,arrTwo,arrThree) {
+        SubDiv: function(arrOne,arrTwo,arrThree,kuohao) {
             var n = [];
             for(var i = 0; i <= arrOne.length; i++) {
                 for(var j= 0; j <= arrTwo.length; j++) {

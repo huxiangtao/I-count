@@ -120,7 +120,7 @@
 
         //最后做的事情
         var arrResult = Mix(arrOne,arrTwo,arrThree,oper,kuohao);
-        $ksContent.html(arrResult);
+        $ksContent.html(shuffle(arrResult));
         $itemNumber.html(arrResult.length);
 
     });

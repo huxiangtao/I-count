@@ -74,6 +74,10 @@
                 Mixdiv(arrOne,arrTwo,condition);
                 break;
 
+            case '乘除混合' :
+                MixMD(arrOne,arrTwo);
+                break;
+
             case '加减乘除混合' :
                 MixAll(arrOne,arrTwo);
                 break;
@@ -177,6 +181,22 @@
             oper = "÷";
 
         $ksContent.html(superSwitch(result,oper,condition));
+        $itemNumber.html(itemnumber);
+    }
+
+    //乘除混合
+    function MixMD(arrOne,arrTwo) {
+        var arrMulOne = randomNums(1,9,9),
+            arrMulTwo = randomNums(1,9,9);
+
+
+        var arrMul = model.unIque(shuffle(model.Multiplication(arrMulOne,arrMulTwo))),
+            arrDiv = model.unIque(shuffle(model.Division(arrOne,arrTwo))),
+            resArr = shuffle($.merge(arrMul,arrDiv)),
+            itemnumber = resArr.length;
+
+
+        $ksContent.html(resArr);
         $itemNumber.html(itemnumber);
     }
 
