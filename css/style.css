@@ -7,7 +7,7 @@ select {width:158px;}
 .dropdown-menu li a {font-size:20px;}
 .btn-group {margin-right:10px;}
 .unit {width: 245px;}
-.unit-name {float:left;margin-top:5px;}
+.unit-name,.mix-name {float:left;margin-top:5px;}
 .number-title {float:left;}
 .item-number {float:left;padding-left:0;margin:10px 20px 0 0;}
 .unit li {display:block;height:30px;margin-bottom:20px;}

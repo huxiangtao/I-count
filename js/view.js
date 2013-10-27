@@ -180,14 +180,14 @@
             itemnumber = resArr.length,
             oper = "÷";
 
-        $ksContent.html(superSwitch(result,oper,condition));
+        $ksContent.html(superSwitch(resArr,oper,condition));
         $itemNumber.html(itemnumber);
     }
 
     //乘除混合
     function MixMD(arrOne,arrTwo) {
-        var arrMulOne = randomNums(1,9,9),
-            arrMulTwo = randomNums(1,9,9);
+        var arrMulOne = randomNums(2,9,10),
+            arrMulTwo = randomNums(2,9,100);
 
 
         var arrMul = model.unIque(shuffle(model.Multiplication(arrMulOne,arrMulTwo))),
@@ -204,8 +204,8 @@
     function MixAll(arrOne,arrTwo) {
         var arrAddSubOne = randomNums(1,100,100),
             arrAddSubTwo = randomNums(1,100,100),
-            arrMulOne = randomNums(1,6,6),
-            arrMulTwo = randomNums(1,6,6);
+            arrMulOne = randomNums(2,9,100),
+            arrMulTwo = randomNums(2,9,100);
 
         var arrAdd = model.unIque(shuffle(model.Addition(arrAddSubOne,arrAddSubTwo))),
             arrSub = model.unIque(shuffle(model.Subtraction(arrAddSubOne,arrAddSubTwo))),
