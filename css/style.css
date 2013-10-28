@@ -16,4 +16,6 @@ input[type="text"] {height:30px;font-size:15px;}
 .bootstrap-select:not([class*=span]) {width:73px;}
 .radio {float:left;padding-left:0;margin:5px 20px 0 0;}
 .radio input[type="radio"] {margin-left:0;}
+.personal {margin-left: 240px;width: 730px;}
+.personal li {width: 152px;}
 

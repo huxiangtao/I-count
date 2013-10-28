@@ -64,6 +64,10 @@
                 case '加减乘除混合' :
                     mixAll();
                     break;
+
+                case '几百几十加减混合' :
+                    jibaiJishi();
+                    break;
             }
 
         }
@@ -71,7 +75,8 @@
         //临时办法
         function mixAddSub() {
             var arra = randomNums(1,81,100),
-                arrb = randomNums(2,9,10);
+                arrb = randomNums(2,9,10),
+                k = [];
                 kuohao = 0;
 
             var resAs = model.unIque(shuffle(model.AddSub(arra,arra,arra,kuohao))),
@@ -82,30 +87,25 @@
                 sresAa = model.unIque(shuffle(model.mixSub(arra,arrb,arrb,kuohao))),
                 sresSa = model.unIque(shuffle(model.mixSub(arra,arrb,arrb,kuohao))),
                 sresSs = model.unIque(shuffle(model.mixSub(arra,arrb,arrb,kuohao))),
-                sresA = shuffle($.merge(sresAs , sresAa)),
-                sresS = shuffle($.merge(sresSa , sresSs)),
-                sresArr = shuffle($.merge(sresA , sresS)),
-                resA = shuffle($.merge(resAs , resAa)),
-                resS = shuffle($.merge(resSa , resSs)),
-                resArr = shuffle($.merge(resA, resS)),
-                finalresArr = shuffle($.merge(sresArr, resArr)),
-                itemnumber = finalresArr.length;
+                resArr = shuffle(k.concat(resAs,resAa,resSa,resSs,sresAs,sresAa,sresSa,sresSs)),
 
-            $ksContent.html(finalresArr);
+                itemnumber = resArr.length;
+
+            $ksContent.html(resArr);
             $itemNumber.html(itemnumber);
         }
 
         function mixMulDiv() {
             var arra = randomNums(1,81,100),
-                arrb = randomNums(2,9,10);
+                arrb = randomNums(2,9,10),
+                k = [];
                 kuohao = 0;
+
             var resMd = model.unIque(shuffle(model.MulDiv(arrb,arra,arrb,kuohao))),
                 resMm = model.unIque(shuffle(model.mixMul(arrb,arrb,arrb,kuohao))),
                 resDm = model.unIque(shuffle(model.DivMul(arra,arrb,arrb,kuohao))),
                 resDd = model.unIque(shuffle(model.mixDiv(arra,arrb,arrb,kuohao))),
-                resM = shuffle($.merge(resMd , resMm)),
-                resD = shuffle($.merge(resDm , resDd)),
-                resArr = shuffle($.merge(resM, resD)),
+                resArr = shuffle(k.concat(resMd,resMm,resDm,resDd)),
                 itemnumber = resArr.length;
 
             $ksContent.html(resArr);
@@ -114,8 +114,10 @@
 
         function mixAll() {
             var arra = randomNums(1,81,100),
-                arrb = randomNums(2,9,10);
+                arrb = randomNums(2,9,10),
+                k = [];
                 kuohao = 0;
+
 
             var resAs = model.unIque(shuffle(model.AddSub(arra,arra,arra,kuohao))),
                 resAa = model.unIque(shuffle(model.mixAdd(arra,arra,arra,kuohao))),
@@ -133,17 +135,24 @@
                 resDs = model.unIque(shuffle(model.DivSub(arra,arrb,arra,kuohao))),
                 resDm = model.unIque(shuffle(model.DivMul(arra,arrb,arrb,kuohao))),
                 resDd = model.unIque(shuffle(model.mixDiv(arra,arrb,arrb,kuohao))),
-                resA = shuffle($.merge(resAs , resAa),$.merge(resAm , resAd)),
-                resS = shuffle($.merge(resSa , resSs),$.merge(resSm , resSd)),
-                resM = shuffle($.merge(resMd , resMm),$.merge(resMa , resMs)),
-                resD = shuffle($.merge(resDm , resDd),$.merge(resDa , resDs)),
-                resArrAs = shuffle($.merge(resA.slice(2,20), resS.slice(2,20))),
-                resArrMd = shuffle($.merge(resM, resD)),
-                resArr = shuffle($.merge(resArrAs, resArrMd)),
+                resArr = shuffle(k.concat(resAs,resAa,resAm,resAd,resSa,resSs,resSm,resSd,resMa,resMs,resMm,resMd,resDa,resDs,resDm,resDd)),
                 itemnumber = resArr.length;
 
             $ksContent.html(resArr);
             $itemNumber.html(itemnumber);
+        }
+
+        function jibaiJishi() {
+            var arrOne = model.filterNum(randomNums(10,10000,10000)),
+                arrTwo = model.filterNum(randomNums(10,10000,10000)),
+                k = [];
+
+            var resAdd = model.unIque(shuffle(model.jbjsAdd(arrOne,arrTwo))),
+                resSub = model.unIque(shuffle(model.jbjsSub(arrOne,arrTwo))),
+                resArr = shuffle(k.concat(resAdd,resSub));
+
+            $ksContent.html(resArr);
+
         }
 
         //选取元算符号
@@ -222,10 +231,10 @@
 
 
 
-        //最后做的事情
+        /*//最后做的事情
         var arrResult = Mix(arrOne,arrTwo,arrThree,oper,kuohao);
         $ksContent.html(shuffle(arrResult));
-        $itemNumber.html(arrResult.length);
+        $itemNumber.html(arrResult.length);*/
 
     });
 
