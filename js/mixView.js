@@ -119,12 +119,12 @@
                 kuohao = 0;
 
 
-            var resAs = model.unIque(shuffle(model.AddSub(arra,arra,arra,kuohao))),
-                resAa = model.unIque(shuffle(model.mixAdd(arra,arra,arra,kuohao))),
+            var resAs = (model.unIque(shuffle(model.AddSub(arra,arra,arra,kuohao)))).slice(2,20),
+                resAa = (model.unIque(shuffle(model.mixAdd(arra,arra,arra,kuohao)))).slice(2,20),
                 resAm = model.unIque(shuffle(model.AddMul(arra,arrb,arrb,kuohao))),
                 resAd = model.unIque(shuffle(model.AddDiv(arra,arra,arrb,kuohao))),
-                resSa = model.unIque(shuffle(model.SubAdd(arra,arra,arra,kuohao))),
-                resSs = model.unIque(shuffle(model.mixSub(arra,arra,arra,kuohao))),
+                resSa = (model.unIque(shuffle(model.SubAdd(arra,arra,arra,kuohao)))).slice(2,20),
+                resSs = (model.unIque(shuffle(model.mixSub(arra,arra,arra,kuohao)))).slice(2,20),
                 resSm = model.unIque(shuffle(model.SubMul(arra,arrb,arrb,kuohao))),
                 resSd = model.unIque(shuffle(model.SubDiv(arra,arra,arrb,kuohao))),
                 resMa = model.unIque(shuffle(model.MulAdd(arrb,arrb,arra,kuohao))),
@@ -143,16 +143,17 @@
         }
 
         function jibaiJishi() {
-            var arrOne = model.filterNum(randomNums(10,10000,10000)),
-                arrTwo = model.filterNum(randomNums(10,10000,10000)),
+            var arrOne = model.filterNum(randomNums(10,1000,1000)),
+                arrTwo = model.filterNum(randomNums(10,1000,1000)),
                 k = [];
 
             var resAdd = model.unIque(shuffle(model.jbjsAdd(arrOne,arrTwo))),
                 resSub = model.unIque(shuffle(model.jbjsSub(arrOne,arrTwo))),
-                resArr = shuffle(k.concat(resAdd,resSub));
+                resArr = shuffle(k.concat(resAdd,resSub)),
+                itemnumber = resArr.length;
 
             $ksContent.html(resArr);
-
+            $itemNumber.html(itemnumber);
         }
 
         //选取元算符号
