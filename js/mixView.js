@@ -30,7 +30,7 @@
             $Input = $oneInput + $twoInput,
             $mixInput = $formMix.find("option:selected").text();
 
-        var arrOne = randomNums(3,81,100),
+        var arrOne = randomNums(1,81,100),
             arrTwo = randomNums(1,81,100),
             arrThree = randomNums(1,81,100),
             kuohao = bracketSwitch($kuohao),
@@ -68,6 +68,9 @@
                 case '几百几十加减混合' :
                     jibaiJishi();
                     break;
+
+                case '全部混合运算' :
+
             }
 
         }
@@ -232,10 +235,10 @@
 
 
 
-        /*//最后做的事情
+        //最后做的事情
         var arrResult = Mix(arrOne,arrTwo,arrThree,oper,kuohao);
         $ksContent.html(shuffle(arrResult));
-        $itemNumber.html(arrResult.length);*/
+        $itemNumber.html(arrResult.length);
 
     });
 

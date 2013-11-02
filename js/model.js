@@ -282,35 +282,33 @@
                 for(var j= 0; j <= arrTwo.length; j++) {
                     for(var h = 0; h<= arrThree.length; h++) {
                         if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
-                            if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
-                                var reschu = arrTwo[j] / arrThree[h],
-                                    r =/^[0-9]*[1-9][0-9]*$/;
+                            var reschu = arrTwo[j] / arrThree[h],
+                                r =/^[0-9]*[1-9][0-9]*$/;
 
-                                switch(kuohao) {
-                                    case 0 :
-                                        var result = arrOne[i] + arrTwo[j] / arrThree[h];
-                                        if(result > 0 && result < 100 && r.test(result) && reschu < 10) {
-                                            var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "÷" + arrThree[h] + "=" + result + "</li>";
-                                            n.push(hehe);
-                                        }
-                                        break;
+                            switch(kuohao) {
+                                case 0 :
+                                    var result = arrOne[i] + arrTwo[j] / arrThree[h];
+                                    if(result > 0 && result < 100 && r.test(result) && reschu < 10) {
+                                        var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "÷" + arrThree[h] + "=" + result + "</li>";
+                                        n.push(hehe);
+                                    }
+                                    break;
 
-                                    case 1 :
-                                        var resultq = (arrOne[i] + arrTwo[j]) / arrThree[h];
-                                        if(resultq > 0 && resultq < 10 && r.test(resultq)) {
-                                            var heheq = "<li>" + "(" + arrOne[i] + "+" + arrTwo[j] + ")" + "÷" + arrThree[h] + "=" + resultq + "</li>";
-                                            n.push(heheq);
-                                        }
-                                        break;
+                                case 1 :
+                                    var resultq = (arrOne[i] + arrTwo[j]) / arrThree[h];
+                                    if(resultq > 0 && resultq < 10 && r.test(resultq) && arrThree[h] < 10) {
+                                        var heheq = "<li>" + "(" + arrOne[i] + "+" + arrTwo[j] + ")" + "÷" + arrThree[h] + "=" + resultq + "</li>";
+                                        n.push(heheq);
+                                    }
+                                    break;
 
-                                    case 2 :
-                                        var resulth = arrOne[i] + (arrTwo[j] / arrThree[h]);
-                                        if(resulth > 0 && resulth < 100 && r.test(resulth) && reschu < 10) {
-                                            var heheh = "<li>" +  arrOne[i] + "+" + "(" + arrTwo[j] + "÷" + arrThree[h] + ")" + "=" + resulth + "</li>";
-                                            n.push(heheh);
-                                        }
-                                        break;
-                                }
+                                case 2 :
+                                    var resulth = arrOne[i] + (arrTwo[j] / arrThree[h]);
+                                    if(resulth > 0 && resulth < 100 && r.test(resulth) && reschu < 10) {
+                                        var heheh = "<li>" +  arrOne[i] + "+" + "(" + arrTwo[j] + "÷" + arrThree[h] + ")" + "=" + resulth + "</li>";
+                                        n.push(heheh);
+                                    }
+                                    break;
                             }
                         }
                     }
@@ -389,10 +387,11 @@
                 for(var j= 0; j <= arrTwo.length; j++) {
                     for(var h = 0; h<= arrThree.length; h++) {
                         if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
+                            var qresult = arrOne[i] - arrTwo[j];
                             switch(kuohao) {
                                 case 0 :
                                 var result = arrOne[i] - arrTwo[j] * arrThree[h];
-                                if(result > 0 && result < 100) {
+                                if(result > 0 && result < 100 && arrTwo[j] < 10 && arrThree[h] < 10) {
                                     var hehe = "<li>"+ arrOne[i] + "-" + arrTwo[j] + "×" + arrThree[h] + "=" + result + "</li>";
                                     n.push(hehe);
                                 }
@@ -400,7 +399,7 @@
 
                                 case 1 :
                                 var resultq = (arrOne[i] - arrTwo[j]) * arrThree[h];
-                                if(resultq > 0 && result < 100) {
+                                if(resultq > 0 && resultq < 100 && qresult < 10 && arrThree[h] < 10) {
                                     var heheq = "<li>" + "(" + arrOne[i] + "-" + arrTwo[j] + ")" + "×" + arrThree[h] + "=" + resultq + "</li>";
                                     n.push(heheq);
                                 }
@@ -444,7 +443,7 @@
 
                                 case 1 :
                                     var resultq = (arrOne[i] - arrTwo[j]) / arrThree[h];
-                                    if(resultq > 0 && resultq < 10 && r.test(resultq)) {
+                                    if(resultq > 0 && resultq < 10 && r.test(resultq) && arrThree[h] < 10) {
                                         var heheq = "<li>" + "(" + arrOne[i] + "-" + arrTwo[j] + ")" + "÷" + arrThree[h] + "=" + resultq + "</li>";
                                         n.push(heheq);
                                     }
@@ -495,7 +494,8 @@
 
                                 case 2 :
                                 var resulth = arrOne[i] * (arrTwo[j] + arrThree[h]);
-                                if(resulth > 0 && resulth < 100 && arrOne[i] < 10 && sresult < 10) {
+                                var hresult = arrTwo[j] + arrThree[h];
+                                if(resulth > 0 && resulth < 100 && arrOne[i] < 10 && hresult < 10) {
                                     var heheh = "<li>"+ arrOne[i] + "×" + "(" + arrTwo[j] + "＋" + arrThree[h] + ")" + "=" + resulth + "</li>";
                                     n.push(heheh);
                                 }
@@ -517,7 +517,7 @@
                     for(var h = 0; h<= arrThree.length; h++) {
                         if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
                             var fresult = arrOne[i] * arrTwo[j],
-                                sresult = arrTwo[j] - arrThree[j];
+                                sresult = arrTwo[j] - arrThree[h];
                             switch(kuohao) {
                                 case 0 :
                                 var result = arrOne[i] * arrTwo[j] - arrThree[h];
@@ -538,7 +538,8 @@
 
                                 case 2 :
                                 var resulth = arrOne[i] * (arrTwo[j] - arrThree[h]);
-                                if(resulth > 0 && resulth < 100 && sresult < 10 && arrOne[i] < 10) {
+                                var hresult = arrTwo[j] - arrThree[h];
+                                if(resulth > 0 && resulth < 100 && hresult < 10 && arrOne[i] < 10) {
                                     var heheh = "<li>"+ arrOne[i] + "×" + "(" + arrTwo[j] + "-" + arrThree[h] + ")" + "=" + resulth + "</li>";
                                     n.push(heheh);
                                 }
@@ -594,7 +595,7 @@
 
                                 case 1 :
                                 var resultq = (arrOne[i] * arrTwo[j]) / arrThree[h];
-                                if(resultq > 0 && resultq < 100 && r.test(resultq) && fresult < 100) {
+                                if(resultq > 0 && resultq < 10 && r.test(resultq) && fresult < 100 && arrThree[h] < 10) {
                                     var heheq = "<li>" + "(" + arrOne[i] + "×" + arrTwo[j] + ")" + "÷" + arrThree[h] + "=" + resultq + "</li>";
                                     n.push(heheq);
                                 }
@@ -602,7 +603,8 @@
 
                                 case 2 :
                                 var resulth = arrOne[i] * (arrTwo[j] / arrThree[h]);
-                                if(resulth > 0 && resulth < 100 && r.test(resulth)) {
+                                var hresult = arrTwo[j] / arrThree[h];
+                                if(resulth > 0 && resulth < 100 && r.test(resulth) && r.test(hresult) && hresult < 10) {
                                     var heheh = "<li>" + arrOne[i] + "×" + "(" + arrTwo[j] + "÷" + arrThree[h] + ")" + "=" + resulth + "</li>";
                                     n.push(heheh);
                                 }
@@ -646,7 +648,7 @@
 
                                 case 2 :
                                 var resulth = arrOne[i] / (arrTwo[j] + arrThree[h]);
-                                if(resulth > 0 && resulth < 100 && r.test(resulth) && sresult < 10) {
+                                if(resulth > 0 && resulth < 10 && r.test(resulth) && sresult < 10) {
                                     var heheh = "<li>" + arrOne[i] + "÷" + "(" + arrTwo[j] + "+" + arrThree[h] + ")" + "=" + resulth + "</li>";
                                     n.push(heheh);
                                 }
@@ -688,7 +690,7 @@
 
                                 case 2 :
                                 var resulth = arrOne[i] / (arrTwo[j] - arrThree[h]);
-                                if(resulth > 0 && resulth < 100 && r.test(resulth) && sresult < 10) {
+                                if(resulth > 0 && resulth < 10 && r.test(resulth) && sresult < 10) {
                                     var heheh = "<li>" + arrOne[i] + "÷" + "(" + arrTwo[j] + "-" + arrThree[h] + ")" + "=" + resulth + "</li>";
                                     n.push(heheh);
                                 }
@@ -840,8 +842,8 @@
                 var item = arr[i];
                 var key = typeof(item) + item;
                 if (hash[key] !== 1) {
-                    n.push(item)
-                    hash[key] = 1
+                    n.push(item);
+                    hash[key] = 1;
                 }
             }
             return n
@@ -879,6 +881,22 @@
                     n.push(hehe);
                 }
             return n;
+        },
+
+        //乱序函数
+        shuffle : function(inputArr) {
+            var valArr = [],k = '';
+
+            for (k in inputArr) { // Get key and value arrays
+              if (inputArr.hasOwnProperty(k)) {
+                valArr.push(inputArr[k]);
+              }
+            }
+            valArr.sort(function () {
+              return 0.5 - Math.random();
+            });
+
+            return valArr;
         }
 
 
