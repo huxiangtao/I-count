@@ -804,44 +804,6 @@
             return n;
         },
 
-        //零的个数相同的加法
-        lingAddbai: function(arrOne,arrTwo,num) {
-            var n = [];
-            for(var i = 0; i <= arrOne.length; i++) {
-                for(var j= 0; j <= arrTwo.length; j++) {
-                    if(arrOne[i] != undefined && arrTwo[j] != undefined) {
-                        var result = arrOne[i] * num + arrTwo[j] * num;
-                        if(result < 100*num) {
-                            var hehe = "<li>"+ arrOne[i] * num + "+" + arrTwo[j] * num+ "=" + result + "</li>";
-                            n.push(hehe);
-                        }
-                    }
-                }
-            }
-            return n;
-
-        },
-
-        //零的个数相同的减法
-        lingSubbai: function(arrOne,arrTwo,num) {
-            var n = [];
-            for(var i = 0; i <= arrOne.length; i++) {
-                for(var j= 0; j <= arrTwo.length; j++) {
-                    if(arrOne[i] != undefined && arrTwo[j] != undefined) {
-                        var result = arrOne[i] * num - arrTwo[j] * num;
-                        if(result > 0) {
-                            var hehe = "<li>"+ arrOne[i] * num + "-" + arrTwo[j] * num+ "=" + result + "</li>";
-                            n.push(hehe);
-                        }
-                    }
-                }
-            }
-            return n;
-
-        },
-
-
-
         //获取随机数们
         RandomNums: function(min,max,limit) {
             var ret = [],
@@ -909,6 +871,8 @@
             }
             return n;
         },
+
+
 
         //遍历出所有的数字
         traversal: function(start,end) {
