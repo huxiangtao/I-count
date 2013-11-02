@@ -241,10 +241,10 @@
 
 
 
-        //最后做的事情
+        /*//最后做的事情
         var arrResult = Mix(arrOne,arrTwo,arrThree,oper,kuohao);
         $ksContent.html(shuffle(arrResult));
-        $itemNumber.html(arrResult.length);
+        $itemNumber.html(arrResult.length);*/
 
     });
 

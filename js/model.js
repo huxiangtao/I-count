@@ -604,7 +604,7 @@
                                 case 2 :
                                 var resulth = arrOne[i] * (arrTwo[j] / arrThree[h]);
                                 var hresult = arrTwo[j] / arrThree[h];
-                                if(resulth > 0 && resulth < 100 && r.test(resulth) && r.test(hresult) && hresult < 10) {
+                                if(resulth > 0 && resulth < 100 && r.test(resulth) && r.test(hresult) && hresult < 10 && arrTwo[j] < 10 && arrThree[h] < 10 && arrOne[i] < 10) {
                                     var heheh = "<li>" + arrOne[i] + "×" + "(" + arrTwo[j] + "÷" + arrThree[h] + ")" + "=" + resulth + "</li>";
                                     n.push(heheh);
                                 }
