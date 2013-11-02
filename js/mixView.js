@@ -147,8 +147,8 @@
         }
 
         function jibaiJishi() {
-            var arrOne = model.filterNum(randomNums(100,100000,100000)),
-                arrTwo = model.filterNum(randomNums(100,100000,100000)),
+            var arrOne = model.filterNum(randomNums(100,10000,10000)),
+                arrTwo = model.filterNum(randomNums(100,10000,10000)),
                 k = [];
 
             var resAdd = model.unIque(shuffle(model.jbjsAdd(arrOne,arrTwo))),
@@ -236,10 +236,10 @@
 
 
 
-        //最后做的事情
+        /*//最后做的事情
         var arrResult = Mix(arrOne,arrTwo,arrThree,oper,kuohao);
         $ksContent.html(shuffle(arrResult));
-        $itemNumber.html(arrResult.length);
+        $itemNumber.html(arrResult.length);*/
 
     });
 
