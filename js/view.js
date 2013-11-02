@@ -82,6 +82,10 @@
                 MixAll(arrOne,arrTwo);
                 break;
 
+            case '加减混合' :
+                MixAddSub();
+                break;
+
             case '带括号加减乘除混合' :
                 MixBracket(arrOne,arrTwo);
                 break;
@@ -195,6 +199,21 @@
             resArr = shuffle($.merge(arrMul,arrDiv)),
             itemnumber = resArr.length;
 
+
+        $ksContent.html(resArr);
+        $itemNumber.html(itemnumber);
+    }
+
+    //加减混合
+    function MixAddSub() {
+        var arrAddSubOne = randomNums(1,100,100),
+            arrAddSubTwo = randomNums(1,100,100);
+
+        var arrAdd = model.unIque(shuffle(model.Addition(arrAddSubOne,arrAddSubTwo))),
+            arrSub = model.unIque(shuffle(model.Subtraction(arrAddSubOne,arrAddSubTwo))),
+            mixAs = $.merge(arrAdd,arrSub),
+            resArr = shuffle(mixAs),
+            itemnumber = resArr.length;
 
         $ksContent.html(resArr);
         $itemNumber.html(itemnumber);

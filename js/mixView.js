@@ -69,8 +69,9 @@
                     jibaiJishi();
                     break;
 
-                case '全部混合运算' :
-
+                case '零的个数一样的加减法' :
+                    linggeshu();
+                    break;
             }
 
         }
@@ -146,8 +147,8 @@
         }
 
         function jibaiJishi() {
-            var arrOne = model.filterNum(randomNums(10,1000,1000)),
-                arrTwo = model.filterNum(randomNums(10,1000,1000)),
+            var arrOne = model.filterNum(randomNums(100,100000,100000)),
+                arrTwo = model.filterNum(randomNums(100,100000,100000)),
                 k = [];
 
             var resAdd = model.unIque(shuffle(model.jbjsAdd(arrOne,arrTwo))),
@@ -235,10 +236,10 @@
 
 
 
-        //最后做的事情
+        /*//最后做的事情
         var arrResult = Mix(arrOne,arrTwo,arrThree,oper,kuohao);
         $ksContent.html(shuffle(arrResult));
-        $itemNumber.html(arrResult.length);
+        $itemNumber.html(arrResult.length);*/
 
     });
 
@@ -262,6 +263,25 @@
     }
 
 
+    //linggeshu
+    function linggeshu() {
+        var arra = randomNums(1,9,10),
+            arrb = randomNums(1,100,100),
+            numa = 10,
+            numb = 100,
+            numc = 1000,
+            k = [];
+
+        var resAdda = model.unIque(shuffle(model.lingAddbai(arra,arra,numa))),
+            resSuba = model.unIque(shuffle(model.lingSubbai(arrb,arra,numa))),
+            resAddb = model.unIque(shuffle(model.lingSubbai(arrb,arra,numb))),
+            resSubb = model.unIque(shuffle(model.lingSubbai(arrb,arra,numb))),
+            resArr = shuffle(k.concat(resAdd,resSub)),
+            itemnumber = resArr.length;
+
+        $ksContent.html(resArr);
+        $itemNumber.html(itemnumber);
+    }
 
 
     //shuffle 乱序

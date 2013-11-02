@@ -804,7 +804,41 @@
             return n;
         },
 
+        //零的个数相同的加法
+        lingAddbai: function(arrOne,arrTwo,num) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    if(arrOne[i] != undefined && arrTwo[j] != undefined) {
+                        var result = arrOne[i] * num + arrTwo[j] * num;
+                        if(result < 100*num) {
+                            var hehe = "<li>"+ arrOne[i] * num + "+" + arrTwo[j] * num+ "=" + result + "</li>";
+                            n.push(hehe);
+                        }
+                    }
+                }
+            }
+            return n;
 
+        },
+
+        //零的个数相同的减法
+        lingSubbai: function(arrOne,arrTwo,num) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    if(arrOne[i] != undefined && arrTwo[j] != undefined) {
+                        var result = arrOne[i] * num - arrTwo[j] * num;
+                        if(result > 0) {
+                            var hehe = "<li>"+ arrOne[i] * num + "-" + arrTwo[j] * num+ "=" + result + "</li>";
+                            n.push(hehe);
+                        }
+                    }
+                }
+            }
+            return n;
+
+        },
 
 
 
@@ -858,12 +892,15 @@
                     sItem = item.toString(),
                     lastPosit = sItem.length - 1,
                     shiNum = item % 10,
-                    baiNum = item % 100;
+                    baiNum = item % 100,
+                    qianNum = item % 1000;
 
                 if(shiNum == 0) {
                     if(sItem.length >= 3 && sItem[(lastPosit - 1)] !== 0) {
                         n.push(item)
                     } else if(sItem.length >= 3 && sItem[(lastPosit - 1)] == 0 && baiNum == 0) {
+                        n.push(item)
+                    }else if(sItem.length >= 3 && sItem[(lastPosit - 1)] == 0 && baiNum == 0 && qianNum == 0) {
                         n.push(item)
                     }else if(sItem.length < 3) {
                         n.push(item);
