@@ -175,7 +175,9 @@
             var item = arr[i];
             var itemOne = item[4];
             var itemTwo = item[6];
-            var key = typeof(item) + itemOne + itemTwo;
+            var itemThree = item[8];
+            var itemFour = item[9];
+            var key = typeof(item) + itemOne + itemTwo + itemThree + itemFour;
             if (hash[key] !== 1) {
                 n.push(item);
                 hash[key] = 1;
