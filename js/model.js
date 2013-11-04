@@ -653,7 +653,7 @@
                             switch(kuohao) {
                                 case 0 :
                                 var result = arrOne[i] / arrTwo[j] + arrThree[h];
-                                if(result > 0 && result < 100 && r.test(result) && fresult < 10) {
+                                if(result > 0 && result < 100 && r.test(result) && fresult < 10 && arrTwo[j] < 10) {
                                     var hehe = "<li>"+ arrOne[i] + "÷" + arrTwo[j] + "+" + arrThree[h] + "=" + result + "</li>";
                                     n.push(hehe);
                                 }
@@ -661,7 +661,7 @@
 
                                 case 1 :
                                 var resultq = (arrOne[i] / arrTwo[j]) + arrThree[h];
-                                if(resultq > 0 && resultq < 100 && r.test(resultq) && fresult < 10) {
+                                if(resultq > 0 && resultq < 100 && r.test(resultq) && fresult < 10 && arrTwo[j] < 10) {
                                     var heheq = "<li>" + "(" + arrOne[i] + "÷" + arrTwo[j] + ")" + "+" + arrThree[h] + "=" + resultq + "</li>";
                                     n.push(heheq);
                                 }
@@ -695,7 +695,7 @@
                             switch(kuohao) {
                                 case 0 :
                                 var result = arrOne[i] / arrTwo[j] - arrThree[h];
-                                if(result > 0 && result < 100 && r.test(result)) {
+                                if(result > 0 && result < 100 && r.test(result) && arrTwo[j] < 10) {
                                     var hehe = "<li>"+ arrOne[i] + "÷" + arrTwo[j] + "-" + arrThree[h] + "=" + result + "</li>";
                                     n.push(hehe);
                                 }
@@ -703,7 +703,7 @@
 
                                 case 1 :
                                 var resultq = (arrOne[i] / arrTwo[j]) - arrThree[h];
-                                if(resultq > 0 && resultq < 100 && r.test(resultq)) {
+                                if(resultq > 0 && resultq < 100 && r.test(resultq) && arrTwo[j] < 10) {
                                     var heheq = "<li>" + "(" + arrOne[i] + "÷" + arrTwo[j] + ")" + "-" + arrThree[h] + "=" + resultq + "</li>";
                                     n.push(heheq);
                                 }

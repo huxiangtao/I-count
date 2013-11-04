@@ -2,18 +2,15 @@
  * Created with IntelliJ IDEA.
  * User: huxiangtao
  * Date: 13-11-4
- * Time: ÉÏÎç10:24
+ * Time: ä¸Šåˆ10:24
  * To change this template use File | Settings | File Templates.
  */
 
 (function(model) {
     var $runButton = $('#run'),
             $cancelButton = $('#cancel'),
-            $formOne = $('#form-one'),
-            $formTwo = $('#form-two'),
             $formMix = $('#form-mix'),
             $formKuohao = $('#form-kuohao'),
-            $Operation =$('#operation'),
             $ksContent = $(".ks-content"),
             $itemNumber = $(".item-number");
 
@@ -23,17 +20,8 @@
         });
 
         $runButton.click(function() {
-            var $oneInput = $formOne.find("option:selected").text(),
-                $twoInput = $formTwo.find("option:selected").text(),
-                $kuohao = $formKuohao.find("option:selected").text(),
-                $Input = $oneInput + $twoInput,
-                $mixInput = $formMix.find("option:selected").text();
-
-            var arrOne = randomNums(1,81,100),
-                arrTwo = randomNums(1,81,100),
-                arrThree = randomNums(1,81,100),
-                kuohao = bracketSwitch($kuohao),
-                oper = lowSwitch($Input);
+            var $mixInput = $formMix.find("option:selected").text(),
+                kuohao = 0;
 
 
 
@@ -41,65 +29,188 @@
 
 
 
-            //»ìºÏÔËËãµÄ¿ØÖÆÆ÷²¢·µ»ØÀíÏëµÄÊı×é
-            function Mix(arrOne,arrTwo,arrThree,oper,kuohao) {
-                return model.Mix(arrOne,arrTwo,arrThree,oper,kuohao);
-            }
 
-            //»ìºÏ·½Ê½??ÁÙÊ±°ì·¨
-            function mixSwitch(Input) {
-                switch(Input) {
-                    case 'Ä¬ÈÏ' :
+            //æ··åˆæ–¹å¼_ä¸´æ—¶åŠæ³•
+            function mixSwitch(sInput) {
+                switch(sInput) {
+                    case 'é»˜è®¤' :
                         break;
 
-                    case '¼Ó¼õÆ½¼¶»ìºÏ' :
+                    case 'åŠ å‡å¹³çº§æ··åˆ' :
                         mixAddSub();
                         break;
 
-                    case '³Ë³ıÆ½¼¶»ìºÏ' :
+                    case 'ä¹˜é™¤å¹³çº§æ··åˆ' :
                         mixMulDiv();
                         break;
 
-                    case '¼Ó¼õ³Ë³ı»ìºÏ' :
+                    case 'åŠ å‡ä¹˜é™¤æ··åˆ' :
                         mixAll();
                         break;
 
-                    case '¼¸°Ù¼¸Ê®¼Ó¼õ»ìºÏ' :
+                    case 'å‡ ç™¾å‡ ååŠ å‡æ··åˆ' :
                         jibaiJishi();
                         break;
 
-                    case '¼¸Ç§¼¸°Ù¼Ó¼õ»ìºÏ' :
+                    case 'å‡ åƒå‡ ç™¾åŠ å‡æ··åˆ' :
                         jiqianjibai();
                         break;
 
-                    case 'ÁãµÄ¸öÊıÒ»ÑùµÄ¼Ó¼õ·¨' :
+                    case 'é›¶çš„ä¸ªæ•°ä¸€æ ·çš„åŠ å‡æ³•' :
                         linggeshu();
                         break;
                 }
 
             }
 
-            //ÁÙÊ±°ì·¨
+
+            //Complex function
+            function Complex(input) {
+
+                var data = {
+                    fn: {
+                        mixAdd: model.mixAdd,
+                        AddSub: model.AddSub,
+                        AddMul: model.AddMul,
+                        AddDiv: model.AddDiv,
+                        SubAdd: model.SubAdd,
+                        mixSub: model.mixSub,
+                        SubMul: model.SubMul,
+                        SubDiv: model.SubDiv,
+                        MulAdd: model.MulAdd,
+                        MulSub: model.MulSub,
+                        mixMul: model.mixMul,
+                        MulDiv: model.MulDiv,
+                        DivAdd: model.DivAdd,
+                        DivSub: model.DivSub,
+                        DivMul: model.DivMul,
+                        mixDiv: model.mixDiv
+                    },
+
+                    arrA: randomNums(1,81,100),
+
+                    arrB: randomNums(1,9,10)
+
+                };
+
+                function makeFn(data) {
+                    switch(input) {
+                        case '++' :
+                            return data.fn.mixAdd;
+                            break;
+
+                        case '+-' :
+                            return data.fn.AddSub;
+                            break;
+
+                        case '+Ã—' :
+                            return data.fn.AddMul;
+                            break;
+
+                        case '+Ã·' :
+                            return data.fn.AddDiv;
+                            break;
+
+                        case '-+' :
+                            return data.fn.SubAdd;
+                            break;
+
+                        case '--' :
+                            return data.fn.mixSub;
+                            break;
+
+                        case '-Ã—' :
+                            return data.fn.SubMul;
+                            break;
+
+                        case '-Ã·' :
+                            return data.fn.SubDiv;
+                            break;
+
+                        case 'Ã—+' :
+                            return data.fn.MulAdd;
+                            break;
+
+                        case 'Ã—-' :
+                            return data.fn.MulSub;
+                            break;
+
+                        case 'Ã—Ã—' :
+                            return data.fn.mixMul;
+                            break;
+
+                        case 'Ã—Ã·' :
+                            return data.fn.MulDiv;
+                            break;
+
+                        case 'Ã·+' :
+                            return data.fn.DivAdd;
+                            break;
+
+                        case 'Ã·-' :
+                            return data.fn.DivSub;
+                            break;
+
+                        case 'Ã·Ã—' :
+                            return data.fn.DivMul;
+                            break;
+
+                        case 'Ã·Ã·' :
+                            return data.fn.mixDiv;
+                            break;
+
+                    }
+                }
+
+                function makeArr(data) {
+                    var n = [];
+
+                    switch(input) {
+                        case '++' || '+-' || '-+' || '--':
+                            return n[0] = n[1] = n[2] = data.arrA;
+                            break;
+
+                        case '+Ã—' || '+Ã·' || '-Ã—' || '-Ã·':
+                            return n[0] = n[1] = data.arrA;
+                                   n[2] = data.arrB;
+                                   break;
+
+                        case 'Ã—+' || 'Ã—-':
+                            return n[2] = n[1] = data.arrA;
+                                   n[0] = data.arrB;
+                                   break;
+
+                        case 'Ã·+' || 'Ã·-':
+                            return n[0] = n[2] = data.arrA;
+                                   n[1] = data.arrB;
+                                   break;
+
+                        case 'Ã—Ã—' || 'Ã—Ã·' || 'Ã·Ã—' || 'Ã·Ã·':
+                            return n[0] = n[1] = n[2] = data.arrB;
+                            break;
+                    }
+
+                    return n;
+                }
+
+                var fn = makeFn(data),
+                    arr = makeArr(data);
+
+                return resultArr = model.unIque(shuffle(fn(arr[0],arr[1],arr[2],kuohao)));
+                debugger;
+            }
+
+            //ä¸´æ—¶åŠæ³•
             function mixAddSub() {
-                var arra = randomNums(1,81,100),
-                    arrb = randomNums(2,9,10),
-                    k = [];
-                    kuohao = 0;
+                var k = [],
+                    input = '+-';
 
-                var resAs = model.unIque(shuffle(model.AddSub(arra,arra,arra,kuohao))),
-                    resAa = model.unIque(shuffle(model.mixAdd(arra,arra,arra,kuohao))),
-                    resSa = model.unIque(shuffle(model.SubAdd(arra,arra,arra,kuohao))),
-                    resSs = model.unIque(shuffle(model.mixSub(arra,arra,arra,kuohao))),
-                    sresAs = model.unIque(shuffle(model.mixSub(arra,arrb,arrb,kuohao))),
-                    sresAa = model.unIque(shuffle(model.mixSub(arra,arrb,arrb,kuohao))),
-                    sresSa = model.unIque(shuffle(model.mixSub(arra,arrb,arrb,kuohao))),
-                    sresSs = model.unIque(shuffle(model.mixSub(arra,arrb,arrb,kuohao))),
-                    resArr = shuffle(k.concat(resAs,resAa,resSa,resSs,sresAs,sresAa,sresSa,sresSs)),
+                var resAs = Complex(input);
+                    /*resArr = shuffle(k.concat(resAs,resAa,resSa,resSs,sresAs,sresAa,sresSa,sresSs)),
 
-                    itemnumber = resArr.length;
+                    itemnumber = resArr.length;*/
 
-                $ksContent.html(resArr);
-                $itemNumber.html(itemnumber);
+                $ksContent.html(resAs);
             }
 
             function mixMulDiv() {
@@ -163,36 +274,37 @@
                 $itemNumber.html(itemnumber);
             }
 
-            //×îºó×öµÄÊÂÇé
-            var arrResult = Mix(arrOne,arrTwo,arrThree,oper,kuohao);
+            //æœ€ååšçš„äº‹æƒ…
+            var arrResult = mixSwitch($mixInput);
             $ksContent.html(shuffle(arrResult));
-            $itemNumber.html(arrResult.length);
 
         });
 
 
 
-        //¼ÓÀ¨ºÅº¯Êı??¿ª¹Ø
+/*
+        //åŠ æ‹¬å·å‡½æ•°??å¼€å…³
         function bracketSwitch(kuohao) {
             switch(kuohao) {
-                case 'Ç°' :
+                case 'å‰' :
                     return kuohao = 1;
                     break;
 
-                case 'ºó' :
+                case 'å' :
                     return kuohao = 2;
                     break;
 
-                case 'Ä¬ÈÏ' :
+                case 'é»˜è®¤' :
                     return kuohao = 0;
                     break;
             }
         }
+*/
 
 
 
 
-        //shuffle ÂÒĞò
+        //shuffle ä¹±åº
         function shuffle(inputArr) {
             var valArr = [],k = '';
 
@@ -208,7 +320,7 @@
             return valArr;
         }
 
-        //»ñµÃËæ»úÊı×é
+        //è·å¾—éšæœºæ•°ç»„
         function randomNums(MinNum,MaxNum,Limit) {
             return model.unIque(model.RandomNums(MinNum,MaxNum,Limit));
         }
