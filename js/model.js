@@ -108,7 +108,7 @@
                         var result = (arrOne[i] - modulo) / arrTwo[j];
                         if(modulo !== 0 && result < 10 && arrOne[i] > arrTwo[j]) {
 
-                            var hehe = "<li>"+ arrTwo[j] + "×" + "( )" + "=" + arrOne[i]  + "</li>";
+                            var hehe = "<li>"+ arrTwo[j] + "×" + "( )" + "<" + arrOne[i]  + "</li>";
 
 
                             n.push(hehe);
