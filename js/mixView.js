@@ -117,7 +117,7 @@
 
 
         //最后做的事情
-        var arrResult = sunIque(model.unIque(Mix(arrOne,arrTwo,arrThree,oper,kuohao)));
+        var arrResult = SunIque(sunIque(model.unIque(Mix(arrOne,arrTwo,arrThree,oper,kuohao))));
 
         $ksContent.html(shuffle(arrResult));
         $itemNumber.html(arrResult.length);
@@ -175,9 +175,7 @@
             var item = arr[i];
             var itemOne = item[4];
             var itemTwo = item[6];
-            var itemThree = item[8];
-            var itemFour = item[9];
-            var key = typeof(item) + itemOne + itemTwo + itemThree + itemFour;
+            var key = typeof(item) + itemOne + itemTwo;
             if (hash[key] !== 1) {
                 n.push(item);
                 hash[key] = 1;
@@ -185,5 +183,22 @@
         }
         return n;
 
+    }
+
+    function SunIque(arr) {
+        var n = [];
+        var hash = {};
+
+        for (var i = 0; i < arr.length; i++) {
+            var item = arr[i];
+            var itemOne = item[8];
+            var itemTwo = item[9];
+            var key = typeof(item) + itemOne + itemTwo;
+            if (hash[key] !== 1) {
+                n.push(item);
+                hash[key] = 1;
+            }
+        }
+        return n;
     }
 })(window.model);
