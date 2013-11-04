@@ -100,7 +100,7 @@
 
 
 
-        //混合运算无括号——control
+        //混合运算——control
         Mix: function(arrOne,arrTwo,arrThree,oper,kuohao) {
             var n = [];
             switch(oper) {
@@ -288,7 +288,7 @@
                             switch(kuohao) {
                                 case 0 :
                                     var result = arrOne[i] + arrTwo[j] / arrThree[h];
-                                    if(result > 0 && result < 100 && r.test(result) && reschu < 10) {
+                                    if(result > 0 && result < 100 && r.test(result) && reschu < 10 && arrThree[h] < 10) {
                                         var hehe = "<li>"+ arrOne[i] + "+" + arrTwo[j] + "÷" + arrThree[h] + "=" + result + "</li>";
                                         n.push(hehe);
                                     }
@@ -360,7 +360,7 @@
         },
 
         //混合运算——减减
-        mixSub: function(arrOne,arrTwo,arrThree) {
+        mixSub: function(arrOne,arrTwo,arrThree,kuohao) {
             var n = [];
             for(var i = 0; i <= arrOne.length; i++) {
                 for(var j= 0; j <= arrTwo.length; j++) {
@@ -368,9 +368,30 @@
                         if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
                             var result = arrOne[i] - arrTwo[j] - arrThree[h],
                                 fresult = arrOne[i] - arrTwo[j];
-                            if(result > 0 && result < 100 && fresult > 0) {
-                                var hehe = "<li>"+ arrOne[i] + "-" + arrTwo[j] + "-" + arrThree[h] + "=" + result + "</li>";
-                                n.push(hehe);
+                            switch(kuohao) {
+                                case 0:
+                                if(result > 0 && result < 100 && fresult > 0) {
+                                    var hehe = "<li>"+ arrOne[i] + "-" + arrTwo[j] + "-" + arrThree[h] + "=" + result + "</li>";
+                                    n.push(hehe);
+                                }
+                                break;
+
+                                case 1:
+                                var resultq = (arrOne[i] - arrTwo[j]) - arrThree[h];
+                                if(resultq > 0 && resultq < 100 && fresult > 0) {
+                                    var heheq = "<li>" + "(" + arrOne[i] + "-" + arrTwo[j] + ")" + "-" + arrThree[h] + "=" + resultq + "</li>";
+                                    n.push(heheq);
+                                }
+                                break;
+
+                                case 2:
+                                var resulth = arrOne[i] - (arrTwo[j] - arrThree[h]);
+                                var hresult = arrTwo[j] - arrThree[h];
+                                if(resulth > 0 && resulth < 100 && hresult > 0) {
+                                    var heheh = "<li>"+ arrOne[i] + "-" + "(" + arrTwo[j] + "-" + arrThree[h] + ")" + "=" + resulth + "</li>";
+                                    n.push(heheh);
+                                }
+                                break;
                             }
                         }
                     }

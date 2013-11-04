@@ -1,0 +1,120 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>kousuanti-biaoyinei</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="./index.html"><strong>I-count</strong></a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class="">
+                        <a href="./index.html">基本运算</a>
+                        </li>
+                        <li class="">
+                        <a href="./mixOperat.html">表以内混合运算</a>
+                        </li>
+                        <li class="active">
+                        <a href="./mixAll.html">全局混合（表以内）</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="span3">
+                <div class="affix" style="top:110px;">
+                    <ul id="operation" class="unit unstyled">
+                        <li>
+                            <h5 class="mix-name">混合方式：</h5>
+                            <form action="">
+                                <select id="form-mix">
+                                    <option value="default">默认</option>
+                                    <option value="add">加减平级混合</option>
+                                    <option value="subtract">乘除平级混合</option>
+                                    <option value="multipl">加减乘除混合</option>
+                                    <option value="jibaijishi">几百几十加减混合</option>
+                                    <option value="jiqianqjibai">几千几百加减混合</option>
+                                    <option value="linggeshu">零的个数一样的加减法</option>
+                                </select>
+                            </form>
+                        </li>
+                        <li>
+                            <h5 class="number-title">题目个数：</h5>
+                            <span class="item-number"></span>
+                        </li>
+                        <li>
+                            <button id="run" style="width:69%;margin-right:10px;" class="btn btn-primary pull-left" type="button">确定</button>
+                            <button id="cancel" class="btn pull-left" type="button">取消</button>
+                        </li>
+                    </ul>
+                    <p>
+                    </p>
+                </div>
+            </div>
+            <div class="span9 personal">
+                <ul class="unstyled ks-content"></ul>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+
+
+
+
+
+//混合运算
+function Mixcount(start,end,range) {
+	var n = [];
+	for(var i = start; i <= end; i++) {
+		for(var j = start; j <= end; j++) {
+			for(var x = start; x <= end; x++) {
+				var result = i+(j-x);
+				if(range) {
+					if(result < range) {
+						document.write(i+"+"+j+"="+(i+j)+"   ");
+					}
+				} else {
+					document.write(i+"+"+j+"="+(i+j)+"   ");
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+//去除答案
+function deAnswer(n) {
+
+    var result = n.map(function(x) {
+        var h = x.split("=");
+        return x = h[0]+"=";
+    });
+
+    return result;
+
+}
+
+</script>
+<script type="text/javascript" src="js/model.js"></script>
+<script type="text/javascript" src="js/mixAllView.js"></script>
+</body>
+</html>
+
