@@ -93,6 +93,10 @@
             case '运算符号加减乘除混合' :
                 MixOperator(arrOne,arrTwo);
                 break;
+
+            case '最大能填几' :
+                maxNum(arrOne,arrTwo,condition);
+                break;
         }
     });
 
@@ -174,6 +178,17 @@
 
         $ksContent.html(superSwitch(result,oper,condition));
         $itemNumber.html(itemnumber);
+    }
+
+    //最大能填几
+    function maxNum(arrOne,arrTwo,condition) {
+        var result = model.unIque(shuffle(model.MaxNum(arrOne,arrTwo))),
+            itemnumber = result.length,
+            oper = "÷";
+
+        $ksContent.html(superSwitch(result,oper,condition));
+        $itemNumber.html(itemnumber);
+
     }
 
     //混编整除与非整除
