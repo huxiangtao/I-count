@@ -73,14 +73,26 @@
                 break;
 
             case '加减平级混合' :
-                mixAddSub();
+                mixAddSubw();
                 break;
 
             case '乘除平级混合' :
-                mixMulDiv();
+                mixMulDivw();
                 break;
 
             case '加减乘除混合' :
+                mixAllw();
+                break;
+
+            case '加减平级混合带括号' :
+                mixAddSub();
+                break;
+
+            case '乘除平级混合带括号' :
+                mixMulDiv();
+                break;
+
+            case '加减乘除混合带括号' :
                 mixAll();
                 break;
 
@@ -99,7 +111,37 @@
 
     }
 
+    function mixAddSubw() {
+        var k = [];
+                                                                                                                           //这里开始带括号
+        var arr = k.concat(importUse(opera,kuohao),importUse(operb,kuohao),importUse(opere,kuohao),importUse(operf,kuohao));
 
+        var s = model.unIque(arr);
+        $ksContent.html(shuffle(s));
+        $itemNumber.html(s.length);
+        return s;
+
+    }
+
+    function mixMulDivw() {
+        var k = [];
+                                                                                                                           //这里开始带括号
+        var arr = k.concat(importUse(operk,kuohao),importUse(operl,kuohao),importUse(opero,kuohao),importUse(operp,kuohao));
+
+        var s = model.unIque(arr);
+        $ksContent.html(shuffle(s));
+        $itemNumber.html(s.length);
+        return s;
+    }
+
+    function mixAllw() {
+
+        var n = $.merge(mixAddSubw(),mixMulDivw());
+        var s = model.unIque(n);
+        $ksContent.html(shuffle(s));
+        $itemNumber.html(s.length);
+
+    }
 
     function mixAddSub() {
         var k = [];
@@ -127,10 +169,6 @@
     function mixAll() {
 
         var n = $.merge(mixAddSub(),mixMulDiv());
-/*
-        var arr = k.concat(importUse(opera,kuohao),importUse(operb,kuohao),importUse(opere,kuohao),importUse(operf,kuohao),importUse(operb,kuohaoh),importUse(opere,kuohaoh),importUse(operf,kuohaoq),importUse(operf,kuohaoh),importUse(operk,kuohao),importUse(operl,kuohao),importUse(opero,kuohao),importUse(operp,kuohao),importUse(operl,kuohaoh),importUse(opero,kuohaoh));
-*/
-
         var s = model.unIque(n);
         $ksContent.html(shuffle(s));
         $itemNumber.html(s.length);
