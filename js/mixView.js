@@ -86,43 +86,43 @@
             var oper = '';
             switch(Input) {
                 case '加加' :
-                    return oper = '++';
+                    return oper = '﹢﹢';
                     break;
 
                 case '加减' :
-                    return oper = '+-';
+                    return oper = '﹢﹣';
                     break;
 
                 case '加乘' :
-                    return oper = '+×';
+                    return oper = '﹢×';
                     break;
 
                 case '加除' :
-                    return oper = '+÷';
+                    return oper = '﹢÷';
                     break;
 
                 case '减加' :
-                    return oper = '-+';
+                    return oper = '﹣﹢';
                     break;
 
                 case '减减' :
-                    return oper = '--';
+                    return oper = '﹣﹣';
                     break;
 
                 case '减乘' :
-                    return oper = '-×';
+                    return oper = '﹣×';
                     break;
 
                 case '减除' :
-                    return oper = '-÷';
+                    return oper = '﹣÷';
                     break;
 
                 case '乘加' :
-                    return oper = '×+';
+                    return oper = '×﹢';
                     break;
 
                 case '乘减' :
-                    return oper = '×-';
+                    return oper = '×﹣';
                     break;
 
                 case '乘乘' :
@@ -134,11 +134,11 @@
                     break;
 
                 case '除加' :
-                    return oper = '÷+';
+                    return oper = '÷﹢';
                     break;
 
                 case '除减' :
-                    return oper = '÷-';
+                    return oper = '÷﹣';
                     break;
 
                 case '除乘' :
