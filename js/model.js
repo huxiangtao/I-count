@@ -602,7 +602,7 @@
                     for(var h = 0; h<= arrThree.length; h++) {
                         if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
                             var result = arrOne[i] * arrTwo[j] * arrThree[h];
-                            if(result > 0 && result < 100) {
+                            if(result > 0 && result < 100 && arrOne[i] < 10 && arrTwo < 10 && arrThree < 10) {
                                 var hehe = "<li>"+ arrOne[i] + "×" + arrTwo[j] + "×" + arrThree[h] + "=" + result + "</li>";
                                 n.push(hehe);
                             }
