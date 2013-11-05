@@ -45,6 +45,7 @@
 
     var arra = randomNums(1,81,100),
         arrb = randomNums(1,9,10),
+        arrc = randomNums(1,1000,1000),
         kuohao = 0,
         kuohaoq = 1,
         kuohaoh = 2,
@@ -113,7 +114,7 @@
 
     function mixAddSubw() {
         var k = [];
-                                                                                                                           //这里开始带括号
+
         var arr = k.concat(importUse(opera,kuohao),importUse(operb,kuohao),importUse(opere,kuohao),importUse(operf,kuohao));
 
         var s = model.unIque(arr);
@@ -125,7 +126,7 @@
 
     function mixMulDivw() {
         var k = [];
-                                                                                                                           //这里开始带括号
+
         var arr = k.concat(importUse(operk,kuohao),importUse(operl,kuohao),importUse(opero,kuohao),importUse(operp,kuohao));
 
         var s = model.unIque(arr);
@@ -173,6 +174,10 @@
         $ksContent.html(shuffle(s));
         $itemNumber.html(s.length);
 
+    }
+
+    function jibaiJishi() {
+        var arr = model.filterNum(arrc);
     }
 
     //重用方法

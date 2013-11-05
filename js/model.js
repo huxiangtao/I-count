@@ -758,7 +758,7 @@
                             switch(kuohao) {
                                 case 0 :
                                 var result = arrOne[i] / arrTwo[j] * arrThree[h];
-                                if(result > 0 && result < 100 && r.test(result) && r.test(resultOne) && resultOne < 10 && arrTwo[j] < 10) {
+                                if(result > 0 && result < 100 && r.test(result) && r.test(resultOne) && resultOne < 10 && arrTwo[j] < 10 && arrThree[h] < 10) {
                                     var hehe = "<li>"+ arrOne[i] + "÷" + arrTwo[j] + "×" + arrThree[h] + "=" + result + "</li>";
                                     n.push(hehe);
                                 }
