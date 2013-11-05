@@ -134,7 +134,7 @@
     function Add(arrOne,arrTwo,condition) {
         var result = model.unIque(shuffle(model.Addition(arrOne,arrTwo))),//去重并且生成字符串
             itemnumber = result.length,
-            oper = "+";
+            oper = "﹢";
 
         $ksContent.html(superSwitch(result,oper,condition));
         $itemNumber.html(itemnumber);
@@ -144,7 +144,7 @@
     function Sub(arrOne,arrTwo,condition) {
         var result = model.unIque(shuffle(model.Subtraction(arrOne,arrTwo))),//去重并且生成字符串
             itemnumber = result.length,
-            oper = "-";
+            oper = "﹣";
 
         $ksContent.html(superSwitch(result,oper,condition));
         $itemNumber.html(itemnumber);
@@ -239,15 +239,16 @@
         var arrAddSubOne = randomNums(1,100,100),
             arrAddSubTwo = randomNums(1,100,100),
             arrMulOne = randomNums(2,9,100),
-            arrMulTwo = randomNums(2,9,100);
+            arrMulTwo = randomNums(2,9,100),
+            k = [];
 
         var arrAdd = model.unIque(shuffle(model.Addition(arrAddSubOne,arrAddSubTwo))),
             arrSub = model.unIque(shuffle(model.Subtraction(arrAddSubOne,arrAddSubTwo))),
             arrMul = model.unIque(shuffle(model.Multiplication(arrMulOne,arrMulTwo))),
             arrDiv = model.unIque(shuffle(model.Division(arrOne,arrTwo))),
-            mixAs = $.merge(arrAdd.slice(1,6),arrSub.slice(1,8)),
-            mixMd = $.merge(arrMul,arrDiv),
-            resArr = shuffle($.merge(mixAs,mixMd)),
+
+            arrResult = k.concat(arrAdd.slice(1,6),arrSub.slice(1,8),arrMul,arrDiv),
+            resArr = shuffle(arrResult),
             itemnumber = resArr.length;
 
         $ksContent.html(resArr);
@@ -266,8 +267,8 @@
             arrSub = model.unIque(shuffle(model.Subtraction(arrAddSubOne,arrAddSubTwo))),
             arrMul = model.unIque(shuffle(model.Multiplication(arrMulOne,arrMulTwo))),
             arrDiv = model.unIque(shuffle(model.Division(arrOne,arrTwo))),
-            arrAddbr = superSwitch(arrAdd,'+',1),
-            arrSubbr = superSwitch(arrSub,'-',1),
+            arrAddbr = superSwitch(arrAdd,'﹢',1),
+            arrSubbr = superSwitch(arrSub,'﹣',1),
             arrMulbr = superSwitch(arrMul,'×',1),
             arrDivbr = superSwitch(arrDiv,'÷',1),
             mixAs = $.merge(arrAddbr.slice(1,6),arrSubbr.slice(1,8)),
@@ -290,8 +291,8 @@
             arrSub = model.unIque(shuffle(model.Subtraction(arrAddSubOne,arrAddSubTwo))),
             arrMul = model.unIque(shuffle(model.Multiplication(arrMulOne,arrMulTwo))),
             arrDiv = model.unIque(shuffle(model.Division(arrOne,arrTwo))),
-            arrAddbr = superSwitch(arrAdd,'+',2),
-            arrSubbr = superSwitch(arrSub,'-',2),
+            arrAddbr = superSwitch(arrAdd,'﹢',2),
+            arrSubbr = superSwitch(arrSub,'﹣',2),
             arrMulbr = superSwitch(arrMul,'×',2),
             arrDivbr = superSwitch(arrDiv,'÷',2),
             mixAs = $.merge(arrAddbr.slice(1,6),arrSubbr.slice(1,8)),
@@ -354,11 +355,12 @@
     function conditionet(n,oper) {
         var resultq = n.map(function(x) {
             var h = x.split(oper);
-            return x = "<li>" + "(  )" + oper + h[1] + "</li>";
+            return x = "<li>" + "(  )" + oper + h[1];
         });
         var resulth = n.map(function(x) {
             var h = x.split(oper);
             var hs = h[1].split("=");
+
             return x = h[0] + oper + "(  )" + "=" + hs[1];
         });
 
