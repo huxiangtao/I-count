@@ -602,7 +602,7 @@
                     for(var h = 0; h<= arrThree.length; h++) {
                         if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
                             var result = arrOne[i] * arrTwo[j] * arrThree[h];
-                            if(result > 0 && result < 100 && arrOne[i] < 10 && arrTwo < 10 && arrThree < 10) {
+                            if(result > 0 && result < 100 && arrOne[i] < 10 && arrTwo[j] < 10 && arrThree[h] < 10) {
                                 var hehe = "<li>"+ arrOne[i] + "×" + arrTwo[j] + "×" + arrThree[h] + "=" + result + "</li>";
                                 n.push(hehe);
                             }
@@ -634,7 +634,7 @@
 
                                 case 1 :
                                 var resultq = (arrOne[i] * arrTwo[j]) / arrThree[h];
-                                if(resultq > 0 && resultq < 10 && r.test(resultq) && fresult < 100 && arrThree[h] < 10) {
+                                if(resultq > 0 && resultq < 10 && r.test(resultq) && fresult < 100 && arrThree[h] < 10 && arrOne[i] < 10 && arrTwo[j] < 10) {
                                     var heheq = "<li>" + "(" + arrOne[i] + "×" + arrTwo[j] + ")" + "÷" + arrThree[h] + "=" + resultq + "</li>";
                                     n.push(heheq);
                                 }
