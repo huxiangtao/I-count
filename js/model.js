@@ -886,7 +886,7 @@
             return n
         },
 
-        //筛选出几百几十的数字
+        /*//筛选出几百几十的数字
         filterNum: function(arr) {
             var n = [];
             for (var i = 0; i < arr.length; i++) {
@@ -911,7 +911,7 @@
                 }
             }
             return n;
-        },
+        },*/
 
 
 

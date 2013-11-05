@@ -206,7 +206,7 @@
     //乘除混合
     function MixMD(arrOne,arrTwo) {
         var arrMulOne = randomNums(2,9,10),
-            arrMulTwo = randomNums(2,9,100);
+            arrMulTwo = randomNums(2,9,10);
 
 
         var arrMul = model.unIque(shuffle(model.Multiplication(arrMulOne,arrMulTwo))),

@@ -177,7 +177,24 @@
     }
 
     function jibaiJishi() {
-        var arr = model.filterNum(arrc);
+        var arrOne = arrMul(randomNums(1,81,100)),
+            arrTwo = arrMul(randomNums(1,81,100)),
+            k = [];
+        var arrAdd = model.unIque(shuffle(model.jbjsAdd(arrOne,arrTwo)));
+        var arrSub = model.unIque(shuffle(model.jbjsSub(arrOne,arrTwo)));
+        var n = k.concat(arrAdd,arrSub);
+
+        $ksContent.html(shuffle(n));
+        $itemNumber.html(n.length);
+
+    }
+
+    function arrMul(arr) {
+        var n = [];
+        for(var i = 0; i < arr.length; i++) {
+            n.push(arr[i]*10);
+        }
+        return n;
     }
 
     //重用方法
