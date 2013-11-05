@@ -8,6 +8,24 @@
 
 (function(model) {
 
+    RegExp.prototype.getIndex = function(str){
+        var vArray = str.match(this);
+        var indexArray = [];
+        if(vArray!= null){
+            for(var i =0,iLength=vArray.length;i<iLength;i++){
+             var vIndex = str.indexOf(vArray[i]);
+                if(vIndex>=0){
+                    indexArray.push(vIndex);
+                }
+            }
+        } else {
+            return indexArray;
+        }
+
+        return indexArray;
+    };
+
+
     var $runButton = $('#run'),
         $cancelButton = $('#cancel'),
         $formOne = $('#form-one'),
@@ -22,30 +40,49 @@
     });
 
     $runButton.click(function() {
+
         var $oneInput = $formOne.find("option:selected").text(),
             $twoInput = $formTwo.find("option:selected").text(),
             $kuohao = $formKuohao.find("option:selected").text(),
             $Input = $oneInput + $twoInput;
 
-        var arrOne = randomNums(1,81,100),
-            arrTwo = randomNums(1,81,100),
-            arrThree = randomNums(1,81,100),
-            kuohao = bracketSwitch($kuohao),
-            oper = lowSwitch($Input);
 
+        function niming() {
+            var ZuiHou = [];
+            //最后做的事情
+            for(var i = 0; i < 50; i++) {
+                var arrOne = randomNums(1,81,100),
+                    arrTwo = randomNums(1,81,100),
+                    arrThree = randomNums(1,81,100),
+                    kuohao = bracketSwitch($kuohao),
+                    oper = lowSwitch($Input);
 
-
-
-
-
-
-        //混合运算的控制器并返回理想的数组
-        function Mix(arrOne,arrTwo,arrThree,oper,kuohao) {
-            return model.Mix(arrOne,arrTwo,arrThree,oper,kuohao);
+                var arrResult = model.unIque(Mix(arrOne,arrTwo,arrThree,oper,kuohao));
+                var a = superUnique(arrResult,0);
+                var b = superUnique(a,1);
+                var c = superUnique(b,2);
+                ZuiHou.push(c[0]);
+            }
+            return ZuiHou;
         }
 
-        //选取元算符号
-        function lowSwitch(Input) {
+        var s = model.unIque(niming());
+        $ksContent.html(shuffle(s));
+        $itemNumber.html(s.length);
+    });
+
+
+
+    function zuihou(arr) {
+        var bigN = [];
+        for(var i = 0;i <= arr.length; i++) {
+            bigN.push(arr[i]);
+        }
+        return bigN;
+    }
+
+    //选取元算符号
+    function lowSwitch(Input) {
             var oper = '';
             switch(Input) {
                 case '加加' :
@@ -114,15 +151,10 @@
             }
         }
 
-
-
-        //最后做的事情
-        var arrResult = SunIque(sunIque(model.unIque(Mix(arrOne,arrTwo,arrThree,oper,kuohao))));
-
-        $ksContent.html(shuffle(arrResult));
-        $itemNumber.html(arrResult.length);
-    });
-
+    //混合运算的控制器并返回理想的数组
+    function Mix(arrOne,arrTwo,arrThree,oper,kuohao) {
+        return model.Mix(arrOne,arrTwo,arrThree,oper,kuohao);
+    }
 
 
     //加括号函数——开关
@@ -166,16 +198,56 @@
         return model.unIque(model.RandomNums(MinNum,MaxNum,Limit));
     }
 
-    //特殊的去重函数
-    function sunIque(arr) {
+    //正则匹配_防止数字重复
+    function superUnique(arr,p) {
+
+        var pattern = new RegExp("[﹢﹣× ÷]","g"),
+            vtt = [],
+            n = [],
+            itemq,
+            hash = {};
+        for(var i = 0; i < arr.length; i++) {
+            var item = arr[i];
+            vtt = pattern.getIndex(item);
+            var qq = vtt[0] - 1,
+                q = vtt[0] + 1,
+                h = vtt[1] + 1;
+            switch(p) {
+                case 0 :
+                    itemq = item[qq];
+                    break;
+
+                case 1 :
+                    itemq = item[q];
+                    break;
+
+                case 2 :
+                    itemq = item[h];
+                    break;
+
+            }
+
+
+            var key = typeof(item) + itemq;
+            if (hash[key] !== 1) {
+                n.push(item);
+                hash[key] = 1;
+            }
+
+        }
+        return n;
+
+    }
+
+
+    /*//特殊的去重函数
+    function sunIque(arr,q) {
         var n = [];
         var hash = {};
 
         for (var i = 0; i < arr.length; i++) {
             var item = arr[i];
-            var itemOne = item[4];
-            var itemTwo = item[6];
-            var key = typeof(item) + itemOne + itemTwo;
+            var key = typeof(item) + q;
             if (hash[key] !== 1) {
                 n.push(item);
                 hash[key] = 1;
@@ -183,22 +255,6 @@
         }
         return n;
 
-    }
+    }*/
 
-    function SunIque(arr) {
-        var n = [];
-        var hash = {};
-
-        for (var i = 0; i < arr.length; i++) {
-            var item = arr[i];
-            var itemOne = item[8];
-            var itemTwo = item[9];
-            var key = typeof(item) + itemOne + itemTwo;
-            if (hash[key] !== 1) {
-                n.push(item);
-                hash[key] = 1;
-            }
-        }
-        return n;
-    }
 })(window.model);
