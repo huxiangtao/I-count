@@ -766,7 +766,7 @@
 
                                 case 1 :
                                 var resultq = (arrOne[i] / arrTwo[j]) * arrThree[h];
-                                if(resultq > 0 && resultq < 100 && r.test(resultq) && r.test(resultOne) && resultOne < 10 && arrTwo[j] < 10) {
+                                if(resultq > 0 && resultq < 100 && r.test(resultq) && r.test(resultOne) && resultOne < 10 && arrTwo[j] < 10 && arrThree[h] < 10) {
                                     var heheq = "<li>" + "(" + arrOne[i] + "÷" + arrTwo[j] + ")" + "×" + arrThree[h] + "=" + resultq + "</li>";
                                     n.push(heheq);
                                 }
