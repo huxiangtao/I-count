@@ -73,13 +73,6 @@
 
 
 
-    function zuihou(arr) {
-        var bigN = [];
-        for(var i = 0;i <= arr.length; i++) {
-            bigN.push(arr[i]);
-        }
-        return bigN;
-    }
 
     //选取元算符号
     function lowSwitch(Input) {
@@ -212,6 +205,7 @@
             var qq = vtt[0] - 1,
                 q = vtt[0] + 1,
                 h = vtt[1] + 1;
+
             switch(p) {
                 case 0 :
                     itemq = item[qq];
@@ -227,7 +221,6 @@
 
             }
 
-
             var key = typeof(item) + itemq;
             if (hash[key] !== 1) {
                 n.push(item);
@@ -238,23 +231,5 @@
         return n;
 
     }
-
-
-    /*//特殊的去重函数
-    function sunIque(arr,q) {
-        var n = [];
-        var hash = {};
-
-        for (var i = 0; i < arr.length; i++) {
-            var item = arr[i];
-            var key = typeof(item) + q;
-            if (hash[key] !== 1) {
-                n.push(item);
-                hash[key] = 1;
-            }
-        }
-        return n;
-
-    }*/
 
 })(window.model);
