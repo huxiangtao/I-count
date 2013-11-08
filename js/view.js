@@ -241,16 +241,18 @@
 
     //加减乘除混合
     function MixAll(arrOne,arrTwo) {
+        var s = Math.max.apply(null,arrTwo);
+
         var arrAddSubOne = randomNums(1,100,100),
             arrAddSubTwo = randomNums(1,100,100),
-            arrMulOne = randomNums(2,9,100),
-            arrMulTwo = randomNums(2,9,100),
+            arrMulOne = randomNums(2,s,100),
+            arrMulTwo = randomNums(2,s,100),
             k = [];
 
         var arrAdd = model.unIque(shuffle(model.Addition(arrAddSubOne,arrAddSubTwo))),
             arrSub = model.unIque(shuffle(model.Subtraction(arrAddSubOne,arrAddSubTwo))),
             arrMul = model.unIque(shuffle(model.Multiplication(arrMulOne,arrMulTwo))),
-            arrDiv = model.unIque(shuffle(model.Division(arrOne,arrTwo))),
+            arrDiv = model.unIque(shuffle(model.Division(arrOne,arrTwo,s))),
 
             arrResult = k.concat(arrAdd.slice(1,6),arrSub.slice(1,8),arrMul,arrDiv),
             resArr = shuffle(arrResult),
