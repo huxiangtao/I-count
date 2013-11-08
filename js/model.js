@@ -818,9 +818,10 @@
                 for(var j= 0; j <= arrTwo.length; j++) {
                     if(arrOne[i] != undefined && arrTwo[j] != undefined) {
                         var result = arrOne[i] + arrTwo[j];
-
+                        if(result < 1000) {
                             var hehe = "<li>"+ arrOne[i] + "﹢" + arrTwo[j] + "=" + result + "</li>";
                             n.push(hehe);
+                        }
 
                     }
                 }
@@ -844,6 +845,26 @@
             }
             return n;
         },
+
+
+        //几千几百加法
+        jqjbAdd: function(arrOne,arrTwo) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    if(arrOne[i] != undefined && arrTwo[j] != undefined) {
+                        var result = arrOne[i] + arrTwo[j];
+                        if(result < 10000) {
+                            var hehe = "<li>"+ arrOne[i] + "﹢" + arrTwo[j] + "=" + result + "</li>";
+                            n.push(hehe);
+                        }
+
+                    }
+                }
+            }
+            return n;
+        },
+
 
         //获取随机数们
         RandomNums: function(min,max,limit) {
