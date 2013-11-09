@@ -62,14 +62,14 @@
         },
 
         //除法
-        Division: function(arrOne,arrTwo) {
+        Division: function(arrOne,arrTwo,s) {
             var n = [];
             for(var i = 0; i <= arrOne.length; i++) {
                 for(var j= 0; j <= arrTwo.length; j++) {
                     if(arrOne[i] != undefined && arrTwo[j] != undefined) {
                         var result = arrOne[i] / arrTwo[j];
                         var modulo = arrOne[i] % arrTwo[j];
-                        if(modulo == 0 && result <= 9 && result != 1) {
+                        if(modulo == 0 && result <= s && result != 1) {
                             var hehe = "<li>"+ arrOne[i] + "÷" + arrTwo[j] + "=" + result + "</li>";
                             n.push(hehe);
                         }
@@ -830,9 +830,10 @@
                 for(var j= 0; j <= arrTwo.length; j++) {
                     if(arrOne[i] != undefined && arrTwo[j] != undefined) {
                         var result = arrOne[i] + arrTwo[j];
-
+                        if(result < 1000) {
                             var hehe = "<li>"+ arrOne[i] + "﹢" + arrTwo[j] + "=" + result + "</li>";
                             n.push(hehe);
+                        }
 
                     }
                 }
@@ -856,6 +857,26 @@
             }
             return n;
         },
+
+
+        //几千几百加法
+        jqjbAdd: function(arrOne,arrTwo) {
+            var n = [];
+            for(var i = 0; i <= arrOne.length; i++) {
+                for(var j= 0; j <= arrTwo.length; j++) {
+                    if(arrOne[i] != undefined && arrTwo[j] != undefined) {
+                        var result = arrOne[i] + arrTwo[j];
+                        if(result < 10000) {
+                            var hehe = "<li>"+ arrOne[i] + "﹢" + arrTwo[j] + "=" + result + "</li>";
+                            n.push(hehe);
+                        }
+
+                    }
+                }
+            }
+            return n;
+        },
+
 
         //获取随机数们
         RandomNums: function(min,max,limit) {

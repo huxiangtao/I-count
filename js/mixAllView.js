@@ -104,10 +104,6 @@
             case '几千几百加减混合' :
                 jiqianjibai();
                 break;
-
-            case '零的个数一样的加减法' :
-                linggeshu();
-                break;
         }
 
     }
@@ -177,8 +173,8 @@
     }
 
     function jibaiJishi() {
-        var arrOne = arrMul(randomNums(1,81,100)),
-            arrTwo = arrMul(randomNums(1,81,100)),
+        var arrOne = arrMulshi(randomNums(1,81,100)),
+            arrTwo = arrMulshi(randomNums(1,81,100)),
             k = [];
         var arrAdd = model.unIque(shuffle(model.jbjsAdd(arrOne,arrTwo)));
         var arrSub = model.unIque(shuffle(model.jbjsSub(arrOne,arrTwo)));
@@ -189,13 +185,34 @@
 
     }
 
-    function arrMul(arr) {
+    function jiqianjibai() {
+        var arrOne = arrMulbai(randomNums(1,81,100)),
+            arrTwo = arrMulbai(randomNums(1,81,100)),
+            k = [];
+        var arrAdd = model.unIque(shuffle(model.jqjbAdd(arrOne,arrTwo)));
+        var arrSub = model.unIque(shuffle(model.jbjsSub(arrOne,arrTwo)));
+        var n = k.concat(arrAdd,arrSub);
+
+        $ksContent.html(shuffle(n));
+        $itemNumber.html(n.length);
+    }
+
+    function arrMulshi(arr) {
         var n = [];
         for(var i = 0; i < arr.length; i++) {
             n.push(arr[i]*10);
         }
         return n;
     }
+
+    function arrMulbai(arr) {
+        var n = [];
+        for(var i = 0; i < arr.length; i++) {
+            n.push(arr[i]*100);
+        }
+        return n;
+    }
+
 
     //重用方法
     function importUse(input,kuohao) {
