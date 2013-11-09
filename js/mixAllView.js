@@ -179,7 +179,7 @@
 
         var m = [];
 
-        var n = m.concat(mixAddSubw(),mixMulDivw(),mixAsMd());
+        var n = m.concat(mixAddSub(),mixMulDiv(),mixAsMd());
         var s = model.unIque(n);
         $ksContent.html(shuffle(s));
         $itemNumber.html(s.length);
