@@ -97,6 +97,15 @@
                 mixAll();
                 break;
 
+            case '两级运算混合' :
+                mixAsMdw();
+                break;
+
+            case '两级运算混合带括号' :
+                mixAsMd();
+                break;
+
+
             case '几百几十加减混合' :
                 jibaiJishi();
                 break;
@@ -108,6 +117,7 @@
 
     }
 
+    //此乃平级的计算
     function mixAddSubw() {
         var k = [];
 
@@ -133,12 +143,14 @@
 
     function mixAllw() {
 
-        var n = $.merge(mixAddSubw(),mixMulDivw());
+        var m = [];
+        var n = m.concat(mixAddSubw(),mixMulDivw(),mixAsMdw());
         var s = model.unIque(n);
         $ksContent.html(shuffle(s));
         $itemNumber.html(s.length);
 
     }
+
 
     function mixAddSub() {
         var k = [];
@@ -165,12 +177,46 @@
 
     function mixAll() {
 
-        var n = $.merge(mixAddSub(),mixMulDiv());
+        var m = [];
+
+        var n = m.concat(mixAddSubw(),mixMulDivw(),mixAsMd());
         var s = model.unIque(n);
         $ksContent.html(shuffle(s));
         $itemNumber.html(s.length);
 
     }
+
+
+
+    //此乃混合了两级的计算
+    function mixAsMdw() {
+        var k = [];
+
+        var arr = k.concat(importUse(operc,kuohao),importUse(operd,kuohao),importUse(operg,kuohao),importUse(operh,kuohao),importUse(operi,kuohao),importUse(operj,kuohao),importUse(operm,kuohao),importUse(opern,kuohao));
+        var s = model.unIque(arr);
+        $ksContent.html(shuffle(s));
+        $itemNumber.html(s.length);
+        return s;
+
+    }
+
+    function mixAsMd() {
+        var k = [];
+
+        var arr = k.concat(importUse(operc,kuohao),importUse(operd,kuohao),importUse(operg,kuohao),importUse(operh,kuohao),importUse(operi,kuohao),importUse(operj,kuohao),importUse(operm,kuohao),importUse(opern,kuohao),
+                //这里开始带前括号
+                importUse(operc,kuohaoq),importUse(operd,kuohaoq),importUse(operg,kuohaoq),importUse(operh,kuohaoq),
+                //这里开始带后括号
+                importUse(operi,kuohao),importUse(operj,kuohao),importUse(operm,kuohao),importUse(opern,kuohao)
+        );
+        var s = model.unIque(arr);
+        $ksContent.html(shuffle(s));
+        $itemNumber.html(s.length);
+        return s;
+
+    }
+
+
 
     function jibaiJishi() {
         var arrOne = arrMulshi(randomNums(1,81,100)),
