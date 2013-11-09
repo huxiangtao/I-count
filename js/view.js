@@ -162,7 +162,10 @@
 
     //除法
     function Div(arrOne,arrTwo,condition) {
-        var result = model.unIque(shuffle(model.Division(arrOne,arrTwo))),//去重并且生成字符串
+
+        var s = Math.max.apply(null,arrTwo);
+
+        var result = model.unIque(shuffle(model.Division(arrOne,arrTwo,s))),//去重并且生成字符串
             itemnumber = result.length,
             oper = "÷";
 
@@ -205,12 +208,14 @@
 
     //乘除混合
     function MixMD(arrOne,arrTwo) {
-        var arrMulOne = randomNums(2,9,10),
-            arrMulTwo = randomNums(2,9,10);
+
+        var s = Math.max.apply(null,arrTwo);
+        var arrMulOne = randomNums(2,s,10),
+            arrMulTwo = randomNums(2,s,10);
 
 
         var arrMul = model.unIque(shuffle(model.Multiplication(arrMulOne,arrMulTwo))),
-            arrDiv = model.unIque(shuffle(model.Division(arrOne,arrTwo))),
+            arrDiv = model.unIque(shuffle(model.Division(arrOne,arrTwo,s))),
             resArr = shuffle($.merge(arrMul,arrDiv)),
             itemnumber = resArr.length;
 
@@ -236,16 +241,18 @@
 
     //加减乘除混合
     function MixAll(arrOne,arrTwo) {
+        var s = Math.max.apply(null,arrTwo);
+
         var arrAddSubOne = randomNums(1,100,100),
             arrAddSubTwo = randomNums(1,100,100),
-            arrMulOne = randomNums(2,9,100),
-            arrMulTwo = randomNums(2,9,100),
+            arrMulOne = randomNums(2,s,100),
+            arrMulTwo = randomNums(2,s,100),
             k = [];
 
         var arrAdd = model.unIque(shuffle(model.Addition(arrAddSubOne,arrAddSubTwo))),
             arrSub = model.unIque(shuffle(model.Subtraction(arrAddSubOne,arrAddSubTwo))),
             arrMul = model.unIque(shuffle(model.Multiplication(arrMulOne,arrMulTwo))),
-            arrDiv = model.unIque(shuffle(model.Division(arrOne,arrTwo))),
+            arrDiv = model.unIque(shuffle(model.Division(arrOne,arrTwo,s))),
 
             arrResult = k.concat(arrAdd.slice(1,6),arrSub.slice(1,8),arrMul,arrDiv),
             resArr = shuffle(arrResult),
