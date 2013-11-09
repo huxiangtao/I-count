@@ -613,8 +613,9 @@
                 for(var j= 0; j <= arrTwo.length; j++) {
                     for(var h = 0; h<= arrThree.length; h++) {
                         if(arrOne[i] != undefined && arrTwo[j] != undefined && arrThree[h] != undefined) {
-                            var result = arrOne[i] * arrTwo[j] * arrThree[h];
-                            if(result > 0 && result < 100 && arrOne[i] < 10 && arrTwo[j] < 10 && arrThree[h] < 10) {
+                            var result = arrOne[i] * arrTwo[j] * arrThree[h],
+                                qresult = arrOne[i] * arrTwo[j];
+                            if(result > 0 && result < 100 && arrOne[i] < 10 && arrTwo[j] < 10 && arrThree[h] < 10 && qresult < 10) {
                                 var hehe = "<li>"+ arrOne[i] + "×" + arrTwo[j] + "×" + arrThree[h] + "=" + result + "</li>";
                                 n.push(hehe);
                             }
@@ -638,7 +639,7 @@
                             switch(kuohao) {
                                 case 0 :
                                 var result = arrOne[i] * arrTwo[j] / arrThree[h];
-                                if(result > 0 && result < 100 && r.test(result) && fresult < 100 && arrOne[i] < 10 && arrTwo[j] < 10 && arrThree[h] < 10) {
+                                if(result > 0 && result < 10 && r.test(result) && fresult < 100 && arrOne[i] < 10 && arrTwo[j] < 10 && arrThree[h] < 10) {
                                     var hehe = "<li>"+ arrOne[i] + "×" + arrTwo[j] + "÷" + arrThree[h] + "=" + result + "</li>";
                                     n.push(hehe);
                                 }
