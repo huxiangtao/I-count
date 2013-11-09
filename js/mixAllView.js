@@ -207,7 +207,7 @@
                 //这里开始带前括号
                 importUse(operc,kuohaoq),importUse(operd,kuohaoq),importUse(operg,kuohaoq),importUse(operh,kuohaoq),
                 //这里开始带后括号
-                importUse(operi,kuohao),importUse(operj,kuohao),importUse(operm,kuohao),importUse(opern,kuohao)
+                importUse(operi,kuohaoh),importUse(operj,kuohaoh),importUse(operm,kuohaoh),importUse(opern,kuohaoh)
         );
         var s = model.unIque(arr);
         $ksContent.html(shuffle(s));
