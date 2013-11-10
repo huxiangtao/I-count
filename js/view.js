@@ -269,12 +269,13 @@
         var arrAddSubOne = randomNums(1,100,100),
             arrAddSubTwo = randomNums(1,100,100),
             arrMulOne = randomNums(1,6,6),
-            arrMulTwo = randomNums(1,6,6);
+            arrMulTwo = randomNums(1,6,6),
+            s = Math.max.apply(null,arrTwo);
 
         var arrAdd = model.unIque(shuffle(model.Addition(arrAddSubOne,arrAddSubTwo))),
             arrSub = model.unIque(shuffle(model.Subtraction(arrAddSubOne,arrAddSubTwo))),
             arrMul = model.unIque(shuffle(model.Multiplication(arrMulOne,arrMulTwo))),
-            arrDiv = model.unIque(shuffle(model.Division(arrOne,arrTwo))),
+            arrDiv = model.unIque(shuffle(model.Division(arrOne,arrTwo,s))),
             arrAddbr = superSwitch(arrAdd,'﹢',1),
             arrSubbr = superSwitch(arrSub,'﹣',1),
             arrMulbr = superSwitch(arrMul,'×',1),
@@ -293,12 +294,13 @@
         var arrAddSubOne = randomNums(1,100,100),
             arrAddSubTwo = randomNums(1,100,100),
             arrMulOne = randomNums(1,9,9),
-            arrMulTwo = randomNums(1,9,9);
+            arrMulTwo = randomNums(1,9,9),
+            s = Math.max.apply(null,arrTwo);
 
         var arrAdd = model.unIque(shuffle(model.Addition(arrAddSubOne,arrAddSubTwo))),
             arrSub = model.unIque(shuffle(model.Subtraction(arrAddSubOne,arrAddSubTwo))),
             arrMul = model.unIque(shuffle(model.Multiplication(arrMulOne,arrMulTwo))),
-            arrDiv = model.unIque(shuffle(model.Division(arrOne,arrTwo))),
+            arrDiv = model.unIque(shuffle(model.Division(arrOne,arrTwo,s))),
             arrAddbr = superSwitch(arrAdd,'﹢',2),
             arrSubbr = superSwitch(arrSub,'﹣',2),
             arrMulbr = superSwitch(arrMul,'×',2),
