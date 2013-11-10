@@ -196,8 +196,9 @@
 
     //混编整除与非整除
     function Mixdiv(arrOne,arrTwo,condition) {
+        var s = Math.max.apply(null,arrTwo);
         var ArrRemaind = model.unIque(shuffle(model.DivRemainder(arrOne,arrTwo))),
-            Arr = model.unIque(shuffle(model.Division(arrOne,arrTwo))),
+            Arr = model.unIque(shuffle(model.Division(arrOne,arrTwo,s))),
             resArr = shuffle($.merge(ArrRemaind , Arr)),
             itemnumber = resArr.length,
             oper = "÷";
