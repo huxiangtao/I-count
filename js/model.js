@@ -917,7 +917,7 @@
                     hash[key] = 1;
                 }
             }
-            return n
+            return n;
         },
 
         /*//筛选出几百几十的数字

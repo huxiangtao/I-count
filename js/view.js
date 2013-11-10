@@ -97,6 +97,11 @@
             case '最大能填几' :
                 maxNum(arrOne,arrTwo,condition);
                 break;
+
+            case '答案相等的两个算式填运算符' :
+                equRseult(arrOne,arrTwo);
+                break;
+
         }
     });
 
@@ -259,8 +264,11 @@
             resArr = shuffle(arrResult),
             itemnumber = resArr.length;
 
+
+
         $ksContent.html(resArr);
         $itemNumber.html(itemnumber);
+        return resArr;
 
     }
 
@@ -313,6 +321,86 @@
         $ksContent.html(resArr);
         $itemNumber.html(itemnumber);
     }
+
+    function equRseult(arrOne,arrTwo) {
+        var arr = deHtml(MixAll(arrOne,arrTwo));
+        var n = equalResult(arr);
+        var result = hunIque(qunIque(n)),
+            itemnumber = result.length;
+
+        $ksContent.html(result);
+        $itemNumber.html(itemnumber);
+    }
+
+    //筛选出结果相等的算式
+    function equalResult(arr) {
+        var n = [];
+        for(var i = 0; i < arr.length; i++) {
+            for(var j = 0; j < arr.length; j++) {
+                var itemOne = arr[i];
+                var itemTwo = arr[j];
+                var aOne = itemOne.split('='),
+                    sOne = aOne[1];
+
+                var bTwo = itemTwo.split('='),
+                    sTwo = bTwo[1];
+
+                if(sOne == sTwo && itemOne != itemTwo) {
+                  var k = '<li>' + aOne[0] + '=' + bTwo[0] + '</li>';
+                    n.push(k);
+                }
+
+
+            }
+
+        }
+        return model.unIque(n);
+    }
+
+
+
+    function qunIque(arr) {
+        var n = [];
+        var hash = {};
+
+        for (var i = 0; i < arr.length; i++) {
+            var item = arr[i];
+            var sitem = item.split('=');
+            var key = typeof(item) + sitem[0];
+            if (hash[key] !== 1) {
+                n.push(item);
+                hash[key] = 1;
+            }
+        }
+        return n;
+    }
+
+    function hunIque(arr) {
+        var n = [];
+        var hash = {};
+
+        for (var i = 0; i < arr.length; i++) {
+            var item = arr[i];
+            var sitem = item.split('=');
+            var key = typeof(item) + sitem[1];
+            if (hash[key] !== 1) {
+                n.push(item);
+                hash[key] = 1;
+            }
+        }
+        return n;
+    }
+
+    //去除<li></li>标签
+    function deHtml(arr) {
+        var result = arr.map(function(x) {
+                var h = x.replace(/<li>/,''),
+                    i = h.replace(/<\/li>/,'');
+                return x = i;
+            });
+        return result;
+    }
+
 
 
 
