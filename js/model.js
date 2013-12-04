@@ -232,13 +232,13 @@
                                     }
                                     break;
 
-                                    case 1 :
+                                    /*case 1 :
                                     var resultq = (arrOne[i] + arrTwo[j]) - arrThree[h];
                                     if(resultq > 0 && resultq < 100 && fresult < 100) {
                                         var heheq = "<li>" + "(" + arrOne[i] + "﹢" + arrTwo[j] + ")" + "﹣" + arrThree[h] + "=" + resultq + "</li>";
                                         n.push(heheq);
                                     }
-                                    break;
+                                    break;*/
 
                                     case 2 :
                                     var resulth = arrOne[i] + (arrTwo[j] - arrThree[h]);
@@ -283,13 +283,13 @@
                                 }
                                 break;
 
-                                case 2 :
+                                /*case 2 :
                                 var resulth = arrOne[i] + (arrTwo[j] * arrThree[h]);
                                 if(resulth > 0 && resulth < 100  && arrTwo[j] < 10 && arrThree[h] < 10) {
                                     var heheh = "<li>" +  arrOne[i] + "﹢" + "(" + arrTwo[j] + "×" + arrThree[h] + ")" + "=" + resulth + "</li>";
                                     n.push(heheh);
                                 }
-                                break;
+                                break;*/
                             }
                         }
                     }
@@ -326,13 +326,13 @@
                                     }
                                     break;
 
-                                case 2 :
+                               /* case 2 :
                                     var resulth = arrOne[i] + (arrTwo[j] / arrThree[h]);
                                     if(resulth > 0 && resulth < 100 && r.test(resulth) && reschu < 10 && arrThree[h] < 10) {
                                         var heheh = "<li>" +  arrOne[i] + "﹢" + "(" + arrTwo[j] + "÷" + arrThree[h] + ")" + "=" + resulth + "</li>";
                                         n.push(heheh);
                                     }
-                                    break;
+                                    break;*/
                             }
                         }
                     }
@@ -404,13 +404,13 @@
                                     }
                                     break;
 
-                                    case 1:
+                                    /*case 1:
                                     var resultq = (arrOne[i] - arrTwo[j]) - arrThree[h];
                                     if(resultq > 0 && resultq < 100 && fresult > 0) {
                                         var heheq = "<li>" + "(" + arrOne[i] + "﹣" + arrTwo[j] + ")" + "﹣" + arrThree[h] + "=" + resultq + "</li>";
                                         n.push(heheq);
                                     }
-                                    break;
+                                    break;*/
 
                                     case 2:
                                     var resulth = arrOne[i] - (arrTwo[j] - arrThree[h]);
@@ -456,13 +456,13 @@
                                 }
                                 break;
 
-                                case 2 :
+                                /*case 2 :
                                 var resulth = arrOne[i] - (arrTwo[j] * arrThree[h]);
                                 if(result > 0 && result < 100 && arrTwo[j] < 10 && arrThree[h] < 10) {
                                     var heheh = "<li>"+ arrOne[i] + "﹣" + "(" + arrTwo[j] + "×" + arrThree[h] + ")" + "=" + resulth + "</li>";
                                     n.push(heheh);
                                 }
-                                break;
+                                break;*/
                             }
 
                         }
@@ -500,13 +500,13 @@
                                     }
                                     break;
 
-                                case 2 :
+                                /*case 2 :
                                     var resulth = arrOne[i] - (arrTwo[j] / arrThree[h]);
                                     if(resulth > 0 && resulth < 100 && r.test(resulth) && reschu < 10 && arrThree[h] < 10) {
                                         var heheh = "<li>" +  arrOne[i] + "﹣" + "(" + arrTwo[j] + "÷" + arrThree[h] + ")" + "=" + resulth + "</li>";
                                         n.push(heheh);
                                     }
-                                    break;
+                                    break;*/
                             }
 
                         }
@@ -535,13 +535,13 @@
                                 }
                                 break;
 
-                                case 1 :
+                                /*case 1 :
                                 var resultq = (arrOne[i] * arrTwo[j]) + arrThree[h];
                                 if(resultq > 0 && resultq < 100 && fresult < 100 && arrOne[i] < 10 && arrTwo[j] < 10) {
                                     var heheq = "<li>"+ "(" + arrOne[i] + "×" + arrTwo[j] + ")" + "﹢" + arrThree[h] + "=" + resultq + "</li>";
                                     n.push(heheq);
                                 }
-                                break;
+                                break;*/
 
                                 case 2 :
                                 var resulth = arrOne[i] * (arrTwo[j] + arrThree[h]);
@@ -579,13 +579,13 @@
                                 }
                                 break;
 
-                                case 1 :
+                                /*case 1 :
                                 var resultq = (arrOne[i] * arrTwo[j]) - arrThree[h];
                                 if(resultq > 0 && resultq < 100 && fresult < 100 && arrOne[i] < 10 && arrTwo[j] < 10) {
                                     var heheq = "<li>"+ "(" + arrOne[i] + "×" + arrTwo[j] + ")" + "﹣" + arrThree[h] + "=" + resultq + "</li>";
                                     n.push(heheq);
                                 }
-                                break;
+                                break;*/
 
                                 case 2 :
                                 var resulth = arrOne[i] * (arrTwo[j] - arrThree[h]);
@@ -690,13 +690,13 @@
                                 }
                                 break;
 
-                                case 1 :
+                                /*case 1 :
                                 var resultq = (arrOne[i] / arrTwo[j]) + arrThree[h];
                                 if(resultq > 0 && resultq < 100 && r.test(resultq) && fresult < 10 && arrTwo[j] < 10) {
                                     var heheq = "<li>" + "(" + arrOne[i] + "÷" + arrTwo[j] + ")" + "﹢" + arrThree[h] + "=" + resultq + "</li>";
                                     n.push(heheq);
                                 }
-                                break;
+                                break;*/
 
                                 case 2 :
                                 var resulth = arrOne[i] / (arrTwo[j] + arrThree[h]);
@@ -733,13 +733,13 @@
                                 }
                                 break;
 
-                                case 1 :
+                                /*case 1 :
                                 var resultq = (arrOne[i] / arrTwo[j]) - arrThree[h];
                                 if(resultq > 0 && resultq < 100 && r.test(resultq) && arrTwo[j] < 10 && fresult < 10) {
                                     var heheq = "<li>" + "(" + arrOne[i] + "÷" + arrTwo[j] + ")" + "﹣" + arrThree[h] + "=" + resultq + "</li>";
                                     n.push(heheq);
                                 }
-                                break;
+                                break;*/
 
                                 case 2 :
                                 var resulth = arrOne[i] / (arrTwo[j] - arrThree[h]);
