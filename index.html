@@ -57,6 +57,7 @@
                                     <option value="mixoperatorall">运算符号加减乘除混合</option>
                                     <option value="maxnum">最大能填几</option>
                                     <option value="equalSuan">答案相等的两个算式填运算符</option>
+                                    <option value="sanweiaddSub">千以内两位数以上加减混合</option>
                                 </select>
                             </form>
                         </li>
@@ -81,7 +82,7 @@
                                 <input id="third-max" type="text" class="input-small" placeholder="最大值">
                             </form>
                         </li>
-                        <li>
+                        <li id="condition">
                             <h5 class="unit-name">附加条件：</h5>
                             <form action="">
                                 <select id="form-require">
@@ -89,7 +90,18 @@
                                     <option value="bracket">带括号</option>
                                     <option value="operator">运算符填空</option>
                                     <option value="than">比大小</option>
+                                    <option value="carryOnce">一步进位</option>
+                                    <option value="carryTwice">两步进位</option>
                                 </select>
+                            </form>
+                        </li>
+                        <li id="radio" style="display:none;">
+                            <form action="">
+                            <label><input name="Fruit" type="radio" value="" />苹果 </label>
+                            <label><input name="Fruit" type="radio" value="" />桃子 </label>
+                            <label><input name="Fruit" type="radio" value="" />香蕉 </label>
+                            <label><input name="Fruit" type="radio" value="" />梨 </label>
+                            <label><input name="Fruit" type="radio" value="" />其它 </label>
                             </form>
                         </li>
                         <li>

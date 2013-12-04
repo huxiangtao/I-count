@@ -23,6 +23,13 @@
         if(!($beforButtonSelsct === '默认')) {
             $('#one-num').fadeIn();
             $('#two-num').fadeIn();
+            if($beforButtonSelsct === '千以内两位数以上加减混合') {
+                $('#radio').fadeIn();
+                $('#condition').hide();
+            } else {
+                $('#radio').hide();
+                $('#condition').fadeIn();
+            }
         } else {
             $('#one-num').fadeOut();
             $('#two-num').fadeOut();
